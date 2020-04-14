@@ -12,6 +12,5 @@ Android开发内容总结,主要针对Android技术,界面,底层,性能优化�
 
 关注公众号:喘口仙氣  实时关注更新状态
 
-  
-
+![](/assets/qrcode_for_gh_db8538619cdd_258.jpg)
 
