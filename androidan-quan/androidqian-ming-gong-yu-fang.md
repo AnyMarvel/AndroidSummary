@@ -69,7 +69,7 @@ typedef struct {
         }
 ```
 以上我们做了一件事情，获取 PackageInfo 中的 Signature。当然也可以继续获取公钥SHA1如下
-```
+```java
 private byte[] getCertificateSHA1(Context context) {
     PackageManager pm = context.getPackageManager();
     String packageName = context.getPackageName();
@@ -90,7 +90,7 @@ private byte[] getCertificateSHA1(Context context) {
 }
 ```
 计算出 Signature或计算出SHA1 之后，我们就可以进行对比了。下面我们看看对应的 native 代码。(由于篇幅原因这里列举只计算到Signature的过程)
-```
+```c
 int getSignHashCode(JNIEnv *env, jobject context) {
 
     jclass context_clazz = (*env)->GetObjectClass(env, context);//Context的类
@@ -147,15 +147,15 @@ int getSignHashCode(JNIEnv *env, jobject context) {
 ###4.2.1 了解证书
 查看证书指纹.keystores命令
 
-```
+```shell
 keytool   –list –v –keystore debug.keystore
 ```
 查看证书指纹.RSA文件命令
-```
+```shell
 keytool –printcert –file CERT.RSA
 ```
 使用openssl查看.RSA文件
-```
+```shell
 openssl pkcs7 -inform DER -in CERT.RSA -noout -print_certs –text  
 ```
 查看证书指纹后会发现，RSA文件和.keystores，证书指纹相同，MD5,SHA1,SHA256三种指纹均相同。
@@ -195,7 +195,7 @@ private void installPackageLI(InstallArgs args, PackageInstalledInfo res) {
 Apk 包中的META-INF目录下，CERT.RSA，它是一个PKCS7 格式的文件。
 获取证书的方法如下（上面几张中已经使用openssl获取相关信息）：
 
-```
+```java
 import sun.security.pkcs.PKCS7;  //注意：需要引入jar包android-support-v4
 import java.io.FileInputStream;  
 import java.io.IOException;  
@@ -219,7 +219,7 @@ public class Test {
 >**破解条件**
 
 - 1.Java层通过
-```
+```java
    getPackageManager().getPackageInfo.signatures 获取签名信息；
 ```
 
@@ -274,7 +274,7 @@ luckypathsign作者提供
 MD5可以得到MD5指纹，对比指纹可以进行安全验证。
 Java程序都可以使用jni反射在native实现，Java代码太容易破解，不建议防止到Java端。方法有很多，最后是都通过
 
-```
+```java
   context.getPackageManager().getPackageInfo(
                     this.getPackageName(), PackageManager.GET_SIGNATURES).signatures）
 ```
