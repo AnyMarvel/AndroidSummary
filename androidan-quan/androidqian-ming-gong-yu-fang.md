@@ -56,7 +56,7 @@ typedef struct {
 一般情况下为了防止被反编译，会把关键代码写到so文件中(比如加解密)，一般使用到的是在so里加上判断APk包签名是否一致的代码，避免so被二次打包。其实用JNI读签名就是用了Java的反射机制。
 ##4.1 本地校验
 反射代码如下所示：
-```
+```Java
     PackageManager pm = context.getPackageManager();
     String packageName = context.getPackageName();
     try {
