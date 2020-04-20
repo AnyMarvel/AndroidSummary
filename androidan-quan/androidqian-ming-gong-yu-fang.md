@@ -156,7 +156,7 @@ keytool –printcert –file CERT.RSA
 ```
 使用openssl查看.RSA文件
 ```shell
-openssl pkcs7 -inform DER -in CERT.RSA -noout -print_certs –text  
+openssl pkcs7 -inform DER -in CERT.RSA -noout -print_certs –text
 ```
 查看证书指纹后会发现，RSA文件和.keystores，证书指纹相同，MD5,SHA1,SHA256三种指纹均相同。
 ###4.2.2 证书格式
@@ -188,7 +188,7 @@ openssl pkcs7 -inform DER -in CERT.RSA -noout -print_certs –text
 frameworks\base\services\core\java\com\android\server\pm\PackageManagerService.java
 
 ```
-private void installPackageLI(InstallArgs args, PackageInstalledInfo res) {  
+private void installPackageLI(InstallArgs args, PackageInstalledInfo res) {
 ……
 }
 ```
@@ -197,22 +197,22 @@ Apk 包中的META-INF目录下，CERT.RSA，它是一个PKCS7 格式的文件。
 
 ```java
 import sun.security.pkcs.PKCS7;  //注意：需要引入jar包android-support-v4
-import java.io.FileInputStream;  
-import java.io.IOException;  
-import java.security.cert.CertificateException;  
-import java.security.cert.X509Certificate;  
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 
-public class Test {  
-    public static void main(String[] args) throws CertificateException, IOException {  
-        FileInputStream fis = new FileInputStream("/home/AnyMarvel/CERT.RSA");  
-        PKCS7 pkcs7 = new PKCS7(fis);  
-        X509Certificate publicKey = pkcs7.getCertificates()[0];  
+public class Test {
+    public static void main(String[] args) throws CertificateException, IOException {
+        FileInputStream fis = new FileInputStream("/home/AnyMarvel/CERT.RSA");
+        PKCS7 pkcs7 = new PKCS7(fis);
+        X509Certificate publicKey = pkcs7.getCertificates()[0];
 
-        System.out.println("issuer1:" + publicKey.getIssuerDN());  
-        System.out.println("subject2:" + publicKey.getSubjectDN());  
-        System.out.println(publicKey.getPublicKey());  
-    }  
-}  
+        System.out.println("issuer1:" + publicKey.getIssuerDN());
+        System.out.println("subject2:" + publicKey.getSubjectDN());
+        System.out.println(publicKey.getPublicKey());
+    }
+}
 ```
 也可以转化为native代码进行校验，加固安全性。以上就是目前主流的两种通过签名校验的方式。
 #五. 常见的破解方式及加固方案总结
