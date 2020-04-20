@@ -136,11 +136,11 @@ public class Thread implements Runnable {
 
 下面看一下，ThrealLocal 的值到底是如何在 threadLocals 中进行存储的。
 首先我们先看一下set方法中的
-```
+```java
 map.set(this, value);
 ```
 对应源码为:
-```
+```java
 /**
  * Set the value associated with key.
  *
