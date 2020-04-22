@@ -4,6 +4,7 @@ Android Ndk开发常用网站收集，真正的高手并不是掌握所有的API
 基础知识请移步：http://blog.csdn.net/xyang81/article/details/41777471
 
 JNI动态加载: http://www.cnblogs.com/skywang12345/archive/2013/05/23/3092491.html
+
 JNI中Ｃ调用java的方法:http://www.cnblogs.com/xitang/p/4174619.html
 
 JNI读取应用签名：https://www.pocketdigi.com/20141129/1398.html
