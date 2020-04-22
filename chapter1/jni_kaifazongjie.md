@@ -2,14 +2,19 @@ Android Ndk开发常用网站收集，真正的高手并不是掌握所有的API
 
 ---
 基础知识请移步：http://blog.csdn.net/xyang81/article/details/41777471
+
 JNI动态加载: http://www.cnblogs.com/skywang12345/archive/2013/05/23/3092491.html
 JNI中Ｃ调用java的方法:http://www.cnblogs.com/xitang/p/4174619.html
+
 JNI读取应用签名：https://www.pocketdigi.com/20141129/1398.html
+
 NDK开发之日志打印：http://blog.csdn.net/u012702547/article/details/48222859
+
 ---
 
 以上是学习和使用jni常用的几种方式，上述文章内容并不完全正确，稍加修改可正常使用，有需要的可以收藏下。
 这篇文章主要介绍JNI开发中遇到的坑以及解决的方法。
+
 ![](http://upload-images.jianshu.io/upload_images/2333435-fffb78f81d894be2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640)
 ---
 ####一.静态注册和动态注册
