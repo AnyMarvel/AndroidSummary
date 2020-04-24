@@ -11,7 +11,7 @@
 
 知识拓展图(总结拓展如下):
 
-![](https://upload-images.jianshu.io/upload_images/2333435-853d6874222b3a78.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](/assets/equals_hashcode.jpg)
 ### 一. Java ==  运算符
 
 java中的数据类型，可分为两类：
