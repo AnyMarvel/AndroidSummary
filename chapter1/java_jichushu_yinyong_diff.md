@@ -76,6 +76,7 @@ public class Main{
 ![](/assets/jichushujuleixing/jibenshujuleixing2.png)
 引用变量类型
 - 引用数据类型变量，调用方法时作为参数是按引用传递的
+
 ```java
 //引用数据类型作为方法参数被调用
 
@@ -109,6 +110,7 @@ public class Main{
    }
 }
 ```
+
 **调用时为temp在栈中开辟新空间，并指向book的具体内容，方法执行完毕后temp在栈中的内存被释放掉**
 
 
