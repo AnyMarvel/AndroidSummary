@@ -7,6 +7,7 @@
    * [Android之JNI开发总结](chapter1/jni_kaifazongjie.md)
    * [堆和栈的区别](chapter1/dui_zhan_qubie.md)
    * [java中==,equals,hashcode](chapter1/java_equals_hashcode.md)
+   * [Java基础数据类型和引用类型的区别](chapter1/java_jichushu_yinyong_diff.md)
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
