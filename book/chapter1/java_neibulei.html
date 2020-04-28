@@ -1,0 +1,781 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java内部类详解 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../androidan-quan.html" />
+    
+    
+    <link rel="prev" href="java_jichushu_yinyong_diff.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="android-activityqi-dong-mo-shi.html">
+            
+                <a href="android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="android__threadlocal.html">
+            
+                <a href="android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="jni_kaifazongjie.html">
+            
+                <a href="jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="dui_zhan_qubie.html">
+            
+                <a href="dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="java_equals_hashcode.html">
+            
+                <a href="java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="java_jichushu_yinyong_diff.html">
+            
+                <a href="java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="java_neibulei.html">
+            
+                <a href="java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../androidan-quan.html">
+            
+                <a href="../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Java内部类详解</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="java-&#x5185;&#x90E8;&#x7C7B;">JAVA &#x5185;&#x90E8;&#x7C7B;</h1>
+<h2 id="&#x641E;&#x61C2;-java-&#x5185;&#x90E8;&#x7C7B;">&#x641E;&#x61C2; JAVA &#x5185;&#x90E8;&#x7C7B;</h2>
+<h3 id="&#x672C;&#x6587;&#x5C06;&#x4F1A;&#x4ECE;&#x4EE5;&#x4E0B;&#x51E0;&#x90E8;&#x5206;&#x6765;&#x603B;&#x7ED3;&#xFF1A;">&#x672C;&#x6587;&#x5C06;&#x4F1A;&#x4ECE;&#x4EE5;&#x4E0B;&#x51E0;&#x90E8;&#x5206;&#x6765;&#x603B;&#x7ED3;&#xFF1A;</h3>
+<ul>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5B58;&#x5728;&#x5185;&#x90E8;&#x7C7B;</li>
+<li>&#x5185;&#x90E8;&#x7C7B;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x5185;&#x90E8;&#x7684;&#x5206;&#x7C7B;&#x53CA;&#x51E0;&#x79CD;&#x5206;&#x7C7B;&#x7684;&#x8BE6;&#x7EC6;&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</li>
+<li>&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x4F1A;&#x9047;&#x5230;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x95EE;&#x9898;</li>
+</ul>
+<h3 id="&#x4E00;-&#x5185;&#x90E8;&#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x5B58;&#x5728;">&#x4E00;. &#x5185;&#x90E8;&#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x5B58;&#x5728;</h3>
+<p><strong>1.1 &#x5185;&#x90E8;&#x7C7B; ( inner class ) : &#x5B9A;&#x4E49;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x7C7B;</strong>
+&#x6211;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x5185;&#x90E8;&#x7C7B;&#xFF1F;&#x6216;&#x8005;&#x8BF4;&#x5185;&#x90E8;&#x7C7B;&#x4E3A;&#x5565;&#x8981;&#x5B58;&#x5728;&#xFF1F;&#x5176;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5185;&#x90E8;&#x7C7B;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x8BE5;&#x7C7B;&#x5B9A;&#x4E49;&#x6240;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;&#x88AB; private &#x4FEE;&#x9970;&#x7684;&#x79C1;&#x6709;&#x6570;&#x636E;</li>
+<li>&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x5BF9;&#x540C;&#x4E00;&#x5305;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x9690;&#x85CF;&#x8D77;&#x6765;</li>
+<li>&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0; java &#x5355;&#x7EE7;&#x627F;&#x7684;&#x7F3A;&#x9677;</li>
+<li>&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5374;&#x4E0D;&#x60F3;&#x5199;&#x5927;&#x91CF;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;</li>
+</ul>
+<p><strong>1.2 &#x5185;&#x90E8;&#x7C7B;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x8BE5;&#x7C7B;&#x5B9A;&#x4E49;&#x6240;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x6570;&#x636E;</strong></p>
+<p>&#x505A; Android &#x7684;&#x6211;&#x4EEC;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x5C06;&#x5404;&#x79CD; Adapter &#x76F4;&#x63A5;&#x5199;&#x5728; Activity &#x4E2D;&#xFF0C;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span></span>{
+    ....
+    <span class="hljs-keyword">private</span> List&lt;Fragment&gt; fragments = <span class="hljs-keyword">new</span> ArrayList();
+
+    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BottomPagerAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">FragmentPagerAdapter</span></span>{
+        ....
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Fragment <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
+            <span class="hljs-keyword">return</span> fragments.get(position);
+        }
+        ...
+    }
+    ...
+}
+</code></pre>
+<p>&#x4E0A;&#x6587;&#x4E2D; BottomPagerAdapter &#x4FBF;&#x662F; MainActivity &#x7684;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x51FA; BottomPagerAdapter &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE; MainActivity &#x4E2D;&#x5B9A;&#x4E49;&#x7684; fragments &#x79C1;&#x6709;&#x53D8;&#x91CF;&#x3002;&#x5982;&#x679C;&#x5C06; BottomPagerAdapter &#x4E0D;&#x5B9A;&#x4E49;&#x4E3A;&#x5185;&#x90E8;&#x7C7B;&#x8BBF;&#x95EE; fragments &#x79C1;&#x6709;&#x53D8;&#x91CF; &#x6CA1;&#x6709; getXXX &#x65B9;&#x6CD5;&#x662F;&#x505A;&#x4E0D;&#x5230;&#x7684;&#x3002; &#x8FD9;&#x5C31;&#x662F;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x70B9;&#x597D;&#x5904;&#x3002;</p>
+<p><strong>1.3 &#x53EF;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5185;&#x90E8;&#x7C7B;&#x5C31;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x5462;&#xFF1F;&#x662F;&#x5982;&#x4F55;&#x505A;&#x5230;&#x7684;&#x5462;&#xFF1F;</strong></p>
+<blockquote>
+<p>&#x5F53;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x8C61;&#x5FC5;&#x5B9A;&#x4F1A;&#x79D8;&#x5BC6;&#x6355;&#x83B7;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5916;&#x90E8;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x65F6;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x90A3;&#x4E2A;&#x5F15;&#x7528;&#x6765;&#x9009;&#x62E9;&#x5916;&#x56F4;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x7684;&#x3002;&#x5F53;&#x7136;&#x8FD9;&#x4E9B;&#x7F16;&#x8F91;&#x5668;&#x5DF2;&#x7ECF;&#x5E2E;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E86;&#x3002;
+&#x53E6;&#x5916;&#x6CE8;&#x610F;&#x5185;&#x90E8;&#x7C7B;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x7F16;&#x8BD1;&#x5668;&#x73B0;&#x8C61;&#xFF0C;&#x4E0E;&#x865A;&#x62DF;&#x673A;&#x65E0;&#x5173;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5C06;&#x5185;&#x90E8;&#x7C7B;&#x7F16;&#x8BD1;&#x6210; &#x5916;&#x90E8;&#x7C7B;&#x540D;$&#x5185;&#x90E8;&#x7C7B;&#x540D; &#x7684;&#x5E38;&#x89C4;&#x6587;&#x4EF6;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x5BF9;&#x6B64;&#x4E00;&#x65E0;&#x6240;&#x77E5;&#x3002;</p>
+</blockquote>
+<p><strong>1.4 &#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x5BF9;&#x540C;&#x4E00;&#x5305;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x9690;&#x85CF;&#x8D77;&#x6765;</strong></p>
+<p>&#x5173;&#x4E8E;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x597D;&#x5904;&#x5176;&#x5B9E;&#x5F88;&#x663E;&#x800C;&#x6613;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x5916;&#x90E8;&#x7C7B;&#x5373;&#x666E;&#x901A;&#x7684;&#x7C7B;&#x4E0D;&#x80FD;&#x4F7F;&#x7528; private protected &#x8BBF;&#x95EE;&#x6743;&#x9650;&#x7B26;&#x6765;&#x4FEE;&#x9970;&#x7684;&#xFF0C;&#x800C;&#x5185;&#x90E8;&#x7C7B;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; private &#x548C; protected &#x6765;&#x4FEE;&#x9970;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528; private &#x6765;&#x4FEE;&#x9970;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#x8FD9;&#x4E2A;&#x7C7B;&#x5C31;&#x5BF9;&#x5916;&#x9690;&#x85CF;&#x4E86;&#x3002;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x6CA1;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x5185;&#x90E8;&#x7C7B;&#x5B9E;&#x73B0;&#x67D0;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x5411;&#x4E0A;&#x8F6C;&#x578B;&#xFF0C;&#x5BF9;&#x5916;&#x90E8;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#x4E86;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x3002; &#x5982;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Incrementable</span></span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">increment</span><span class="hljs-params">()</span></span>;
+}
+<span class="hljs-comment">//&#x5177;&#x4F53;&#x7C7B;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InsideClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InterfaceTest</span></span>{
+         <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
+             System.out.println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&quot;</span>);
+         }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> InterfaceTest <span class="hljs-title">getIn</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> InsideClass();
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestExample</span> </span>{
+
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span></span>{
+    Example a=<span class="hljs-keyword">new</span> Example();
+    InterfaceTest a1=a.getIn();
+    a1.test();
+ }
+}
+</code></pre>
+<p>&#x4ECE;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x6211;&#x53EA;&#x77E5;&#x9053;Example&#x7684;getIn()&#x65B9;&#x6CD5;&#x80FD;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;InterfaceTest&#x5B9E;&#x4F8B;&#x4F46;&#x6211;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x662F;&#x8FD9;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x800C;&#x4E14;&#x7531;&#x4E8E;InsideClass&#x662F;private&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5982;&#x679C;&#x4E0D;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x8BDD;&#x6839;&#x672C;&#x770B;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x5177;&#x4F53;&#x7C7B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#x9690;&#x85CF;&#x3002;</p>
+<p><strong>1.5 &#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0; java &#x5355;&#x7EE7;&#x627F;&#x7684;&#x7F3A;&#x9677;</strong></p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053; java &#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x4F7F;&#x7528; extends &#x53BB;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x7C7B;&#x7684;&#x3002;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5F15;&#x5165;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;&#x3002; &#x4EE5;&#x4E0B;&#x5F15;&#x7528; &#x300A;Thinking In Java&#x300B;&#x4E2D;&#x7684;&#x4E00;&#x6BB5;&#x8BDD;&#xFF1A;</p>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x90FD;&#x53EF;&#x4EE5;&#x961F;&#x91CC;&#x7684;&#x7EE7;&#x627F;&#x81EA;&#x4E00;&#x4E2A;&#xFF08;&#x63A5;&#x53E3;&#x7684;&#xFF09;&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x8BBA;&#x5916;&#x56F4;&#x7C7B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x7EE7;&#x627F;&#x4E86;&#x67D0;&#x4E2A;&#xFF08;&#x63A5;&#x53E3;&#x7684;&#xFF09;&#x5B9E;&#x73B0;&#xFF0C;&#x5BF9;&#x4E8E;&#x5185;&#x90E8;&#x7C7B;&#x6CA1;&#x6709;&#x5F71;&#x54CD;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5185;&#x90E8;&#x7C7B;&#x63D0;&#x4F9B;&#x7684;&#x3001;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x6216;&#x62BD;&#x8C61;&#x7684;&#x7C7B;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x4E00;&#x4E9B;&#x8BBE;&#x8BA1;&#x4E0E;&#x7F16;&#x7A0B;&#x95EE;&#x9898;&#x5C31;&#x96BE;&#x4EE5;&#x89E3;&#x51B3;&#x3002;
+&#x63A5;&#x53E3;&#x89E3;&#x51B3;&#x4E86;&#x90E8;&#x5206;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x5141;&#x8BB8;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x975E;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#xFF08;&#x7C7B;&#x6216;&#x62BD;&#x8C61;&#x7C7B;&#xFF09;&#x3002;</p>
+</blockquote>
+<p>&#x6211;&#x7684;&#x7406;&#x89E3; Java&#x53EA;&#x80FD;&#x7EE7;&#x627F;&#x4E00;&#x4E2A;&#x7C7B;&#x8FD9;&#x4E2A;&#x5B66;&#x8FC7;&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#x7684;&#x4EBA;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x800C;&#x5728;&#x6709;&#x5185;&#x90E8;&#x7C7B;&#x4E4B;&#x524D;&#x5B83;&#x7684;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#x662F;&#x7528;&#x63A5;&#x53E3;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x4F46;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x6709;&#x65F6;&#x5019;&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x65B9;&#x4FBF;&#x7684;&#x5730;&#x65B9;&#x3002;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x5C31;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x5B83;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x3002;&#x800C;&#x6709;&#x4E86;&#x5185;&#x90E8;&#x7C7B;&#x5C31;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x7C7B;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5177;&#x4F53;&#x7C7B;&#x6216;&#x62BD;&#x8C61;&#x7C7B;&#x3002;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x7C7B;&#x4E00;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> </span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;liutao&quot;</span>;
+   }
+   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">doSomeThing</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-comment">// doSomeThing</span>
+   }
+}
+<span class="hljs-comment">//&#x7C7B;&#x4E8C;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">age</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">25</span>;
+    }
+}
+
+<span class="hljs-comment">//&#x7C7B;&#x4E09;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainExample</span></span>{
+   <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassA</span></span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>{
+          <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.name();
+        }
+    }
+    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassB</span></span>{
+       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">age</span><span class="hljs-params">()</span></span>{
+         <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.age();
+       }
+    }
+   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Test1().name();
+   }
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">age</span><span class="hljs-params">()</span></span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Test2().age();
+   }
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span></span>{
+       MainExample mi=<span class="hljs-keyword">new</span> MainExample();
+       System.out.println(<span class="hljs-string">&quot;&#x59D3;&#x540D;:&quot;</span>+mi.name());
+       System.out&#x800C;&#x4E14;&#x7531;&#x4E8E;InsideClass&#x662F;<span class="hljs-keyword">private</span>&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5982;&#x679C;&#x4E0D;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x8BDD;&#x6839;&#x672C;&#x770B;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x5177;&#x4F53;&#x7C7B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#x9690;&#x85CF;&#x3002;.println(<span class="hljs-string">&quot;&#x5E74;&#x9F84;:&quot;</span>+mi.age());
+   }
+}
+</code></pre>
+<p>&#x4E0A;&#x8FB9;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;&#xFF0C;MainExample &#x7C7B;&#x901A;&#x8FC7;&#x5185;&#x90E8;&#x7C7B;&#x62E5;&#x6709;&#x4E86; ClassA &#x548C; ClassB &#x7684;&#x4E24;&#x4E2A;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x3002; &#x800C;&#x65E0;&#x9700;&#x5173;&#x6CE8; ClassA &#x4E2D;&#x7684; doSomeThing &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6BD4;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x66F4;&#x6709;&#x620F;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p><strong>1.6 &#x901A;&#x8FC7;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x6765;&quot;&#x4F18;&#x5316;&quot;&#x7B80;&#x5355;&#x7684;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;</strong></p>
+<p>&#x5173;&#x4E8E;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x90FD;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x89C1;&#x7684;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684;&#x5199;&#x6CD5;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java">...
+view.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener(){
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-comment">// ... do XXX...</span>
+    }
+})
+...
+</code></pre>
+<p>&#x5728; Java8 &#x5F15;&#x5165; lambda &#x8868;&#x8FBE;&#x5F0F;&#x4E4B;&#x540E;&#xFF0C;&#x914D;&#x5408;lambda &#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5B9E;&#x73B0;&#x4F1A;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x7B80;&#x4ECB;(&#x4F46;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x5E76;&#x4E0D;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x9605;&#x8BFB;) &#x5982;</p>
+<pre><code class="lang-java">view.setOnClickListener(v -&gt; gotoVipOpenWeb());
+</code></pre>
+<h3 id="&#x4E8C;-&#x5185;&#x90E8;&#x7C7B;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5173;&#x7CFB;">&#x4E8C; &#x5185;&#x90E8;&#x7C7B;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5173;&#x7CFB;</h3>
+<ul>
+<li><p>&#x5BF9;&#x4E8E;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x4F9D;&#x8D56;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x5916;&#x90E8;&#x7C7B;&#x5B9E;&#x4F8B;&#x4E4B;&#x524D;&#x662F;&#x65E0;&#x6CD5;&#x521B;&#x5EFA;&#x5185;&#x90E8;&#x7C7B;&#x7684;</p>
+</li>
+<li><p>&#x5185;&#x90E8;&#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x72EC;&#x7ACB;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x4E0D;&#x662F;is-a&#x5173;&#x7CFB;</p>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x65F6;&#x523B;&#x5E76;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;</p>
+</li>
+</ul>
+<p><strong>2.1 &#x521B;&#x5EFA;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x65F6;&#x523B;&#x5E76;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;</strong></p>
+<p>&#x8FD9;&#x53E5;&#x8BDD;&#x662F;&#x300A;Thinking In Java&#x300B;&#x4E2D;&#x7684;&#x4E00;&#x53E5;&#x8BDD;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x4EBA;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x4F1A;&#x65AD;&#x7AE0;&#x53D6;&#x4E49;&#x7684;&#x8BA4;&#x4E3A; &#x5185;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x8FD9;&#x79CD;&#x7406;&#x89E3;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF0C;&#x53BB;&#x6389;&#x65F6;&#x523B;&#x4E8C;&#x5B57;&#x8FD9;&#x53E5;&#x8BDD;&#x5C31;&#x4F1A;&#x53D8;&#x4E86;&#x4E00;&#x4E2A;&#x5473;&#x9053;&#x3002;
+&#x4E8B;&#x5B9E;&#x4E0A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x300C;&#x5D4C;&#x5957;&#x7C7B;&#x300D;&#x7684;&#x786E;&#x4E0D;&#x4F9D;&#x8D56;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x56E0;&#x4E3A; static &#x5E76;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x4F9D;&#x8D56;&#x4E0E;&#x7C7B; Class &#x672C;&#x8EAB;&#x3002;
+&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x5176;&#x5FC5;&#x987B;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x6B63;&#x5982;&#x7B2C;&#x4E00;&#x6761;&#x5173;&#x7CFB;&#x6240;&#x8BF4;&#xFF1A;&#x5BF9;&#x4E8E;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x4F9D;&#x8D56;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x5916;&#x90E8;&#x7C7B;&#x5B9E;&#x4F8B;&#x4E4B;&#x524D;&#x662F;&#x65E0;&#x6CD5;&#x521B;&#x5EFA;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x5185;&#x90E8;&#x7C7B;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassOuter</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">&quot;&#x5916;&#x90E8;&#x7C7B;&#x65B9;&#x6CD5;&quot;</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InnerClass</span></span>{
+
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInnerClass</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x65B9;&#x5F0F;1</span>
+        ClassOuter.InnerClass innerClass = <span class="hljs-keyword">new</span> ClassOuter().new InnerClass();
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x65B9;&#x5F0F;2</span>
+        ClassOuter outer = <span class="hljs-keyword">new</span> ClassOuter();
+        ClassOuter.InnerClass inner = outer.new InnerClass();
+    }
+}
+</code></pre>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;<strong>&#x6B63;&#x5F0F;&#x7531;&#x4E8E;&#x8FD9;&#x79CD;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x6240;&#x4EE5;&#x666E;&#x901A;&#x5185;&#x90E8;&#x7C7B;&#x4E2D;&#x4E0D;&#x5141;&#x8BB8;&#x6709; static &#x6210;&#x5458;&#xFF0C;&#x5305;&#x62EC;&#x5D4C;&#x5957;&#x7C7B;&#xFF08;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF09;</strong> &#xFF0C;&#x9053;&#x7406;&#x663E;&#x7136;&#x800C;&#x77E5;&#xFF1A;static &#x672C;&#x8EAB;&#x662F;&#x9488;&#x5BF9;&#x7C7B;&#x672C;&#x8EAB;&#x6765;&#x8BF4;&#x7684;&#x3002;&#x53C8;&#x7531;&#x4E8E;&#x975E;static&#x5185;&#x90E8;&#x7C7B;&#x603B;&#x662F;&#x7531;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x7684;&#x5BF9;&#x8C61;&#x751F;&#x6210;&#xFF0C;&#x65E2;&#x7136;&#x4E0E;&#x5BF9;&#x8C61;&#x76F8;&#x5173;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x9759;&#x6001;&#x7684;&#x5B57;&#x6BB5;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x5F53;&#x7136;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x5185;&#x5141;&#x8BB8;&#x6709; static &#x6210;&#x5458;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x8FD4;&#x56DE;&#x5934;&#x6765;&#x770B;&#x6807;&#x9898;&#xFF0C;&#x5176;&#x5B9E;&#x82F1;&#x6587;&#x7248;&#x4E2D;&#x8FD9;&#x53E5;&#x8BDD;&#x662F;&#x8FD9;&#x6837;&#x63CF;&#x8FF0;&#x7684;&#xFF1A;</p>
+<blockquote>
+<p>The point of creation of the inner-class objects not tied to the creation of the outer-class object.</p>
+</blockquote>
+<p>&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x8FD9;&#x53E5;&#x8BDD;&#x7406;&#x89E3;&#x4E3A;:<strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4E00;&#x5B9A;&#x8981;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;</strong>&#x3002;</p>
+<p>&#x62FF;&#x6587;&#x7AE0;&#x5F00;&#x5934;&#x7684; Adapter &#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x8BF4;&#x521B;&#x5EFA;&#x4E86; Activity &#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x521B;&#x5EFA; Adapter &#xFF08;&#x5047;&#x8BBE; Adapter &#x521B;&#x5EFA;&#x4F9D;&#x8D56;&#x4E8E;&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x6210;&#x7ACB;&#xFF09;&#x3002;&#x53EA;&#x6709;&#x5F53;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#x3002;</p>
+<p><strong>2.2 &#x5185;&#x90E8;&#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x72EC;&#x7ACB;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x4E0D;&#x662F;is-a&#x5173;&#x7CFB;</strong></p>
+<p>&#x9996;&#x5148;&#x7406;&#x89E3;&#x4EC0;&#x4E48;&#x662F;&#x300C;is-a&#x5173;&#x7CFB;&#x300D;&#xFF1A; is-a&#x5173;&#x7CFB;&#x662F;&#x6307;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x3002;&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x662F;is-a&#x5173;&#x7CFB;&#x540E;&#x76F8;&#x4FE1;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x4E2A;&#x5916;&#x90E8;&#x7C7B;&#x4E0D;&#x662F;is-a&#x5173;&#x7CFB;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x4E86;&#x3002;</p>
+<p>&#x800C;&#x5BF9;&#x4E8E;&#x5185;&#x90E8;&#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x72EC;&#x7ACB;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#x6765;&#x7406;&#x89E3;&#x8FD9;&#x53E5;&#x8BDD;&#xFF1A;</p>
+<ul>
+<li><p>&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x591A;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#xFF0C;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#x4E2A;&#x4F53;&#x3002;</p>
+</li>
+<li><p>&#x4ECE;&#x7F16;&#x8BD1;&#x7ED3;&#x679C;&#x6765;&#x770B;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x88AB;&#x8868;&#x73B0;&#x4E3A; &#x300C;&#x5916;&#x90E8;&#x7C7B;$&#x5185;&#x90E8;&#x7C7B;.class &#x300D;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x865A;&#x62DF;&#x673A;&#x6765;&#x8BF4;&#x4ED6;&#x4E2A;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x7C7B;&#x6765;&#x8BF4;&#x6CA1;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4ED6;&#x4EEC;&#x662F;&#x6709;&#x5173;&#x7CFB;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5185;&#x90E8;&#x7C7B;&#x9ED8;&#x8BA4;&#x6301;&#x6709;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
+</li>
+</ul>
+<h3 id="&#x4E09;-&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5206;&#x7C7B;">&#x4E09;. &#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5206;&#x7C7B;</h3>
+<p>&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#xFF1A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF08;&#x5D4C;&#x5957;&#x7C7B;&#xFF09;&#x548C;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x3002;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#xFF1A;&#x6210;&#x5458;&#x5185;&#x90E8;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x7C7B;&#x3001;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x51E0;&#x79CD;&#x7C7B;&#x7684;&#x4E66;&#x5199;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x65E9;&#x5DF2;&#x719F;&#x7EC3;&#xFF0C;&#x6240;&#x4EE5;&#x672C;&#x8282;&#x4E3B;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x8FD9;&#x51E0;&#x79CD;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p><strong>3.1 &#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x533A;&#x522B;</strong></p>
+<ul>
+<li><p>&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x6709;&#x9759;&#x6001;&#x6210;&#x5458;&#xFF0C;&#x800C;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5219;&#x4E0D;&#x80FD;&#x6709;&#x9759;&#x6001;&#x6210;&#x5458;&#x3002;</p>
+</li>
+<li><p>&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x53D8;&#x91CF;&#xFF1B;</p>
+</li>
+<li><p>&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x6210;&#x5458;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p>&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#xFF0C;&#x800C;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5FC5;&#x987B;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x800C;&#x521B;&#x5EFA;&#x3002;</p>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x7684;&#x7406;&#x89E3;&#x8FD9;&#x51E0;&#x70B9;&#x533A;&#x522B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassOuter</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> noStaticInt = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> STATIC_INT = <span class="hljs-number">2</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x5916;&#x90E8;&#x7C7B;&#x65B9;&#x6CD5;&quot;</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InnerClass</span> </span>{
+        <span class="hljs-comment">//static int num = 1; &#x6B64;&#x65F6;&#x7F16;&#x8F91;&#x5668;&#x4F1A;&#x62A5;&#x9519; &#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5219;&#x4E0D;&#x80FD;&#x6709;&#x9759;&#x6001;&#x6210;&#x5458;</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span>{
+            <span class="hljs-comment">//&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x6210;&#x5458;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3002;</span>
+            System.out.println(STATIC_INT);
+            System.out.println(noStaticInt);
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticInnerClass</span> </span>{
+        <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> NUM = <span class="hljs-number">1</span>;<span class="hljs-comment">//&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x4EE5;&#x6709;&#x9759;&#x6001;&#x6210;&#x5458;</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span>{
+            System.out.println(STATIC_INT);
+            <span class="hljs-comment">//System.out.println(noStaticInt); &#x6B64;&#x65F6;&#x7F16;&#x8F91;&#x5668;&#x4F1A;&#x62A5; &#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x9519;</span>
+        }
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInnerClass</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B; &#x521B;&#x5EFA;&#x65B9;&#x5F0F;1</span>
+        ClassOuter.InnerClass innerClass = <span class="hljs-keyword">new</span> ClassOuter().new InnerClass();
+        <span class="hljs-comment">//&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B; &#x521B;&#x5EFA;&#x65B9;&#x5F0F;2</span>
+        ClassOuter outer = <span class="hljs-keyword">new</span> ClassOuter();
+        ClassOuter.InnerClass inner = outer.new InnerClass();
+        <span class="hljs-comment">//&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;</span>
+        ClassOuter.StaticInnerClass staticInnerClass = <span class="hljs-keyword">new</span> ClassOuter.StaticInnerClass();
+    }
+}
+</code></pre>
+<p><strong>3.2 &#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;</strong></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x53EA;&#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x5728;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#xFF0C;&#x8FD9;&#x79CD;&#x5185;&#x90E8;&#x7C7B;&#x88AB;&#x79F0;&#x4E3A;&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x3002;&#x5176;&#x4F5C;&#x7528;&#x57DF;&#x4EC5;&#x9650;&#x4E8E;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<p>&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x6709;&#x4E09;&#x70B9;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p>
+<ol>
+<li><p>&#x5C40;&#x90E8;&#x5185;&#x7C7B;&#x4E0D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x7B26; public private protected &#x5747;&#x4E0D;&#x5141;&#x8BB8;</p>
+</li>
+<li><p>&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x5916;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#xFF0C;&#x9664;&#x4E86;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5B83;&#x5176;&#x4ED6;&#x7684;&#x5730;&#x65B9;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x7684;&#x3002;</p>
+</li>
+<li><p>&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x4E0E;&#x6210;&#x5458;&#x5185;&#x90E8;&#x7C7B;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x662F;&#x4ED6;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x8BE5;&#x6210;&#x5458;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A; final&#xFF0C;&#x5E76;&#x5185;&#x90E8;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;&#xFF08;&#x8FD9;&#x53E5;&#x8BDD;&#x5E76;&#x4E0D;&#x51C6;&#x786E;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x5F15;&#x7528;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#xFF09;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassOuter</span> </span>{
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> noStaticInt = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> STATIC_INT = <span class="hljs-number">2</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;&#x5916;&#x90E8;&#x7C7B;&#x65B9;&#x6CD5;&quot;</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFunctionClass</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FunctionClass</span></span>{
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span>{
+            System.out.println(<span class="hljs-string">&quot;&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x8F93;&#x51FA;&quot;</span>);
+            System.out.println(STATIC_INT);
+            System.out.println(noStaticInt);
+            System.out.println(params);
+            <span class="hljs-comment">//params ++ ; // params &#x4E0D;&#x53EF;&#x53D8;&#x6240;&#x4EE5;&#x8FD9;&#x53E5;&#x8BDD;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;</span>
+        }
+    }
+    FunctionClass functionClass = <span class="hljs-keyword">new</span> FunctionClass();
+    functionClass.fun();
+}
+}
+</code></pre>
+<p><strong>3.3 &#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;</strong></p>
+</li>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x662F;&#x6CA1;&#x6709;&#x8BBF;&#x95EE;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x3002;</p>
+</li>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x5FC5;&#x987B;&#x7EE7;&#x627F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x6216;&#x8005;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;</p>
+</li>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4E2D;&#x4E0D;&#x80FD;&#x5B58;&#x5728;&#x4EFB;&#x4F55;&#x9759;&#x6001;&#x6210;&#x5458;&#x6216;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x662F;&#x6CA1;&#x6709;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;&#x7C7B;&#x540D;&#x3002;</p>
+</li>
+<li><p>&#x4E0E;&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x76F8;&#x540C;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4E5F;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;&#x6B64;&#x53D8;&#x91CF;&#x4E5F;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A; final</p>
+</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Button</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">click</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> params)</span></span>{
+        <span class="hljs-comment">//&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x7684;&#x662F;ActionListener&#x63A5;&#x53E3;</span>
+        <span class="hljs-keyword">new</span> ActionListener(){
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAction</span><span class="hljs-params">()</span></span>{
+                System.out.println(<span class="hljs-string">&quot;click action...&quot;</span> + params);
+            }
+        }.onAction();
+    }
+    <span class="hljs-comment">//&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x5FC5;&#x987B;&#x7EE7;&#x627F;&#x6216;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5DF2;&#x6709;&#x7684;&#x63A5;&#x53E3;</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ActionListener</span></span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAction</span><span class="hljs-params">()</span></span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Button button=<span class="hljs-keyword">new</span> Button();
+        button.click();
+    }
+}
+</code></pre>
+<p><strong>3.4 &#x4E3A;&#x4EC0;&#x4E48;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x9700;&#x8981;final&#x4FEE;&#x9970;&#x5462;</strong></p>
+<p>&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x56E0;&#x4E3A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x548C;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x662F;&#x521B;&#x5EFA;&#x540E;&#x662F;&#x5B58;&#x50A8;&#x5728;&#x5806;&#x4E2D;&#x7684;&#xFF0C;&#x800C;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x662F;&#x5B58;&#x50A8;&#x5728;Java&#x6808;&#x4E2D;&#xFF0C;&#x5F53;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x5C31;&#x8FDB;&#x884C;&#x9000;&#x6808;&#xFF0C;&#x540C;&#x65F6;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E5F;&#x4F1A;&#x6D88;&#x5931;&#x3002;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x5806;&#x4E2D;&#x5B58;&#x50A8;&#x7740;&#xFF0C;&#x90A3;&#x4E48;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x8981;&#x5230;&#x54EA;&#x91CC;&#x53BB;&#x627E;&#x8FD9;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5462;&#xFF1F;</p>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7F16;&#x8BD1;&#x5668;&#x4E3A;&#x81EA;&#x52A8;&#x5730;&#x5E2E;&#x6211;&#x4EEC;&#x5728;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x5907;&#x4EFD;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5373;&#x4F7F;&#x65B9;&#x6CD5;&#x6267;&#x7ED3;&#x675F;&#xFF0C;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5907;&#x4EFD;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x4E0D;&#x6015;&#x627E;&#x4E0D;&#x5230;&#x4E86;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x95EE;&#x9898;&#x53C8;&#x6765;&#x4E86;&#x3002;&#x5982;&#x679C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E2D;&#x7684;a&#x4E0D;&#x505C;&#x7684;&#x5728;&#x53D8;&#x5316;&#x3002;&#x90A3;&#x4E48;&#x5C82;&#x4E0D;&#x662F;&#x4E5F;&#x8981;&#x8BA9;&#x5907;&#x4EFD;&#x7684;a&#x53D8;&#x91CF;&#x65E0;&#x65F6;&#x65E0;&#x523B;&#x7684;&#x53D8;&#x5316;&#x3002;&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E0E;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4E2D;&#x5907;&#x4EFD;&#x57DF;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x5F97;&#x4E0D;&#x89C4;&#x5B9A;&#x6B7B;&#x8FD9;&#x4E9B;&#x5C40;&#x90E8;&#x57DF;&#x5FC5;&#x987B;&#x662F;&#x5E38;&#x91CF;&#xFF0C;&#x4E00;&#x65E6;&#x8D4B;&#x503C;&#x4E0D;&#x80FD;&#x518D;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x4E3A;&#x4EC0;&#x4E48;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x5E94;&#x7528;&#x5916;&#x90E8;&#x65B9;&#x6CD5;&#x7684;&#x57DF;&#x5FC5;&#x987B;&#x662F;&#x5E38;&#x91CF;&#x57DF;&#x7684;&#x539F;&#x56E0;&#x6240;&#x5728;&#x4E86;&#x3002;</p>
+<p>&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF1A;<strong>&#x5728;Java8&#x4E2D;&#x5DF2;&#x7ECF;&#x53BB;&#x6389;&#x8981;&#x5BF9;final&#x7684;&#x4FEE;&#x9970;&#x9650;&#x5236;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x53EA;&#x8981;&#x5728;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x4F7F;&#x7528;&#x4E86;&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x8FD8;&#x662F;&#x4F1A;&#x81EA;&#x52A8;&#x53D8;&#x4E3A;final&#x7C7B;&#x578B;&#xFF08;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#xFF0C;&#x4E0D;&#x80FD;&#x8D4B;&#x503C;&#xFF09;</strong>&#x3002;</p>
+<h3 id="&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x5185;&#x90E8;&#x7C7B;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x8D77;&#x7684;&#x95EE;&#x9898;">&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x5185;&#x90E8;&#x7C7B;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x8D77;&#x7684;&#x95EE;&#x9898;</h3>
+<p><strong>&#x5185;&#x90E8;&#x7C7B;&#x4F1A;&#x9020;&#x6210;&#x7A0B;&#x5E8F;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</strong></p>
+<p>&#x76F8;&#x4FE1;&#x505A; Android &#x7684;&#x670B;&#x53CB;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E00;&#x5B9A;&#x4E0D;&#x4F1A;&#x964C;&#x751F;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684; Handler &#x5C31;&#x65E0;&#x65F6;&#x65E0;&#x523B;&#x4E0D;&#x7ED9;&#x6211;&#x4EEC;&#x63D0;&#x793A;&#x7740;&#x8FD9;&#x6837;&#x7684;&#x8B66;&#x544A;&#x3002;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E0B;&#x5185;&#x90E8;&#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
+<p>&#x8981;&#x60F3;&#x4E86;&#x89E3;&#x4E3A;&#x5565;&#x5185;&#x90E8;&#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x6211;&#x4EEC;&#x5C31;&#x5FC5;&#x987B;&#x4E86;&#x89E3; java &#x865A;&#x62DF;&#x673A;&#x7684;&#x56DE;&#x6536;&#x673A;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x4E0D;&#x4F1A;&#x8BE6;&#x5C3D;&#x7684;&#x4ECB;&#x7ECD; java &#x7684;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x673A;&#x5236;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E86;&#x89E3; java &#x7684;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x673A;&#x5236;&#x901A;&#x8FC7;&#x300C;&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x300D;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x5373; java &#x865A;&#x62DF;&#x673A;&#x4F1A;&#x901A;&#x8FC7;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x673A;&#x5236;&#x6765;&#x5224;&#x5B9A;&#x5F15;&#x7528;&#x662F;&#x5426;&#x53EF;&#x8FBE;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x53EF;&#x8FBE;&#x5C31;&#x4F1A;&#x5728;&#x67D0;&#x4E9B;&#x65F6;&#x523B;&#x53BB;&#x56DE;&#x6536;&#x8FD9;&#x4E9B;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x5185;&#x90E8;&#x7C7B;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x53EF;&#x80FD;&#x5462;&#xFF1F;</p>
+<blockquote>
+<ol>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x6CA1;&#x6709;&#x88AB;&#x4EFB;&#x4F55;&#x5F15;&#x7528;&#x6301;&#x6709;&#xFF0C;&#x90A3;&#x4E48;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x8C61;&#x7528;&#x5B8C;&#x5C31;&#x6709;&#x673A;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#x3002;</li>
+</ol>
+<ol>
+<li>&#x5982;&#x679C;&#x5185;&#x90E8;&#x7C7B;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x5728;&#x5916;&#x90E8;&#x7C7B;&#x4E2D;&#x88AB;&#x5F15;&#x7528;&#xFF0C;&#x5F53;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x4E0D;&#x518D;&#x88AB;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x5916;&#x90E8;&#x7C7B;&#x548C;&#x5185;&#x90E8;&#x7C7B;&#x5C31;&#x53EF;&#x4EE5;&#x90FD;&#x88AB;GC&#x56DE;&#x6536;&#x3002;</li>
+</ol>
+<ol>
+<li>&#x5982;&#x679C;&#x5F53;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#x88AB;&#x5916;&#x90E8;&#x7C7B;&#x4EE5;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x5916;&#x90E8;&#x7C7B;&#x65E0;&#x6CD5;&#x88AB;GC&#x56DE;&#x6536;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5373;&#x4F7F;&#x5916;&#x90E8;&#x7C7B;&#x6CA1;&#x6709;&#x88AB;&#x5F15;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5185;&#x90E8;&#x7C7B;&#x6301;&#x6709;&#x6307;&#x5411;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#xFF09;&#x3002;</li>
+</ol>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassOuter</span> </span>{
+
+    Object object = <span class="hljs-keyword">new</span> Object() {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">finalize</span><span class="hljs-params">()</span> </span>{
+            System.out.println(<span class="hljs-string">&quot;inner Free the occupied memory...&quot;</span>);
+        }
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">finalize</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Outer Free the occupied memory...&quot;</span>);
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInnerClass</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            Test();
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Test</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        System.out.println(<span class="hljs-string">&quot;Start of program.&quot;</span>);
+
+        ClassOuter outer = <span class="hljs-keyword">new</span> ClassOuter();
+        Object object = outer.object;
+        outer = <span class="hljs-keyword">null</span>;
+
+        System.out.println(<span class="hljs-string">&quot;Execute GC&quot;</span>);
+        System.gc();
+
+        Thread.sleep(<span class="hljs-number">3000</span>);
+        System.out.println(<span class="hljs-string">&quot;End of program.&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x53D1;&#x73B0; &#x6267;&#x884C;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x5E76;&#x6CA1;&#x56DE;&#x6536; object &#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x5916;&#x90E8;&#x7C7B;&#x6CA1;&#x6709;&#x88AB;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x5F15;&#x7528;&#xFF0C;&#x53EA;&#x8981;&#x5176;&#x5185;&#x90E8;&#x7C7B;&#x88AB;&#x5916;&#x90E8;&#x7C7B;&#x4EE5;&#x5916;&#x7684;&#x53D8;&#x91CF;&#x6301;&#x6709;&#xFF0C;&#x5916;&#x90E8;&#x7C7B;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;GC&#x56DE;&#x6536;&#x3002;&#x6211;&#x4EEC;&#x8981;&#x5C24;&#x5176;&#x6CE8;&#x610F;&#x5185;&#x90E8;&#x7C7B;&#x88AB;&#x5916;&#x9762;&#x5176;&#x4ED6;&#x7C7B;&#x5F15;&#x7528;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x70B9;&#x5BFC;&#x81F4;&#x5916;&#x90E8;&#x7C7B;&#x65E0;&#x6CD5;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x6781;&#x5BB9;&#x6613;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
+<p>&#x5728;Android &#x4E2D; Hanlder &#x4F5C;&#x4E3A;&#x5185;&#x90E8;&#x7C7B;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5176;&#x5BF9;&#x8C61;&#x88AB;&#x7CFB;&#x7EDF;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684; Looper &#x6301;&#x6709;&#xFF08;&#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x662F;&#x5B50;&#x7EBF;&#x7A0B;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x7684; Looper&#xFF09;&#x638C;&#x7BA1;&#x7684;&#x6D88;&#x606F;&#x961F;&#x5217; MessageQueue &#x4E2D;&#x7684; Hanlder &#x53D1;&#x9001;&#x7684; Message &#x6301;&#x6709;&#xFF0C;&#x5F53;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x6D88;&#x606F;&#x5904;&#x7406;&#x7684;&#x9700;&#x8981;&#x5904;&#x7406;&#xFF0C;&#x6216;&#x8005;&#x5EF6;&#x8FDF;&#x6D88;&#x606F;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x521B;&#x5EFA;&#x8BE5; Handler &#x7684; Activity &#x5DF2;&#x7ECF;&#x9000;&#x51FA;&#x4E86;&#xFF0C;Activity &#x5BF9;&#x8C61;&#x4E5F;&#x65E0;&#x6CD5;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x8FD9;&#x5C31;&#x9020;&#x6210;&#x4E86;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
+<p>&#x90A3;&#x4E48; Hanlder &#x4F55;&#x65F6;&#x4F1A;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x5F53;&#x6D88;&#x606F;&#x961F;&#x5217;&#x5904;&#x7406;&#x5B8C; Hanlder &#x643A;&#x5E26;&#x7684; message &#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x8C03;&#x7528; msg.recycleUnchecked()&#x91CA;&#x653E;Message&#x6240;&#x6301;&#x6709;&#x7684;Handler&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x5728; Android &#x4E2D;&#x8981;&#x60F3;&#x5904;&#x7406; Hanlder &#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x53EF;&#x4EE5;&#x4ECE;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#x7740;&#x624B;&#xFF1A;</p>
+<ul>
+<li>&#x5728;&#x5173;&#x95ED;Activity/Fragment &#x7684; onDestry&#xFF0C;&#x53D6;&#x6D88;&#x8FD8;&#x5728;&#x6392;&#x961F;&#x7684;Message:</li>
+</ul>
+<pre><code class="lang-java">mHandler.removeCallbacksAndMessages(<span class="hljs-keyword">null</span>);
+</code></pre>
+<ul>
+<li><p>&#x5C06; Hanlder &#x521B;&#x5EFA;&#x4E3A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x5E76;&#x91C7;&#x7528;&#x5F31;&#x5F15;&#x7528;&#x65B9;&#x5F0F;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Handler</span> </span>{
+
+   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> WeakReference&lt;MainActivity&gt; mActivity;
+
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyHandler</span><span class="hljs-params">(MainActivity activity)</span> </span>{
+       mActivity = <span class="hljs-keyword">new</span> WeakReference&lt;MainActivity&gt;(activity);
+   }
+
+   <span class="hljs-meta">@Override</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleMessage</span><span class="hljs-params">(Message msg)</span> </span>{
+       MainActivity activity = mActivity.get();
+       <span class="hljs-keyword">if</span> (activity == <span class="hljs-keyword">null</span> || activity.isFinishing()) {
+          <span class="hljs-keyword">return</span>;
+       }
+       <span class="hljs-comment">// ...</span>
+   }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x672C;&#x6587;&#x4ECE;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5B58;&#x5728;&#x7406;&#x7531;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x4E0E;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5185;&#x90E8;&#x7C7B;&#x5206;&#x7C7B;&#x4EE5;&#x53CA;&#x5F00;&#x53D1;&#x4E2D;&#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x95EE;&#x9898;&#x4E0A;&#xFF0C;&#x603B;&#x7ED3;&#x4E86;&#x4E0E;&#x5185;&#x90E8;&#x7C7B;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x539F;&#x8C05;&#x672C;&#x4EBA;&#x624D;&#x758F;&#x5B66;&#x6D45;&#xFF0C;&#x672C;&#x6587;&#x4E4B;&#x524D;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x300C;&#x5F7B;&#x5E95;&#x641E;&#x61C2; java &#x5185;&#x90E8;&#x7C7B;&#x300D;&#x4F46;&#x662F;&#x5F53;&#x6211;&#x5199;&#x5B8C;&#x6574;&#x7247;&#x6587;&#x7AE0;&#xFF0C;&#x6211;&#x624D;&#x53D1;&#x73B0;&#xFF0C;&#x901A;&#x8FC7; java &#x5185;&#x90E8;&#x7C7B;&#x53EF;&#x80FD;&#x4F1A;&#x5EF6;&#x4F38;&#x51FA;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x53BB;&#x6389;&#x4E86;&#x5F7B;&#x5E95;&#x4E8C;&#x5B57;&#xFF0C;&#x603B;&#x7ED3;&#x53EF;&#x80FD;&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x5230;&#x4F4D;&#x7684;&#x5730;&#x65B9;&#x3002;&#x8FD8;&#x671B;&#x80FD;&#x591F;&#x53CA;&#x65F6;&#x5E2E;&#x6211;&#x6307;&#x51FA;&#x3002;
+&#x5176;&#x4E2D;&#x5185;&#x90E8;&#x7C7B;&#x5206;&#x7C7B;&#xFF0C;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x975E;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x4EE5;&#x53CA;&#x5C40;&#x90E8;&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7684;&#x5171;&#x540C;&#x70B9;&#x548C;&#x533A;&#x522B;&#x70B9;&#x5F88;&#x53EF;&#x80FD;&#x88AB;&#x9762;&#x8BD5;&#x95EE;&#x5230;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x56E0;&#x6B64;&#x5EF6;&#x4F38;&#x5230;&#x5185;&#x90E8;&#x7C7B;&#x9020;&#x6210;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x95EE;&#x9898;&#x4E0A;&#xFF0C;&#x60F3;&#x5FC5;&#x4E5F;&#x662F;&#x4E2A;&#x52A0;&#x5206;&#x9879;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x53C2;&#x8003; &#x300A;Thinking in java&#x300B;&#xFF0C;&#x300A;Java &#x6838;&#x5FC3;&#x6280;&#x672F; &#x5377;1&#x300B; </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_jichushu_yinyong_diff.html" class="navigation navigation-prev " aria-label="Previous page: Java基础数据类型和引用类型的区别">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../androidan-quan.html" class="navigation navigation-next " aria-label="Next page: Android安全">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java内部类详解","level":"1.2.7","depth":2,"next":{"title":"Android安全","level":"1.3","depth":1,"path":"androidan-quan.md","ref":"androidan-quan.md","articles":[{"title":"Android签名攻与防","level":"1.3.1","depth":2,"path":"androidan-quan/androidqian-ming-gong-yu-fang.md","ref":"androidan-quan/androidqian-ming-gong-yu-fang.md","articles":[]},{"title":"Smalidea+IntelliJ IDEA/Android Studio无源码调试","level":"1.3.2","depth":2,"path":"androidan-quan/android-anquan-wuyuanmatiaoshi.md","ref":"androidan-quan/android-anquan-wuyuanmatiaoshi.md","articles":[]}]},"previous":{"title":"Java基础数据类型和引用类型的区别","level":"1.2.6","depth":2,"path":"chapter1/java_jichushu_yinyong_diff.md","ref":"chapter1/java_jichushu_yinyong_diff.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/java_neibulei.md","mtime":"2020-04-28T04:26:24.663Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-28T04:28:38.929Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
