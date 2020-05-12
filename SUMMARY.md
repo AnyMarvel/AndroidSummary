@@ -9,6 +9,7 @@
    * [java中==,equals,hashcode](chapter1/java_equals_hashcode.md)
    * [Java基础数据类型和引用类型的区别](chapter1/java_jichushu_yinyong_diff.md)
    * [Java内部类详解](chapter1/java_neibulei.md)
+   * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
