@@ -1,5 +1,6 @@
 # Summary
-
+* [漫品客户端技术总结](manpin/README.md)
+  * [小说模块介绍](manpin/xiaoshuo/xiaoshuoIntroduction.md)
 * [Android总结](README.md)
 * [Android基础](chapter1.md)
    * [Android Activity启动模式](chapter1/android-activityqi-dong-mo-shi.md)
