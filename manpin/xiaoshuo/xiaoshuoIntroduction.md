@@ -59,9 +59,9 @@ APP本地小说仅支持txt格式，将小说按章节分割存入数据库，�
 逻辑与导航推荐逻辑相符
 
 效果图如图所示
-
-![](https://github.com/AnyMarvel/ManPinAPP/blob/master/pictures/xiaoshuo_4.jpeg)![](https://github.com/AnyMarvel/ManPinAPP/blob/master/pictures/xiaoshuo_3.jpeg)![](https://github.com/AnyMarvel/ManPinAPP/blob/master/pictures/xiaoshuo_2.jpeg)![](https://github.com/AnyMarvel/ManPinAPP/blob/master/pictures/xiaoshuo_1.jpeg)
-
+<div align="center">
+<img src="/manpin/assert/xiaoshuo_4.jpeg" width="300" height="600"/> <img src="/manpin/assert/xiaoshuo_3.jpeg" width="300" height="600"/> <img src="/manpin/assert/xiaoshuo_2.jpeg" width="300" height="600"/> <img src="/manpin/assert/xiaoshuo_1.jpeg" width="300" height="600"/>
+</div>
 
 漫品客户端 全站开源 开源地址:
 
