@@ -1,6 +1,7 @@
 # Summary
 * [漫品客户端技术总结](manpin/README.md)
   * [小说模块介绍](manpin/xiaoshuo/xiaoshuoIntroduction.md)
+      * [Android不规则布局的实现(万能公式)](manpin/xiaoshuo/buguizebuju.md)
 * [Android总结](README.md)
 * [Android基础](chapter1.md)
    * [Android Activity启动模式](chapter1/android-activityqi-dong-mo-shi.md)
@@ -12,6 +13,7 @@
    * [Java内部类详解](chapter1/java_neibulei.md)
    * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
    * [初探RxJava以及结合Retrofit的使用](chapter1/rxjava_retrofit_android.md)
+
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
