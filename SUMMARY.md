@@ -2,6 +2,7 @@
 * [漫品客户端技术总结](manpin/README.md)
   * [小说模块介绍](manpin/xiaoshuo/xiaoshuoIntroduction.md)
       * [Android不规则布局的实现(万能公式)](manpin/xiaoshuo/buguizebuju.md)
+      * [Android So动态加载原理分析与优雅实现](manpin/shipinzhuanmanhua/sodynamicload.md)
 * [Android总结](README.md)
 * [Android基础](chapter1.md)
    * [Android Activity启动模式](chapter1/android-activityqi-dong-mo-shi.md)
