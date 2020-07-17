@@ -160,9 +160,13 @@ public interface Generator<T> {
 
 此处有两点需要注意：
 
-- 泛型接口未传入泛型实参时，与泛型类的定义相同，在声明类的时候，需将泛型的声明也一起加到类中。例子如下：
+- 泛型接口未传入泛型实参时，与泛型类的定义相同，在声明类的时候，需将泛型的声明也一起加到类中。
+
+例子如下：
+
 
 ```java
+
 /* 即：class DataHolder implements Generator<T>{
  * 如果不声明泛型，如：class DataHolder implements Generator<T>，编译器会报错："Unknown class"
  */
@@ -174,6 +178,7 @@ class FruitGenerator<T> implements Generator<T>{
 }
 
 ```
+
 - 如果泛型接口传入类型参数时，实现该泛型接口的实现类，则所有使用泛型的地方都要替换成传入的实参类型。例子如下：
 
 ```java
