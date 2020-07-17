@@ -1,0 +1,820 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java泛型擦除及其相关内容 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="javaGenericWildcard.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../manpin/">
+            
+                <a href="../../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../chapter1.html">
+            
+                <a href="../../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                <a href="../../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../chapter1/android__threadlocal.html">
+            
+                <a href="../../chapter1/android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../chapter1/jni_kaifazongjie.html">
+            
+                <a href="../../chapter1/jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../chapter1/dui_zhan_qubie.html">
+            
+                <a href="../../chapter1/dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../chapter1/java_equals_hashcode.html">
+            
+                <a href="../../chapter1/java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../chapter1/java_jichushu_yinyong_diff.html">
+            
+                <a href="../../chapter1/java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../chapter1/java_neibulei.html">
+            
+                <a href="../../chapter1/java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../chapter1/android_8.0_server.html">
+            
+                <a href="../../chapter1/android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../chapter1/rxjava_retrofit_android.html">
+            
+                <a href="../../chapter1/rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../androidan-quan.html">
+            
+                <a href="../../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../java_base/java_stream_io.html">
+            
+                <a href="../java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="roleAndSignificanceOfGenerics.html">
+            
+                <a href="roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="javaGenericWildcard.html">
+            
+                <a href="javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2.3" data-path="JavaGenericErasure.html">
+            
+                <a href="JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Java泛型擦除及其相关内容</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x53CA;&#x5176;&#x76F8;&#x5173;&#x5185;&#x5BB9;">Java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x53CA;&#x5176;&#x76F8;&#x5173;&#x5185;&#x5BB9;</h1>
+<p>&#x6211;&#x4EEC;&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java">Class&lt;?&gt; class1=<span class="hljs-keyword">new</span> ArrayList&lt;String&gt;().getClass();
+Class&lt;?&gt; class2=<span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;().getClass();
+System.out.println(class1);        <span class="hljs-comment">//class java.util.ArrayList</span>
+System.out.println(class2);        <span class="hljs-comment">//class java.util.ArrayList</span>
+System.out.println(class1.equals(class2));    <span class="hljs-comment">//true</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x8F93;&#x51FA;&#x53D1;&#x73B0;&#xFF0C;class1&#x548C;class2&#x5C45;&#x7136;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;ArrayList&#xFF0C;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x7C7B;&#x578B;&#x53D8;&#x91CF;String&#x548C;Integer&#x90FD;&#x88AB;&#x4E22;&#x6389;&#x4E86;&#x3002;Java&#x8BED;&#x8A00;&#x6CDB;&#x578B;&#x5728;&#x8BBE;&#x8BA1;&#x7684;&#x65F6;&#x5019;&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x539F;&#x6765;&#x7684;&#x65E7;&#x4EE3;&#x7801;&#xFF0C;Java&#x7684;&#x6CDB;&#x578B;&#x673A;&#x5236;&#x4F7F;&#x7528;&#x4E86;&#x201C;&#x64E6;&#x9664;&#x201D;&#x673A;&#x5236;&#x3002;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x66F4;&#x5F7B;&#x5E95;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Table</span> </span>{}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Room</span> </span>{}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">House</span>&lt;<span class="hljs-title">Q</span>&gt; </span>{}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Particle</span>&lt;<span class="hljs-title">POSITION</span>, <span class="hljs-title">MOMENTUM</span>&gt; </span>{}
+<span class="hljs-comment">//&#x8C03;&#x7528;&#x4EE3;&#x7801;&#x53CA;&#x8F93;&#x51FA;</span>
+List&lt;Table&gt; tableList = <span class="hljs-keyword">new</span> ArrayList&lt;Table&gt;();
+Map&lt;Room, Table&gt; maps = <span class="hljs-keyword">new</span> HashMap&lt;Room, Table&gt;();
+House&lt;Room&gt; house = <span class="hljs-keyword">new</span> House&lt;Room&gt;();
+Particle&lt;Long, Double&gt; particle = <span class="hljs-keyword">new</span> Particle&lt;Long, Double&gt;();
+System.out.println(Arrays.toString(tableList.getClass().getTypeParameters()));
+System.out.println(Arrays.toString(maps.getClass().getTypeParameters()));
+System.out.println(Arrays.toString(house.getClass().getTypeParameters()));
+System.out.println(Arrays.toString(particle.getClass().getTypeParameters()));
+<span class="hljs-comment">/**
+[E]
+[K, V]
+[Q]
+[POSITION, MOMENTUM]
+ */</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x83B7;&#x53D6;&#x7C7B;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x90FD;&#x662F;&#x201C;&#x5F62;&#x53C2;&#x201D;&#x3002;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x6211;&#x4EEC;&#x662F;&#x83B7;&#x53D6;&#x4E0D;&#x5230;&#x4EFB;&#x4F55;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x7684;&#x3002;</p>
+<font color="red">&#x6CE8;&#x610F;&#xFF1A;
+&#x7F16;&#x8BD1;&#x5668;&#x867D;&#x7136;&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#x79FB;&#x9664;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x4FDD;&#x8BC1;&#x7C7B;&#x6216;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;</font>
+
+
+<p>&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x88AB;&#x64E6;&#x9664;&#x5230;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#xFF08;&#x8FB9;&#x754C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#xFF0C;&#x91CD;&#x7528; extends &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x80FD;&#x7ED9;&#x4E0E;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#xFF09;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4E8B;&#x5B9E;&#x4E0A;&#x4F1A;&#x628A;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x66FF;&#x6362;&#x4E3A;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x660E;&#x8FB9;&#x754C;&#xFF0C;&#x90A3;&#x4E48;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x5C06;&#x88AB;&#x64E6;&#x9664;&#x5230;Object&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x6CDB;&#x578B;&#x53C2;&#x6570;T&#x5F53;&#x4F5C;HasF&#x7C7B;&#x578B;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">HasF</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Manipulator</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HasF</span>&gt; </span>{
+    T obj;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">getObj</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> obj;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setObj</span><span class="hljs-params">(T obj)</span> </span>{
+        <span class="hljs-keyword">this</span>.obj = obj;
+    }
+}
+</code></pre>
+<p>extend&#x5173;&#x952E;&#x5B57;&#x540E;&#x540E;&#x9762;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x51B3;&#x5B9A;&#x4E86;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x80FD;&#x4FDD;&#x7559;&#x7684;&#x4FE1;&#x606F;&#x3002;Java&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x53EA;&#x4F1A;&#x64E6;&#x9664;&#x5230;HasF&#x7C7B;&#x578B;&#x3002;</p>
+<h2 id="java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x7684;&#x539F;&#x7406;">Java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x7684;&#x539F;&#x7406;</h2>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4F8B;&#x5B50;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;&#x5148;&#x770B;&#x4E00;&#x4E2A;&#x975E;&#x6CDB;&#x578B;&#x7684;&#x7248;&#x672C;&#xFF1A;</p>
+<pre><code class="lang-java">// SimpleHolder.java
+public class SimpleHolder {
+    private Object obj;
+    public Object getObj() {
+        return obj;
+    }
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
+    public static void main(String[] args) {
+        SimpleHolder holder = new SimpleHolder();
+        holder.setObj(&quot;Item&quot;);
+        String s = (String) holder.getObj();
+    }
+}
+// SimpleHolder.class
+public class SimpleHolder {
+  public SimpleHolder();
+    Code:
+       0: aload_0       
+       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+       4: return        
+
+  public java.lang.Object getObj();
+    Code:
+       0: aload_0       
+       1: getfield      #2                  // Field obj:Ljava/lang/Object;
+       4: areturn       
+
+  public void setObj(java.lang.Object);
+    Code:
+       0: aload_0       
+       1: aload_1       
+       2: putfield      #2                  // Field obj:Ljava/lang/Object;
+       5: return        
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #3                  // class SimpleHolder
+       3: dup           
+       4: invokespecial #4                  // Method &quot;&lt;init&gt;&quot;:()V
+       7: astore_1      
+       8: aload_1       
+       9: ldc           #5                  // String Item
+      11: invokevirtual #6                  // Method setObj:(Ljava/lang/Object;)V
+      14: aload_1       
+      15: invokevirtual #7                  // Method getObj:()Ljava/lang/Object;
+      18: checkcast     #8                  // class java/lang/String
+      21: astore_2      
+      22: return        
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4ECE;&#x5B57;&#x8282;&#x7801;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#x770B;:</p>
+<pre><code class="lang-java">//GenericHolder.java
+public class GenericHolder&lt;T&gt; {
+    T obj;
+    public T getObj() {
+        return obj;
+    }
+    public void setObj(T obj) {
+        this.obj = obj;
+    }
+    public static void main(String[] args) {
+        GenericHolder&lt;String&gt; holder = new GenericHolder&lt;&gt;();
+        holder.setObj(&quot;Item&quot;);
+        String s = holder.getObj();
+    }
+}
+
+//GenericHolder.class
+public class GenericHolder&lt;T&gt; {
+  T obj;
+
+  public GenericHolder();
+    Code:
+       0: aload_0       
+       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+       4: return        
+
+  public T getObj();
+    Code:
+       0: aload_0       
+       1: getfield      #2                  // Field obj:Ljava/lang/Object;
+       4: areturn       
+
+  public void setObj(T);
+    Code:
+       0: aload_0       
+       1: aload_1       
+       2: putfield      #2                  // Field obj:Ljava/lang/Object;
+       5: return        
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #3                  // class GenericHolder
+       3: dup           
+       4: invokespecial #4                  // Method &quot;&lt;init&gt;&quot;:()V
+       7: astore_1      
+       8: aload_1       
+       9: ldc           #5                  // String Item
+      11: invokevirtual #6                  // Method setObj:(Ljava/lang/Object;)V
+      14: aload_1       
+      15: invokevirtual #7                  // Method getObj:()Ljava/lang/Object;
+      18: checkcast     #8                  // class java/lang/String
+      21: astore_2      
+      22: return        
+}
+</code></pre>
+<p>&#x5728;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x80FD;&#x62FF;&#x5230;&#x7684;&#x3002;&#x6240;&#x4EE5;&#xFF0C;set&#x65B9;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x505A;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x975E;&#x6CD5;&#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#x3002;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;get&#x65B9;&#x6CD5;&#xFF0C;&#x7531;&#x4E8E;&#x64E6;&#x9664;&#x673A;&#x5236;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5B9E;&#x9645;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x4E3A;Object&#x7C7B;&#x578B;&#x3002;<font color="red">&#x4E3A;&#x4E86;&#x201C;&#x8FD8;&#x539F;&#x201D;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5728;get&#x4E4B;&#x540E;&#x6DFB;&#x52A0;&#x4E86;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5728;GenericHolder.class&#x6587;&#x4EF6;main&#x65B9;&#x6CD5;&#x4E3B;&#x4F53;&#x7B2C;18&#x884C;&#x6709;&#x4E00;&#x5904;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x7684;&#x903B;&#x8F91;&#x3002;&#x5B83;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x81EA;&#x52A8;&#x5E2E;&#x6211;&#x4EEC;&#x52A0;&#x8FDB;&#x53BB;&#x7684;&#x3002;</font>
+&#x6240;&#x4EE5;&#x5728;&#x6CDB;&#x578B;&#x7C7B;&#x5BF9;&#x8C61;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#x4E3A;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x5904;&#x7406;&#xFF0C;&#x4E3A;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x7EA6;&#x675F;&#x3002;</p>
+<h2 id="java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x7684;&#x7F3A;&#x9677;&#x53CA;&#x8865;&#x6551;&#x63AA;&#x65BD;">Java&#x6CDB;&#x578B;&#x64E6;&#x9664;&#x7684;&#x7F3A;&#x9677;&#x53CA;&#x8865;&#x6551;&#x63AA;&#x65BD;</h2>
+<p>&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x663E;&#x5F0F;&#x5730;&#x8FD0;&#x7528;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x7C7B;&#x578B;&#x7684;&#x64CD;&#x4F5C;&#x5F53;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x8F6C;&#x578B;&#x3001;instanceof &#x548C; new&#x3002;&#x56E0;&#x4E3A;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x90FD;&#x4E22;&#x5931;&#x4E86;&#x3002;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Erased</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> SIZE = <span class="hljs-number">100</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(Object arg)</span> </span>{
+        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;</span>
+        <span class="hljs-keyword">if</span> (arg <span class="hljs-keyword">instanceof</span> T) {
+        }
+        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;</span>
+        T var = <span class="hljs-keyword">new</span> T();
+        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;</span>
+        T[] array = <span class="hljs-keyword">new</span> T[SIZE];
+        <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;</span>
+        T[] array = (T) <span class="hljs-keyword">new</span> Object[SIZE];
+    }
+}
+</code></pre>
+<p>&#x90A3;&#x6211;&#x4EEC;&#x6709;&#x4EC0;&#x4E48;&#x529E;&#x6CD5;&#x6765;&#x8865;&#x6551;&#x5462;&#xFF1F;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x4E00;&#x4E00;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h3 id="&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x95EE;&#x9898;">&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x95EE;&#x9898;</h3>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x89E3;&#x51B3;&#x6CDB;&#x578B;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x7531;&#x4E8E;&#x64E6;&#x9664;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x5C01;&#x88C5;&#x7C7B;
+ * <span class="hljs-doctag">@param</span> &lt;T&gt;
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericType</span>&lt;<span class="hljs-title">T</span>&gt;</span>{
+    Class&lt;?&gt; classType;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">GenericType</span><span class="hljs-params">(Class&lt;?&gt; type)</span> </span>{
+        classType=type;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInstance</span><span class="hljs-params">(Object object)</span> </span>{
+        <span class="hljs-keyword">return</span> classType.isInstance(object);
+    }
+}
+</code></pre>
+<p>&#x5728;main&#x65B9;&#x6CD5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-java">GenericType&lt;A&gt; genericType=<span class="hljs-keyword">new</span> GenericType&lt;&gt;(A.class);
+System.out.println(<span class="hljs-string">&quot;------------&quot;</span>);
+System.out.println(genericType.isInstance(<span class="hljs-keyword">new</span> A()));
+System.out.println(genericType.isInstance(<span class="hljs-keyword">new</span> B()));
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;Class&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;Class&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x3002;</p>
+<h3 id="&#x521B;&#x5EFA;&#x7C7B;&#x578B;&#x5B9E;&#x4F8B;">&#x521B;&#x5EFA;&#x7C7B;&#x578B;&#x5B9E;&#x4F8B;</h3>
+<p>&#x6CDB;&#x578B;&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x80FD;new T()&#x7684;&#x539F;&#x56E0;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x4E00;&#x662F;&#x56E0;&#x4E3A;&#x64E6;&#x9664;&#xFF0C;&#x4E0D;&#x80FD;&#x786E;&#x5B9A;&#x7C7B;&#x578B;&#xFF1B;&#x800C;&#x662F;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;T&#x662F;&#x5426;&#x5305;&#x542B;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x8FD9;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x663E;&#x5F0F;&#x7684;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;
+ *
+ * <span class="hljs-doctag">@param</span> &lt;T&gt;
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Factory</span>&lt;<span class="hljs-title">T</span>&gt;</span>{
+    <span class="hljs-function">T <span class="hljs-title">create</span><span class="hljs-params">()</span></span>;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Creater</span>&lt;<span class="hljs-title">T</span>&gt;</span>{
+    T instance;
+    <span class="hljs-keyword">public</span> &lt;F extends Factory&lt;T&gt;&gt; <span class="hljs-function">T <span class="hljs-title">newInstance</span><span class="hljs-params">(F f)</span> </span>{
+        instance=f.create();
+        <span class="hljs-keyword">return</span> instance;
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntegerFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Factory</span>&lt;<span class="hljs-title">Integer</span>&gt;</span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">create</span><span class="hljs-params">()</span> </span>{
+        Integer integer=<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">9</span>);
+        <span class="hljs-keyword">return</span> integer;
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;+&#x6CDB;&#x578B;&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;IntegerFactory&#x5DE5;&#x5382;&#xFF0C;&#x7528;&#x6765;&#x521B;&#x5EFA;Integer&#x5B9E;&#x4F8B;&#xFF0C;&#x4EE5;&#x540E;&#x4EE3;&#x7801;&#x6709;&#x53D8;&#x52A8;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#x578B;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x8C03;&#x7528;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">Creater&lt;Integer&gt; creater=<span class="hljs-keyword">new</span> Creater&lt;&gt;();
+System.out.println(creater.newInstance(<span class="hljs-keyword">new</span> IntegerFactory()));
+</code></pre>
+<h3 id="&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x6570;&#x7EC4;">&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x6570;&#x7EC4;</h3>
+<p>&#x4E00;&#x822C;&#x4E0D;&#x5EFA;&#x8BAE;&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x3002;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;ArrayList&#x6765;&#x4EE3;&#x66FF;&#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x3002;&#x4F46;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x8FD8;&#x662F;&#x7ED9;&#x51FA;&#x4E00;&#x79CD;&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericArrayWithTypeToken</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> T[] array;
+
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">GenericArrayWithTypeToken</span><span class="hljs-params">(Class&lt;T&gt; type, <span class="hljs-keyword">int</span> sz)</span> </span>{
+        array = (T[]) Array.newInstance(type, sz);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, T item)</span> </span>{
+        array[index] = item;
+    }
+
+    <span class="hljs-keyword">public</span> T[] rep() {
+        <span class="hljs-keyword">return</span> array;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x4F20;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x5229;&#x7528;&#x7C7B;&#x578B;&#x7684;newInstance&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="javaGenericWildcard.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 通配符与嵌套">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java泛型擦除及其相关内容","level":"1.5.2.3","depth":3,"previous":{"title":"通配符与嵌套","level":"1.5.2.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/deepIntoJavaGenerics/JavaGenericErasure.md","mtime":"2020-07-17T08:40:33.815Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-17T10:09:54.445Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
