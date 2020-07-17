@@ -591,28 +591,29 @@ dataHolder.PrinterInfo(<span class="hljs-number">8.88f</span>);
 </code></pre>
 <p>&#x6B64;&#x5904;&#x6709;&#x4E24;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
 <ul>
-<li>&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x672A;&#x4F20;&#x5165;&#x6CDB;&#x578B;&#x5B9E;&#x53C2;&#x65F6;&#xFF0C;&#x4E0E;&#x6CDB;&#x578B;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x76F8;&#x540C;&#xFF0C;&#x5728;&#x58F0;&#x660E;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x5C06;&#x6CDB;&#x578B;&#x7684;&#x58F0;&#x660E;&#x4E5F;&#x4E00;&#x8D77;&#x52A0;&#x5230;&#x7C7B;&#x4E2D;&#x3002;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;
-```java
-/* &#x5373;&#xFF1A;class DataHolder implements Generator<t>{<ul>
-<li>&#x5982;&#x679C;&#x4E0D;&#x58F0;&#x660E;&#x6CDB;&#x578B;&#xFF0C;&#x5982;&#xFF1A;class DataHolder implements Generator<t>&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x62A5;&#x9519;&#xFF1A;&quot;Unknown class&quot;
-*/
-class FruitGenerator<t> implements Generator<t>{
-@Override
-public T next() {<pre><code>return null;
-</code></pre>}
-}</t></t></t></li>
+<li>&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x672A;&#x4F20;&#x5165;&#x6CDB;&#x578B;&#x5B9E;&#x53C2;&#x65F6;&#xFF0C;&#x4E0E;&#x6CDB;&#x578B;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x76F8;&#x540C;&#xFF0C;&#x5728;&#x58F0;&#x660E;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x5C06;&#x6CDB;&#x578B;&#x7684;&#x58F0;&#x660E;&#x4E5F;&#x4E00;&#x8D77;&#x52A0;&#x5230;&#x7C7B;&#x4E2D;&#x3002;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;</li>
 </ul>
-</t></li>
-</ul>
-<pre><code>- &#x5982;&#x679C;&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x4F20;&#x5165;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x5B9E;&#x73B0;&#x8BE5;&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5219;&#x6240;&#x6709;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#x7684;&#x5730;&#x65B9;&#x90FD;&#x8981;&#x66FF;&#x6362;&#x6210;&#x4F20;&#x5165;&#x7684;&#x5B9E;&#x53C2;&#x7C7B;&#x578B;&#x3002;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;
-```java
-class DataHolder implements Generator&lt;String&gt;{
-    @Override
-    public String next() {
-        return null;
+<pre><code class="lang-java"><span class="hljs-comment">/* &#x5373;&#xFF1A;class DataHolder implements Generator&lt;T&gt;{
+ * &#x5982;&#x679C;&#x4E0D;&#x58F0;&#x660E;&#x6CDB;&#x578B;&#xFF0C;&#x5982;&#xFF1A;class DataHolder implements Generator&lt;T&gt;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x62A5;&#x9519;&#xFF1A;&quot;Unknown class&quot;
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FruitGenerator</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Generator</span>&lt;<span class="hljs-title">T</span>&gt;</span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
 }
-</code></pre><p>&#x4ECE;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x5B9E;&#x73B0;&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;T&#x7684;&#x5730;&#x65B9;&#x90FD;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E3A;String&#x3002;</p>
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x4F20;&#x5165;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x5B9E;&#x73B0;&#x8BE5;&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5219;&#x6240;&#x6709;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#x7684;&#x5730;&#x65B9;&#x90FD;&#x8981;&#x66FF;&#x6362;&#x6210;&#x4F20;&#x5165;&#x7684;&#x5B9E;&#x53C2;&#x7C7B;&#x578B;&#x3002;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataHolder</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Generator</span>&lt;<span class="hljs-title">String</span>&gt;</span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+}
+</code></pre>
+<p>&#x4ECE;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x5B9E;&#x73B0;&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;T&#x7684;&#x5730;&#x65B9;&#x90FD;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E3A;String&#x3002;</p>
 
                                 
                                 </section>
@@ -652,7 +653,7 @@ class DataHolder implements Generator&lt;String&gt;{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"泛型的作用与定义","level":"1.5.2.1","depth":3,"next":{"title":"通配符与嵌套","level":"1.5.2.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},"previous":{"title":"[深入理解Java泛型]","level":"1.5.2","depth":2,"ref":"","articles":[{"title":"泛型的作用与定义","level":"1.5.2.1","depth":3,"path":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","ref":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","articles":[]},{"title":"通配符与嵌套","level":"1.5.2.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},{"title":"Java泛型擦除及其相关内容","level":"1.5.2.3","depth":3,"path":"java/deepIntoJavaGenerics/JavaGenericErasure.md","ref":"java/deepIntoJavaGenerics/JavaGenericErasure.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","mtime":"2020-07-17T08:33:44.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-17T10:09:54.445Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"泛型的作用与定义","level":"1.5.2.1","depth":3,"next":{"title":"通配符与嵌套","level":"1.5.2.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},"previous":{"title":"[深入理解Java泛型]","level":"1.5.2","depth":2,"ref":"","articles":[{"title":"泛型的作用与定义","level":"1.5.2.1","depth":3,"path":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","ref":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","articles":[]},{"title":"通配符与嵌套","level":"1.5.2.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},{"title":"Java泛型擦除及其相关内容","level":"1.5.2.3","depth":3,"path":"java/deepIntoJavaGenerics/JavaGenericErasure.md","ref":"java/deepIntoJavaGenerics/JavaGenericErasure.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","mtime":"2020-07-17T10:19:28.581Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-17T10:19:44.504Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
