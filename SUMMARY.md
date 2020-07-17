@@ -20,3 +20,8 @@
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
 * [JAVA基础](java/README.md)
   * [Java 流(Stream)、文件(File)和IO](java/java_base/java_stream_io.md)
+
+  * [深入理解Java泛型]
+    * [泛型的作用与定义](java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md)
+    * [通配符与嵌套](java/deepIntoJavaGenerics/javaGenericWildcard.md)
+    * [Java泛型擦除及其相关内容](java/deepIntoJavaGenerics/JavaGenericErasure.md)
