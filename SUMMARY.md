@@ -14,7 +14,9 @@
    * [Java内部类详解](chapter1/java_neibulei.md)
    * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
    * [初探RxJava以及结合Retrofit的使用](chapter1/rxjava_retrofit_android.md)
-
+* [Android内存管理](AndroidMemory/handleMenmory.md)
+  * [Android内存管理(官方概览)](AndroidMemory/officialOverview.md)
+  * [Android内存管理(操作系统基础)](AndroidMemory/operating_system_basis.md)
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
@@ -25,3 +27,9 @@
     * [泛型的作用与定义](java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md)
     * [通配符与嵌套](java/deepIntoJavaGenerics/javaGenericWildcard.md)
     * [Java泛型擦除及其相关内容](java/deepIntoJavaGenerics/JavaGenericErasure.md)
+  * [注解深入浅出]
+    * [注解是什么,如何理解](java/annotation/descriptionAnnotation.md)
+    * [自定义注解与元注解](java/annotation/customAnnotation.md)
+    * [注解的使用场景](java/annotation/enviromentAnnotation.md)
+  * [并发编程]
+    * [线程共享和协作](java/concurrentProgramming/threadSharedAndCooperation.md)
