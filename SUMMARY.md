@@ -19,6 +19,8 @@
   * [Android内存管理(操作系统基础)](AndroidMemory/operating_system_basis.md)
   * [Android内存管理(内存管理基础)](AndroidMemory/memory_management.md)
   * [Android内存管理(linux内存管理机制)](AndroidMemory/linux_memory_managenment.md)
+  * [Android内存管理(Android的内存管理机制简析)](AndroidMemory/Android_memory_manag.md)
+  * [Android内存管理(Android对Linux系统的内存管理机制进行的优化)](AndroidMemory/Android_optimization_linux.md)
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
