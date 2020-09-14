@@ -21,6 +21,7 @@
   * [Android内存管理(linux内存管理机制)](AndroidMemory/linux_memory_managenment.md)
   * [Android内存管理(Android的内存管理机制简析)](AndroidMemory/Android_memory_manag.md)
   * [Android内存管理(Android对Linux系统的内存管理机制进行的优化)](AndroidMemory/Android_optimization_linux.md)
+  * [Android内存管理(垃圾回收算法相关)](AndroidMemory/memory_callback.md)
   * [Android内存管理(JVM 、DVM(dalvik) 、ART联系与区别)](AndroidMemory/jvm_dvm_art_diffrent.md)
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
