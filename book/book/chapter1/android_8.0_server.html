@@ -1,0 +1,790 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Android 8.0之后Service使用问题 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rxjava_retrofit_android.html" />
+    
+    
+    <link rel="prev" href="java_neibulei.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../manpin/">
+            
+                <a href="../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="android-activityqi-dong-mo-shi.html">
+            
+                <a href="android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="android__threadlocal.html">
+            
+                <a href="android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="jni_kaifazongjie.html">
+            
+                <a href="jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="dui_zhan_qubie.html">
+            
+                <a href="dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="java_equals_hashcode.html">
+            
+                <a href="java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="java_jichushu_yinyong_diff.html">
+            
+                <a href="java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="java_neibulei.html">
+            
+                <a href="java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.8" data-path="android_8.0_server.html">
+            
+                <a href="android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="rxjava_retrofit_android.html">
+            
+                <a href="rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../AndroidMemory/handleMenmory.html">
+            
+                <a href="../AndroidMemory/handleMenmory.html">
+            
+                    
+                    Android内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../AndroidMemory/officialOverview.html">
+            
+                <a href="../AndroidMemory/officialOverview.html">
+            
+                    
+                    Android内存管理(官方概览)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../AndroidMemory/operating_system_basis.html">
+            
+                <a href="../AndroidMemory/operating_system_basis.html">
+            
+                    
+                    Android内存管理(操作系统基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../AndroidMemory/memory_management.html">
+            
+                <a href="../AndroidMemory/memory_management.html">
+            
+                    
+                    Android内存管理(内存管理基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../AndroidMemory/linux_memory_managenment.html">
+            
+                <a href="../AndroidMemory/linux_memory_managenment.html">
+            
+                    
+                    Android内存管理(linux内存管理机制)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../androidan-quan.html">
+            
+                <a href="../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/java_base/java_stream_io.html">
+            
+                <a href="../java/java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                <a href="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                <a href="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.3" data-path="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                <a href="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    [注解深入浅出]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../java/annotation/descriptionAnnotation.html">
+            
+                <a href="../java/annotation/descriptionAnnotation.html">
+            
+                    
+                    注解是什么,如何理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../java/annotation/customAnnotation.html">
+            
+                <a href="../java/annotation/customAnnotation.html">
+            
+                    
+                    自定义注解与元注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../java/annotation/enviromentAnnotation.html">
+            
+                <a href="../java/annotation/enviromentAnnotation.html">
+            
+                    
+                    注解的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    [并发编程]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                <a href="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                    
+                    线程共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Android 8.0之后Service使用问题</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p>&#x89E3;&#x51B3;Android8.0&#x4E4B;&#x540E;&#x5F00;&#x542F;service&#x65F6;&#x62A5;&#x9519;IllegalStateException: Not allowed to start service Intent ...</p>
+</blockquote>
+<h1 id="&#x80CC;&#x666F;">&#x80CC;&#x666F;:</h1>
+<p>&#x9879;&#x76EE;&#x6D4B;&#x8BD5;&#x65F6;&#x53D1;&#x73B0;&#x7684;&#xFF0C;&#x5728;&#x53CC;&#x51FB;&#x8FD4;&#x56DE;&#x952E;&#x5173;&#x95ED;&#x5E94;&#x7528;&#x540E;&#xFF08;&#x5E76;&#x672A;&#x6740;&#x6B7B;&#x540E;&#x53F0;&#xFF09;&#x91CD;&#x65B0;&#x6253;&#x5F00;APP&#xFF0C;&#x5176;&#x4ED6;&#x624B;&#x673A;&#x90FD;OK&#xFF0C;&#x4F46;&#x662F;8.0&#x7684;&#x624B;&#x673A;&#x4F1A;&#x51FA;&#x73B0;&#x8F83;&#x9891;&#x7E41;&#x7684;crash&#x3002;&#x68C0;&#x67E5;&#x4EE3;&#x7801;&#xFF0C;&#x95EE;&#x9898;&#x9501;&#x5B9A;&#x5728;&#x91CD;&#x65B0;&#x5F00;&#x542F;&#x5E94;&#x7528;&#x65F6;&#x7684;startService()&#x4E0A;&#x3002;</p>
+<p>&#x67E5;&#x627E;&#x8D44;&#x6599;&#x8BF4;&#x662F;Android 8.0 &#x4E0D;&#x518D;&#x5141;&#x8BB8;&#x540E;&#x53F0;service&#x76F4;&#x63A5;&#x901A;&#x8FC7;startService&#x65B9;&#x5F0F;&#x53BB;&#x542F;&#x52A8;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x5F15;&#x8D77;IllegalStateException</p>
+<h1 id="&#x539F;&#x56E0;">&#x539F;&#x56E0;</h1>
+<p>Android 8.0 &#x6709;&#x4E00;&#x9879;&#x590D;&#x6742;&#x529F;&#x80FD;&#xFF1B;&#x7CFB;&#x7EDF;&#x4E0D;&#x5141;&#x8BB8;&#x540E;&#x53F0;&#x5E94;&#x7528;&#x521B;&#x5EFA;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x3002; &#x56E0;&#x6B64;&#xFF0C;Android 8.0 &#x5F15;&#x5165;&#x4E86;&#x4E00;&#x79CD;&#x5168;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5373; Context.startForegroundService()&#xFF0C;&#x4EE5;&#x5728;&#x524D;&#x53F0;&#x542F;&#x52A8;&#x65B0;&#x670D;&#x52A1;&#x3002;
+&#x5728;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x540E;&#xFF0C;&#x5E94;&#x7528;&#x6709;5&#x79D2;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x8C03;&#x7528;&#x8BE5;&#x670D;&#x52A1;&#x7684; startForeground() &#x65B9;&#x6CD5;&#x4EE5;&#x663E;&#x793A;&#x65B0;&#x670D;&#x52A1;&#x7684;&#x7528;&#x6237;&#x53EF;&#x89C1;&#x901A;&#x77E5;&#x3002;&#x5982;&#x679C;&#x5E94;&#x7528;&#x5728;&#x6B64;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x5185;&#x672A;&#x8C03;&#x7528; startForeground()&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x5C06;&#x505C;&#x6B62;&#x670D;&#x52A1;&#x5E76;&#x58F0;&#x660E;&#x6B64;&#x5E94;&#x7528;&#x4E3A; ANR&#x3002;</p>
+<h2 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;">&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h2>
+<p>&#x4F46;&#x662F;&#x76EE;&#x524D;&#x5728;&#x8C03;&#x7528;&#xFF1A;context.startForegroundService(intent)&#x65F6;&#x62A5;&#x5982;&#x4E0B;ANR&#xFF0C;startForegroundService()&#x6587;&#x6863;&#x8BF4;&#x660E;&#x5728;service&#x542F;&#x52A8;&#x540E;&#x8981;&#x8C03;&#x7528;startForeground()&#x3002;</p>
+<pre><code class="lang-shell">android.app.RemoteServiceException: Context.startForegroundService() did not then call Service.startForeground()
+</code></pre>
+<p>&#x5B8C;&#x6574;&#x89E3;&#x51B3;&#x6B65;&#x9AA4;:</p>
+<h3 id="1-&#x6DFB;&#x52A0;&#x6743;&#x9650;">1. &#x6DFB;&#x52A0;&#x6743;&#x9650;</h3>
+<pre><code>&lt;!--android 9.0&#x4E0A;&#x4F7F;&#x7528;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x6743;&#x9650;,&#x6B64;&#x6743;&#x9650;&#x4E3A;&#x7EA7;&#x522B;&#x4E3A;nomarl--&gt;
+&lt;uses-permission android:name=&quot;android.permission.FOREGROUND_SERVICE&quot; /&gt;
+</code></pre><h3 id="2-&#x542F;&#x52A8;server&#x5F15;&#x7528;&#x542F;&#x52A8;5&#x79D2;&#x5185;&#x8981;&#x542F;&#x52A8;server">2. &#x542F;&#x52A8;server(&#x5F15;&#x7528;&#x542F;&#x52A8;5&#x79D2;&#x5185;&#x8981;&#x542F;&#x52A8;server)</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+        context.startForegroundService(<span class="hljs-keyword">new</span> Intent(context, MyService.class));
+    } <span class="hljs-keyword">else</span> {
+        context.startService(<span class="hljs-keyword">new</span> Intent(context, MyService.class));
+    }
+</code></pre>
+<p>&#x7136;&#x540E;&#x5FC5;&#x987B;&#x5728;Myservice&#x4E2D;&#x8C03;&#x7528;startForeground():</p>
+<h3 id="3-server&#x4E2D;oncreate&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;startforeground">3. Server&#x4E2D;onCreate&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;startForeground()</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String CHANNEL_ID_STRING = <span class="hljs-string">&quot;service_01&quot;</span>;
+<span class="hljs-keyword">private</span> Notification notification;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate();
+        <span class="hljs-comment">//&#x9002;&#x914D;8.0service</span>
+        NotificationManager notificationManager = (NotificationManager) MyApp.getInstance().getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel mChannel = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= android.os.Build.VERSION_CODES.O) {
+            mChannel = <span class="hljs-keyword">new</span> NotificationChannel(CHANNEL_ID_STRING, getString(R.string.app_name),
+                    NotificationManager.IMPORTANCE_LOW);
+            notificationManager.createNotificationChannel(mChannel);
+            notification = <span class="hljs-keyword">new</span> Notification.Builder(getApplicationContext(), CHANNEL_ID_STRING).build();
+            startForeground(<span class="hljs-number">1</span>, notification);
+        }
+}
+</code></pre>
+<h3 id="4-&#x5728;onstart&#x91CC;&#x518D;&#x6B21;&#x8C03;&#x7528;startforeground">4. &#x5728;onStart&#x91CC;&#x518D;&#x6B21;&#x8C03;&#x7528;startForeground()</h3>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">(Intent intent, <span class="hljs-keyword">int</span> startId)</span> </span>{
+    <span class="hljs-keyword">super</span>.onStart(intent, startId);
+
+    <span class="hljs-keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= android.os.Build.VERSION_CODES.O) {
+        startForeground(<span class="hljs-number">1</span>, notification);
+    }
+
+}
+</code></pre>
+<h3 id="&#x6CE8;&#x89E3;">&#x6CE8;&#x89E3;:</h3>
+<ul>
+<li><p>Android 8.0 &#x7CFB;&#x7EDF;&#x4E0D;&#x5141;&#x8BB8;&#x540E;&#x53F0;&#x5E94;&#x7528;&#x521B;&#x5EFA;&#x540E;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x6545;&#x53EA;&#x80FD;&#x4F7F;&#x7528;Context.startForegroundService()&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x540E;&#xFF0C;&#x5E94;&#x7528;&#x5FC5;&#x987B;&#x5728;5&#x79D2;&#x5185;&#x8C03;&#x7528;&#x8BE5;&#x670D;&#x52A1;&#x7684; startForeground() &#x663E;&#x793A;&#x4E00;&#x6761;&#x53EF;&#x89C1;&#x901A;&#x77E5;&#xFF0C;&#x58F0;&#x660E;&#x6709;&#x670D;&#x52A1;&#x5728;&#x6302;&#x7740;&#xFF0C;&#x4E0D;&#x7136;&#x7CFB;&#x7EDF;&#x4F1A;&#x505C;&#x6B62;&#x670D;&#x52A1; + ANR &#x5957;&#x9910;&#x9001;&#x4E0A;&#x3002;</p>
+</li>
+<li><p>Notification &#x8981;&#x52A0; Channel&#xFF0C;&#x7CFB;&#x7EDF;&#x7684;&#x8981;&#x6C42;</p>
+</li>
+<li><p><font color="red">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;onStart&#x91CC;&#x518D;&#x6B21;&#x8C03;&#x7528;startForeground()&#xFF1F;</font>&#x7B54;&#xFF1A;&#x8FD9;&#x4E00;&#x6761;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x540E;&#x53F0;&#x4FDD;&#x6D3B;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x670D;&#x52A1;A&#x8FD0;&#x884C;&#x671F;&#x95F4;&#xFF0C;&#x4FDD;&#x6D3B;&#x673A;&#x5236;&#x53C8;startForegroundService&#x542F;&#x52A8;&#x4E86;&#x4E00;&#x6B21;&#x670D;&#x52A1;A&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6837;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;&#x670D;&#x52A1;A&#x7684;onCreate&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x4F1A;&#x8C03;&#x7528;onStart&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5728;onStart&#x65B9;&#x6CD5;&#x91CC;&#x518D;&#x6302;&#x4E2A;&#x901A;&#x77E5;&#x7684;&#x8BDD;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x8BA4;&#x4E3A;&#x4F60;&#x4F7F;&#x7528;&#x4E86; startForegroundService &#x5374;&#x4E0D;&#x5728; 5 &#x79D2;&#x5185;&#x7ED9;&#x901A;&#x77E5;&#xFF0C;&#x5F88;&#x50BB;&#x5730;&#x5C31;&#x505C;&#x6B62;&#x670D;&#x52A1; + ANR &#x5957;&#x9910;&#x9001;&#x4E0A;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_neibulei.html" class="navigation navigation-prev " aria-label="Previous page: Java内部类详解">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rxjava_retrofit_android.html" class="navigation navigation-next " aria-label="Next page: 初探RxJava以及结合Retrofit的使用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Android 8.0之后Service使用问题","level":"1.3.8","depth":2,"next":{"title":"初探RxJava以及结合Retrofit的使用","level":"1.3.9","depth":2,"path":"chapter1/rxjava_retrofit_android.md","ref":"chapter1/rxjava_retrofit_android.md","articles":[]},"previous":{"title":"Java内部类详解","level":"1.3.7","depth":2,"path":"chapter1/java_neibulei.md","ref":"chapter1/java_neibulei.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/android_8.0_server.md","mtime":"2020-05-12T03:14:12.762Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T10:25:16.452Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

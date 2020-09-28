@@ -1,0 +1,1091 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java并发编程：Callable、Future和FutureTask · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="casPrincipleAnalysis.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../manpin/">
+            
+                <a href="../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                <a href="../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter1/android__threadlocal.html">
+            
+                <a href="../chapter1/android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter1/jni_kaifazongjie.html">
+            
+                <a href="../chapter1/jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter1/dui_zhan_qubie.html">
+            
+                <a href="../chapter1/dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter1/java_equals_hashcode.html">
+            
+                <a href="../chapter1/java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter1/java_jichushu_yinyong_diff.html">
+            
+                <a href="../chapter1/java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter1/java_neibulei.html">
+            
+                <a href="../chapter1/java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter1/android_8.0_server.html">
+            
+                <a href="../chapter1/android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../chapter1/rxjava_retrofit_android.html">
+            
+                <a href="../chapter1/rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../AndroidMemory/handleMenmory.html">
+            
+                <a href="../AndroidMemory/handleMenmory.html">
+            
+                    
+                    Android内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../AndroidMemory/officialOverview.html">
+            
+                <a href="../AndroidMemory/officialOverview.html">
+            
+                    
+                    Android内存管理(官方概览)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../AndroidMemory/operating_system_basis.html">
+            
+                <a href="../AndroidMemory/operating_system_basis.html">
+            
+                    
+                    Android内存管理(操作系统基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../AndroidMemory/memory_management.html">
+            
+                <a href="../AndroidMemory/memory_management.html">
+            
+                    
+                    Android内存管理(内存管理基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../AndroidMemory/linux_memory_managenment.html">
+            
+                <a href="../AndroidMemory/linux_memory_managenment.html">
+            
+                    
+                    Android内存管理(linux内存管理机制)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../AndroidMemory/Android_memory_manag.html">
+            
+                <a href="../AndroidMemory/Android_memory_manag.html">
+            
+                    
+                    Android内存管理(Android的内存管理机制简析)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../AndroidMemory/Android_optimization_linux.html">
+            
+                <a href="../AndroidMemory/Android_optimization_linux.html">
+            
+                    
+                    Android内存管理(Android对Linux系统的内存管理机制进行的优化)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../AndroidMemory/memory_callback.html">
+            
+                <a href="../AndroidMemory/memory_callback.html">
+            
+                    
+                    Android内存管理(垃圾回收算法相关)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../AndroidMemory/jvm_dvm_art_diffrent.html">
+            
+                <a href="../AndroidMemory/jvm_dvm_art_diffrent.html">
+            
+                    
+                    Android内存管理(JVM 、DVM(dalvik) 、ART联系与区别)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../androidan-quan.html">
+            
+                <a href="../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/java_base/java_stream_io.html">
+            
+                <a href="../java/java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    [线程共享和协作]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="baseThreadsAndCooperation.html">
+            
+                <a href="baseThreadsAndCooperation.html">
+            
+                    
+                    线程基础、线程之间的共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" >
+            
+                <span>
+            
+                    
+                    [synchronized local volatile Threadlocal如何实现线程共享]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.2.1" data-path="synchronizedSharedThreads.html">
+            
+                <a href="synchronizedSharedThreads.html">
+            
+                    
+                    Synchronized实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2.2" data-path="casPrincipleAnalysis.html">
+            
+                <a href="casPrincipleAnalysis.html">
+            
+                    
+                    CAS原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2.2.3" data-path="callableFutureFutureTask.html">
+            
+                <a href="callableFutureFutureTask.html">
+            
+                    
+                    Java并发编程：Callable、Future和FutureTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                <a href="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                <a href="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                <a href="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    [注解深入浅出]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../java/annotation/descriptionAnnotation.html">
+            
+                <a href="../java/annotation/descriptionAnnotation.html">
+            
+                    
+                    注解是什么,如何理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../java/annotation/customAnnotation.html">
+            
+                <a href="../java/annotation/customAnnotation.html">
+            
+                    
+                    自定义注解与元注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.3" data-path="../java/annotation/enviromentAnnotation.html">
+            
+                <a href="../java/annotation/enviromentAnnotation.html">
+            
+                    
+                    注解的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" >
+            
+                <span>
+            
+                    
+                    [并发编程]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.5.1" data-path="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                <a href="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                    
+                    线程共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Java并发编程：Callable、Future和FutureTask</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E00;&#x3001;callable-&#x4E0E;-runnable">&#x4E00;&#x3001;Callable &#x4E0E; Runnable</h1>
+<p>&#x5148;&#x8BF4;&#x4E00;&#x4E0B;java.lang.Runnable&#x5427;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5728;&#x5B83;&#x91CC;&#x9762;&#x53EA;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;run()&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Runnable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x7531;&#x4E8E;run()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;void&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6267;&#x884C;&#x5B8C;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#x65E0;&#x6CD5;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x7ED3;&#x679C;&#x3002;</p>
+<p>Callable&#x4F4D;&#x4E8E;java.util.concurrent&#x5305;&#x4E0B;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5728;&#x5B83;&#x91CC;&#x9762;&#x4E5F;&#x53EA;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EB;&#x505A;call()&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Callable</span>&lt;<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-comment">/**
+     * Computes a result, or throws an exception if unable to do so.
+     *
+     * <span class="hljs-doctag">@return</span> computed result
+     * <span class="hljs-doctag">@throws</span> Exception if unable to compute a result
+     */</span>
+    <span class="hljs-function">V <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>;
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#xFF0C;&#x8BE5;&#x63A5;&#x53E3;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x79F0;&#x4E3A;call()&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x65F6;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6709;&#x8FD4;&#x56DE;&#x503C;V&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;call()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x4F20;&#x9012;&#x8FDB;&#x6765;&#x7684;V&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x600E;&#x4E48;&#x4F7F;&#x7528;Callable&#x5462;&#xFF1F;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x914D;&#x5408;ExecutorService&#x6765;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5728;ExecutorService&#x63A5;&#x53E3;&#x4E2D;&#x58F0;&#x660E;&#x4E86;&#x82E5;&#x5E72;&#x4E2A;submit&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x8F7D;&#x7248;&#x672C;&#xFF1A;</p>
+<pre><code class="lang-java">&lt;T&gt; <span class="hljs-function">Future&lt;T&gt; <span class="hljs-title">submit</span><span class="hljs-params">(Callable&lt;T&gt; task)</span></span>;
+&lt;T&gt; <span class="hljs-function">Future&lt;T&gt; <span class="hljs-title">submit</span><span class="hljs-params">(Runnable task, T result)</span></span>;
+Future&lt;?&gt; submit(Runnable task);
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;submit&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;Callable&#x63A5;&#x53E3;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x5C01;&#x88C5;&#x4E86;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;Future&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;submit&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;Runnable&#x63A5;&#x53E3;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x6307;&#x5B9A;&#x4E86;&#x5728;&#x8C03;&#x7528;Future&#x7684;get&#x65B9;&#x6CD5;&#x65F6;&#x8FD4;&#x56DE;&#x7684;result&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;submit&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;Runnable&#x63A5;&#x53E3;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x5C01;&#x88C5;&#x4E86;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;Future&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x521B;&#x5EFA;&#x597D;&#x6211;&#x4EEC;&#x7684;&#x7EBF;&#x7A0B;&#x5BF9;&#x8C61;&#xFF08;&#x5B9E;&#x73B0;Callable&#x63A5;&#x53E3;&#x6216;&#x8005;Runnable&#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4E0A;&#x9762;3&#x4E2A;&#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x7ED9;&#x7EBF;&#x7A0B;&#x6C60;&#x53BB;&#x6267;&#x884C;&#x5373;&#x53EF;&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;future">&#x4E8C;&#x3001;Future</h1>
+<p>Future&#x5C31;&#x662F;&#x5BF9;&#x4E8E;&#x5177;&#x4F53;&#x7684;Runnable&#x6216;&#x8005;Callable&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x53D6;&#x6D88;&#x3001;&#x67E5;&#x8BE2;&#x662F;&#x5426;&#x5B8C;&#x6210;&#x3001;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x3002;&#x5FC5;&#x8981;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;get&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x963B;&#x585E;&#x76F4;&#x5230;&#x4EFB;&#x52A1;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+<p>Future<v>&#x63A5;&#x53E3;&#x662F;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x7684;&#xFF0C;&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x5BF9;&#x5177;&#x4F53;&#x7684;Runnable&#x6216;&#x8005;Callable&#x5BF9;&#x8C61;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x83B7;&#x53D6;(get())&#xFF0C;&#x53D6;&#x6D88;(cancel())&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B8C;&#x6210;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x770B;Future&#x63A5;&#x53E3;&#x7684;&#x6E90;&#x7801;&#xFF1A;</v></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Future</span>&lt;<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">cancel</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> mayInterruptIfRunning)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isCancelled</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isDone</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException, ExecutionException</span>;
+    <span class="hljs-function">V <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">long</span> timeout, TimeUnit unit)</span>
+        <span class="hljs-keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;
+}
+</code></pre>
+<p>&#x5728;Future&#x63A5;&#x53E3;&#x4E2D;&#x58F0;&#x660E;&#x4E86;5&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x4F9D;&#x6B21;&#x89E3;&#x91CA;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#xFF1A;</p>
+<ul>
+<li><p>cancel&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;true&#xFF0C;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x5931;&#x8D25;&#x5219;&#x8FD4;&#x56DE;false&#x3002;&#x53C2;&#x6570;mayInterruptIfRunning&#x8868;&#x793A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x53D6;&#x6D88;&#x6B63;&#x5728;&#x6267;&#x884C;&#x5374;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;true&#xFF0C;&#x5219;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;&#x6B63;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x5219;&#x65E0;&#x8BBA;mayInterruptIfRunning&#x4E3A;true&#x8FD8;&#x662F;false&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x80AF;&#x5B9A;&#x8FD4;&#x56DE;false&#xFF0C;&#x5373;&#x5982;&#x679C;&#x53D6;&#x6D88;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#x4F1A;&#x8FD4;&#x56DE;false&#xFF1B;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x6B63;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x82E5;mayInterruptIfRunning&#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true&#xFF0C;&#x82E5;mayInterruptIfRunning&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5219;&#x8FD4;&#x56DE;false&#xFF1B;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x8FD8;&#x6CA1;&#x6709;&#x6267;&#x884C;&#xFF0C;&#x5219;&#x65E0;&#x8BBA;mayInterruptIfRunning&#x4E3A;true&#x8FD8;&#x662F;false&#xFF0C;&#x80AF;&#x5B9A;&#x8FD4;&#x56DE;true&#x3002;</p>
+</li>
+<li><p>isCancelled&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x4EFB;&#x52A1;&#x662F;&#x5426;&#x88AB;&#x53D6;&#x6D88;&#x6210;&#x529F;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x4EFB;&#x52A1;&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x524D;&#x88AB;&#x53D6;&#x6D88;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; true&#x3002;</p>
+</li>
+<li><p>isDone&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x4EFB;&#x52A1;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x82E5;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true&#xFF1B;</p>
+</li>
+<li><p>get()&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x4EA7;&#x751F;&#x963B;&#x585E;&#xFF0C;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5230;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x624D;&#x8FD4;&#x56DE;&#xFF1B;</p>
+</li>
+<li><p>get(long timeout, TimeUnit unit)&#x7528;&#x6765;&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x8FD8;&#x6CA1;&#x83B7;&#x53D6;&#x5230;&#x7ED3;&#x679C;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;null&#x3002;</p>
+</li>
+</ul>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;Future&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x529F;&#x80FD;&#xFF1A;</p>
+<p>1&#xFF09;&#x5224;&#x65AD;&#x4EFB;&#x52A1;&#x662F;&#x5426;&#x5B8C;&#x6210;&#xFF1B;</p>
+<p>2&#xFF09;&#x80FD;&#x591F;&#x4E2D;&#x65AD;&#x4EFB;&#x52A1;&#xFF1B;</p>
+<p>3&#xFF09;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;Future&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x6709;&#x4E86;&#x4E0B;&#x9762;&#x7684;FutureTask&#x3002;</p>
+<h1 id="&#x4E09;&#x3001;futuretask">&#x4E09;&#x3001;FutureTask</h1>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E0B;FutureTask&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FutureTask</span>&lt;<span class="hljs-title">V</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">RunnableFuture</span>&lt;<span class="hljs-title">V</span>&gt;</span>{}
+</code></pre>
+<p>FutureTask&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;RunnableFuture&#x63A5;&#x53E3;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B;RunnableFuture&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">RunnableFuture</span>&lt;<span class="hljs-title">V</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Runnable</span>, <span class="hljs-title">Future</span>&lt;<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;RunnableFuture&#x7EE7;&#x627F;&#x4E86;Runnable&#x63A5;&#x53E3;&#x548C;Future&#x63A5;&#x53E3;&#xFF0C;&#x800C;FutureTask&#x5B9E;&#x73B0;&#x4E86;RunnableFuture&#x63A5;&#x53E3;&#x3002;&#x6240;&#x4EE5;&#x5B83;&#x65E2;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;Runnable&#x88AB;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;Future&#x5F97;&#x5230;Callable&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p><strong>&#x5206;&#x6790;&#xFF1A;</strong></p>
+<p>FutureTask&#x9664;&#x4E86;&#x5B9E;&#x73B0;&#x4E86;Future&#x63A5;&#x53E3;&#x5916;&#x8FD8;&#x5B9E;&#x73B0;&#x4E86;Runnable&#x63A5;&#x53E3;&#xFF0C;&#x56E0;&#x6B64;FutureTask&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x63D0;&#x4EA4;&#x7ED9;Executor&#x6267;&#x884C;&#x3002; &#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x76F4;&#x63A5;&#x6267;&#x884C;&#xFF08;FutureTask.run()&#xFF09;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x6839;&#x636E;FutureTask.run()&#x7684;&#x6267;&#x884C;&#x65F6;&#x673A;&#x6765;&#x5206;&#x6790;&#x5176;&#x6240;&#x5904;&#x7684;3&#x79CD;&#x72B6;&#x6001;&#xFF1A;</p>
+<ul>
+<li><p>&#xFF08;1&#xFF09;&#x672A;&#x542F;&#x52A8;&#xFF0C;FutureTask.run()&#x65B9;&#x6CD5;&#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x6267;&#x884C;&#x4E4B;&#x524D;&#xFF0C;FutureTask&#x5904;&#x4E8E;&#x672A;&#x542F;&#x52A8;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;FutureTask&#xFF0C;&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x6267;&#x884C;FutureTask.run()&#x65B9;&#x6CD5;&#x524D;&#xFF0C;&#x8FD9;&#x4E2A;FutureTask&#x4E5F;&#x5904;&#x4E8E;&#x672A;&#x542F;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
+</li>
+<li><p>&#xFF08;2&#xFF09;&#x5DF2;&#x542F;&#x52A8;&#xFF0C;FutureTask.run()&#x88AB;&#x6267;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;FutureTask&#x5904;&#x4E8E;&#x5DF2;&#x542F;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
+</li>
+<li><p>&#xFF08;3&#xFF09;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;FutureTask.run()&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#xFF0C;&#x6216;&#x8005;&#x88AB;&#x53D6;&#x6D88;&#x6216;&#x8005;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x800C;&#x7ED3;&#x675F;&#xFF0C;FutureTask&#x90FD;&#x5904;&#x4E8E;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x3002;</p>
+</li>
+</ul>
+<p><img src="https://images2017.cnblogs.com/blog/249993/201801/249993-20180117152715928-693704452.png" alt=""></p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x770B;FutureTask&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x793A;&#x610F;&#x56FE;&#xFF08;&#x65B9;&#x6CD5;&#x548C;Future&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x8FC7;&#x591A;&#x63CF;&#x8FF0;&#x4E86;&#xFF09;</p>
+<p><img src="https://images2017.cnblogs.com/blog/249993/201801/249993-20180117152850084-1746242308.png" alt=""></p>
+<p><strong>&#x5206;&#x6790;&#xFF1A;</strong></p>
+<ul>
+<li><p>&#xFF08;1&#xFF09;&#x5F53;FutureTask&#x5904;&#x4E8E;&#x672A;&#x542F;&#x52A8;&#x6216;&#x5DF2;&#x542F;&#x52A8;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x6267;&#x884C;FutureTask.get()&#x65B9;&#x6CD5;&#x5C06;&#x5BFC;&#x81F4;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#xFF1B;&#x5F53;FutureTask&#x5904;&#x4E8E;&#x5DF2;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x6267;&#x884C;FutureTask.get()&#x65B9;&#x6CD5;&#x5C06;&#x5BFC;&#x81F4;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x6216;&#x8005;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p>
+</li>
+<li><p>&#xFF08;2&#xFF09;&#x5F53;FutureTask&#x5904;&#x4E8E;&#x672A;&#x542F;&#x52A8;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x6267;&#x884C;FutureTask.cancel()&#x65B9;&#x6CD5;&#x5C06;&#x5BFC;&#x81F4;&#x6B64;&#x4EFB;&#x52A1;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x5F53;FutureTask&#x5904;&#x4E8E;&#x5DF2;&#x542F;&#x52A8;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x6267;&#x884C;cancel(true)&#x65B9;&#x6CD5;&#x5C06;&#x4EE5;&#x4E2D;&#x65AD;&#x6267;&#x884C;&#x6B64;&#x4EFB;&#x52A1;&#x7EBF;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x8BD5;&#x56FE;&#x505C;&#x6B62;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x53D6;&#x6D88;&#x6210;&#x529F;&#xFF0C;cancel(...)&#x8FD4;&#x56DE;true&#xFF1B;&#x4F46;&#x5982;&#x679C;&#x6267;&#x884C;cancel(false)&#x65B9;&#x6CD5;&#x5C06;&#x4E0D;&#x4F1A;&#x5BF9;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x7EBF;&#x7A0B;&#x4EA7;&#x751F;&#x5F71;&#x54CD;(&#x8BA9;&#x7EBF;&#x7A0B;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x5230;&#x5B8C;&#x6210;)&#xFF0C;&#x6B64;&#x65F6;cancel(...)&#x8FD4;&#x56DE;false&#x3002;&#x5F53;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x6267;&#x884C;cancel(...)&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;false&#x3002;</p>
+</li>
+</ul>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x7ED9;&#x51FA;FutureTask&#x7684;&#x4E24;&#x79CD;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-java">
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FutureTask</span><span class="hljs-params">(Callable&lt;V&gt; callable)</span> </span>{
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FutureTask</span><span class="hljs-params">(Runnable runnable, V result)</span> </span>{
+}
+</code></pre>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;FutureTask&#x662F;Future&#x63A5;&#x53E3;&#x7684;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x5B9E;&#x73B0;&#x7C7B;&#x3002;</p>
+<h1 id="&#x56DB;&#x3001;&#x4F7F;&#x7528;&#x793A;&#x4F8B;">&#x56DB;&#x3001;&#x4F7F;&#x7528;&#x793A;&#x4F8B;</h1>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;Callable&#xFF0C;Future&#xFF0C;FutureTask&#x90FD;&#x6709;&#x4E86;&#x6BD4;&#x8F83;&#x6E05;&#x6670;&#x7684;&#x4E86;&#x89E3;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x5230;&#x5E95;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;<strong>&#x6700;&#x5927;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</strong>&#xFF0C;&#x52A0;&#x5165;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x8BA1;&#x7B97;&#x6BD4;&#x8F83;&#x8017;&#x65F6;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x4E5F;&#x8981;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65F6;Callable&#x5C82;&#x4E0D;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F00;&#x8BBE;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x53BB;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x800C;&#x4E3B;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x505A;&#x5176;&#x4ED6;&#x4E8B;&#xFF0C;&#x800C;&#x540E;&#x9762;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x4F7F;&#x7528;Future&#x83B7;&#x53D6;&#x4E0D;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x5417;&#xFF1F;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>1&#x3001;&#x4F7F;&#x7528;Callable+Future&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.demo.test;
+
+<span class="hljs-keyword">import</span> java.util.concurrent.Callable;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Task</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Callable</span>&lt;<span class="hljs-title">Integer</span>&gt;</span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x5B50;&#x7EBF;&#x7A0B;&#x5728;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&quot;</span>);
+        Thread.sleep(<span class="hljs-number">3000</span>);
+        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">100</span>;i++)
+            sum += i;
+        <span class="hljs-keyword">return</span> sum;
+    }
+
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.demo.test;
+
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutionException;
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;
+<span class="hljs-keyword">import</span> java.util.concurrent.Executors;
+<span class="hljs-keyword">import</span> java.util.concurrent.Future;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallableTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x6C60;</span>
+        ExecutorService executor = Executors.newCachedThreadPool();
+        <span class="hljs-comment">//&#x521B;&#x5EFA;Callable&#x5BF9;&#x8C61;&#x4EFB;&#x52A1;  </span>
+        Task task = <span class="hljs-keyword">new</span> Task();
+        <span class="hljs-comment">//&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5E76;&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;  </span>
+        Future&lt;Integer&gt; result = executor.submit(task);
+        <span class="hljs-comment">//&#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#x6C60;  </span>
+        executor.shutdown();
+
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">1000</span>);
+        } <span class="hljs-keyword">catch</span> (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+
+        System.out.println(<span class="hljs-string">&quot;&#x4E3B;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&quot;</span>);
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span>(result.get()!=<span class="hljs-keyword">null</span>){  
+                System.out.println(<span class="hljs-string">&quot;task&#x8FD0;&#x884C;&#x7ED3;&#x679C;&quot;</span>+result.get());
+            }<span class="hljs-keyword">else</span>{
+                System.out.println(<span class="hljs-string">&quot;&#x672A;&#x83B7;&#x53D6;&#x5230;&#x7ED3;&#x679C;&quot;</span>);
+            }
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        } <span class="hljs-keyword">catch</span> (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="hljs-string">&quot;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>&#x5B50;&#x7EBF;&#x7A0B;&#x5728;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;
+&#x4E3B;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;
+task&#x8FD0;&#x884C;&#x7ED3;&#x679C;4950
+&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;
+</code></pre><p>2&#x3001;&#x4F7F;&#x7528;Callable+FutureTask&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.demo.test;
+
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutionException;
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;
+<span class="hljs-keyword">import</span> java.util.concurrent.Executors;
+<span class="hljs-keyword">import</span> java.util.concurrent.FutureTask;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallableTest1</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;</span>
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Task task = <span class="hljs-keyword">new</span> Task();
+        FutureTask&lt;Integer&gt; futureTask = <span class="hljs-keyword">new</span> FutureTask&lt;Integer&gt;(task);
+        executor.submit(futureTask);
+        executor.shutdown();
+
+        <span class="hljs-comment">//&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x548C;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x6548;&#x679C;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x7684;&#x662F;ExecutorService&#xFF0C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x7684;&#x662F;Thread</span>
+<span class="hljs-comment">//        Task task = new Task();</span>
+<span class="hljs-comment">//        FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(task);</span>
+<span class="hljs-comment">//        Thread thread = new Thread(futureTask);</span>
+<span class="hljs-comment">//        thread.start();</span>
+
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">1000</span>);
+        } <span class="hljs-keyword">catch</span> (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+
+        System.out.println(<span class="hljs-string">&quot;&#x4E3B;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&quot;</span>);
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span>(futureTask.get()!=<span class="hljs-keyword">null</span>){  
+                System.out.println(<span class="hljs-string">&quot;task&#x8FD0;&#x884C;&#x7ED3;&#x679C;&quot;</span>+futureTask.get());
+            }<span class="hljs-keyword">else</span>{
+                System.out.println(<span class="hljs-string">&quot;future.get()&#x672A;&#x83B7;&#x53D6;&#x5230;&#x7ED3;&#x679C;&quot;</span>);
+            }
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        } <span class="hljs-keyword">catch</span> (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="hljs-string">&quot;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x540C;&#x4E0A;&#x3002;</p>
+<p>&#x8865;&#x5145;&#xFF1A;</p>
+<p>**&#x5B9E;&#x73B0;Runnable&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;Callable&#x63A5;&#x53E3;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<ul>
+<li><p>1&#x3001;Runnable&#x662F;&#x81EA;&#x4ECE;java1.1&#x5C31;&#x6709;&#x4E86;&#xFF0C;&#x800C;Callable&#x662F;1.5&#x4E4B;&#x540E;&#x624D;&#x52A0;&#x4E0A;&#x53BB;&#x7684;&#x3002;</p>
+</li>
+<li><p>2&#x3001;Callable&#x89C4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x662F;call(),Runnable&#x89C4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x662F;run()&#x3002;</p>
+</li>
+<li><p>3&#x3001;Callable&#x7684;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x540E;&#x53EF;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x800C;Runnable&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x4E0D;&#x80FD;&#x8FD4;&#x56DE;&#x503C;(&#x662F;void)&#x3002;</p>
+</li>
+<li><p>4&#x3001;call&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;run&#x65B9;&#x6CD5;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;</p>
+</li>
+<li><p>5&#x3001;&#x8FD0;&#x884C;Callable&#x4EFB;&#x52A1;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x4E00;&#x4E2A;Future&#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A;&#x5F02;&#x6B65;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x68C0;&#x67E5;&#x8BA1;&#x7B97;&#x662F;&#x5426;&#x5B8C;&#x6210;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x7684;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x68C0;&#x7D22;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x901A;&#x8FC7;Future&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x53EF;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x8FD8;&#x53EF;&#x83B7;&#x53D6;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+</li>
+<li><p>6&#x3001;&#x52A0;&#x5165;&#x7EBF;&#x7A0B;&#x6C60;&#x8FD0;&#x884C;&#xFF0C;Runnable&#x4F7F;&#x7528;ExecutorService&#x7684;execute&#x65B9;&#x6CD5;&#xFF0C;Callable&#x4F7F;&#x7528;submit&#x65B9;&#x6CD5;&#x3002;**</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="casPrincipleAnalysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: CAS原理分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java并发编程：Callable、Future和FutureTask","level":"1.6.2.2.3","depth":4,"next":{"title":"[深入理解Java泛型]","level":"1.6.3","depth":2,"ref":"","articles":[{"title":"泛型的作用与定义","level":"1.6.3.1","depth":3,"path":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","ref":"java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md","articles":[]},{"title":"通配符与嵌套","level":"1.6.3.2","depth":3,"path":"java/deepIntoJavaGenerics/javaGenericWildcard.md","ref":"java/deepIntoJavaGenerics/javaGenericWildcard.md","articles":[]},{"title":"Java泛型擦除及其相关内容","level":"1.6.3.3","depth":3,"path":"java/deepIntoJavaGenerics/JavaGenericErasure.md","ref":"java/deepIntoJavaGenerics/JavaGenericErasure.md","articles":[]}]},"previous":{"title":"CAS原理分析","level":"1.6.2.2.2","depth":4,"path":"handleThreads/casPrincipleAnalysis.md","ref":"handleThreads/casPrincipleAnalysis.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"handleThreads/callableFutureFutureTask.md","mtime":"2020-09-28T11:00:45.506Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-28T11:01:00.395Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,961 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Android 之 ThreadLocal简析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="jni_kaifazongjie.html" />
+    
+    
+    <link rel="prev" href="android-activityqi-dong-mo-shi.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../manpin/">
+            
+                <a href="../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="android-activityqi-dong-mo-shi.html">
+            
+                <a href="android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="android__threadlocal.html">
+            
+                <a href="android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="jni_kaifazongjie.html">
+            
+                <a href="jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="dui_zhan_qubie.html">
+            
+                <a href="dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="java_equals_hashcode.html">
+            
+                <a href="java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="java_jichushu_yinyong_diff.html">
+            
+                <a href="java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="java_neibulei.html">
+            
+                <a href="java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="android_8.0_server.html">
+            
+                <a href="android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="rxjava_retrofit_android.html">
+            
+                <a href="rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../AndroidMemory/handleMenmory.html">
+            
+                <a href="../AndroidMemory/handleMenmory.html">
+            
+                    
+                    Android内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../AndroidMemory/officialOverview.html">
+            
+                <a href="../AndroidMemory/officialOverview.html">
+            
+                    
+                    Android内存管理(官方概览)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../AndroidMemory/operating_system_basis.html">
+            
+                <a href="../AndroidMemory/operating_system_basis.html">
+            
+                    
+                    Android内存管理(操作系统基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../AndroidMemory/memory_management.html">
+            
+                <a href="../AndroidMemory/memory_management.html">
+            
+                    
+                    Android内存管理(内存管理基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../AndroidMemory/linux_memory_managenment.html">
+            
+                <a href="../AndroidMemory/linux_memory_managenment.html">
+            
+                    
+                    Android内存管理(linux内存管理机制)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../androidan-quan.html">
+            
+                <a href="../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/java_base/java_stream_io.html">
+            
+                <a href="../java/java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                <a href="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                <a href="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.3" data-path="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                <a href="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    [注解深入浅出]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../java/annotation/descriptionAnnotation.html">
+            
+                <a href="../java/annotation/descriptionAnnotation.html">
+            
+                    
+                    注解是什么,如何理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../java/annotation/customAnnotation.html">
+            
+                <a href="../java/annotation/customAnnotation.html">
+            
+                    
+                    自定义注解与元注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../java/annotation/enviromentAnnotation.html">
+            
+                <a href="../java/annotation/enviromentAnnotation.html">
+            
+                    
+                    注解的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    [并发编程]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                <a href="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                    
+                    线程共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Android 之 ThreadLocal简析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="android-&#x4E4B;-threadlocal&#x7B80;&#x6790;">Android &#x4E4B; ThreadLocal&#x7B80;&#x6790;</h1>
+<h3 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h3>
+<p>&#x6E90;&#x7801; &#x57FA;&#x4E8E; Android SDK 28    JDK 1.8</p>
+<hr>
+<blockquote>
+<p>&#x8BF4;&#x8D77; ThreadLocal&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x8F83;&#x964C;&#x751F;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x60F3;&#x8981;&#x6BD4;&#x8F83;&#x597D;&#x5730;&#x7406;&#x89E3; Android &#x7684;&#x6D88;&#x606F;&#x673A;&#x5236;&#xFF0C;ThreadLocal &#x662F;&#x5FC5;&#x987B;&#x8981;&#x638C;&#x63E1;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A; Looper &#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x5C31;&#x8DDF; ThreadLocal &#x6709;&#x5F88;&#x5927;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x7406;&#x89E3; ThreadLocal &#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6709;&#x52A9;&#x4E8E;&#x6211;&#x4EEC;&#x7406;&#x89E3; Looper &#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C31;&#x4ECE; ThreadLocal &#x7684;&#x7528;&#x6CD5;&#x8BB2;&#x8D77;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5E26;&#x5927;&#x5BB6;&#x7406;&#x89E3; ThreadLocal&#x3002;</p>
+</blockquote>
+<h3 id="&#x4E00;&#x3001;threadlocal-&#x662F;&#x4EC0;&#x4E48;">&#x4E00;&#x3001;ThreadLocal &#x662F;&#x4EC0;&#x4E48;</h3>
+<hr>
+<p>ThreadLocal &#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5185;&#x90E8;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x53EF;&#x4EE5;&#x5728; <strong>&#x6307;&#x5B9A;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;</strong> &#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4EE5;&#x540E;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x6307;&#x5B9A;&#x7EBF;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6765;&#x8BF4;&#x5219;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x5F53;&#x67D0;&#x4E9B;&#x6570;&#x636E;&#x662F;&#x4EE5;&#x7EBF;&#x7A0B;&#x4E3A;&#x4F5C;&#x7528;&#x57DF;&#x5E76;&#x4E14;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x526F;&#x672C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x91C7;&#x7528; ThreadLocal&#x3002;</p>
+<h3 id="&#x4E8C;&#x3001;&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x4E8C;&#x3001;&#x57FA;&#x672C;&#x7528;&#x6CD5;</h3>
+<hr>
+<h4 id="&#x521B;&#x5EFA;&#xFF0C;&#x652F;&#x6301;&#x6CDB;&#x578B;">&#x521B;&#x5EFA;&#xFF0C;&#x652F;&#x6301;&#x6CDB;&#x578B;</h4>
+<pre><code class="lang-java">ThreadLocal&lt;Boolean&gt; mBooleanThreadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();
+</code></pre>
+<h4 id="set-&#x65B9;&#x6CD5;">set &#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java">mBooleanThreadLocal.set(<span class="hljs-keyword">false</span>);
+</code></pre>
+<h4 id="get-&#x65B9;&#x6CD5;">get &#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java">mBooleanThreadLocal.get()
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x7528;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5E2E;&#x52A9;&#x5927;&#x5BB6;&#x7406;&#x89E3; ThreadLocal</p>
+<pre><code class="lang-java">
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+
+    String TAG = <span class="hljs-string">&quot;ThreadLocal&quot;</span>;
+    ThreadLocal&lt;Boolean&gt; mBooleanThreadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        mBooleanThreadLocal.set(<span class="hljs-keyword">true</span>);
+        Log.d(TAG, <span class="hljs-string">&quot;Current Thread: mBooleanThreadLocal is : &quot;</span> + mBooleanThreadLocal.get());
+        <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;Thread#1&quot;</span>) {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">super</span>.run();
+                mBooleanThreadLocal.set(<span class="hljs-keyword">false</span>);
+                Log.d(TAG, <span class="hljs-string">&quot;Thread 1: mBooleanThreadLocal is : &quot;</span> + mBooleanThreadLocal.get());
+            }
+        }.start();
+        <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;Thread#2&quot;</span>) {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">super</span>.run();
+                Log.d(TAG, <span class="hljs-string">&quot;Thread 2: mBooleanThreadLocal is : &quot;</span> + mBooleanThreadLocal.get());
+            }
+        }.start();
+
+    }
+}
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BBE;&#x7F6E; mBooleanThrealLocal &#x7684;&#x503C;&#x4E3A; true&#xFF0C;&#x5728;&#x5B50;&#x7EBF;&#x7A0B; 1 &#x4E2D;&#x8BBE;&#x7F6E;&#x4E3A; false&#xFF0C;&#x5728;&#x5B50;&#x7EBF;&#x7A0B; 2 &#x4E2D;&#x4E0D;&#x8BBE;&#x7F6E; mBooleanThrealLocal &#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x522B;&#x5728; 3 &#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x901A;&#x8FC7; get() &#x65B9;&#x6CD5;&#x83B7;&#x53D6; mBooleanThrealLocal &#x7684;&#x503C;
+<img src="https://upload-images.jianshu.io/upload_images/2333435-065930bf7d33ced4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x867D;&#x7136;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BBF;&#x95EE;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A; ThrealLocal &#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x901A;&#x8FC7; ThrealLocal &#x83B7;&#x53D6;&#x5230;&#x7684;&#x503C;&#x786E;&#x5B9E;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x5C31;&#x662F; ThrealLocal &#x7684;&#x5947;&#x5999;&#x4E4B;&#x5904;&#x4E86;&#x3002;</p>
+<p>ThrealLocal &#x4E4B;&#x6240;&#x4EE5;&#x6709;&#x8FD9;&#x4E48;&#x5947;&#x5999;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A; ThrealLocal &#x7684; get() &#x65B9;&#x6CD5;&#xFF0C;ThrealLocal &#x5185;&#x90E8;&#x90FD;&#x4F1A;&#x4ECE;&#x5404;&#x81EA;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x6839;&#x636E;&#x5F53;&#x524D; ThrealLocal &#x7684;&#x7D22;&#x5F15;&#x53BB;&#x67E5;&#x627E;&#x4E0D;&#x540C;&#x7684; value &#x503C;&#x3002;</p>
+<h3 id="&#x4E09;&#x3001;threallocal-&#x5DE5;&#x4F5C;&#x539F;&#x7406;">&#x4E09;&#x3001;ThrealLocal &#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3>
+<hr>
+<p>ThrealLocal &#x662F;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7C7B;&#xFF0C;&#x5B83;&#x7684;&#x5B9A;&#x4E49;&#x4E3A; public class ThrealLocal<t>&#xFF0C;&#x53EA;&#x8981;&#x5F04;&#x6E05;&#x695A; ThrealLocal &#x7684; set() &#x548C; get() &#x65B9;&#x6CD5;&#x5C31;&#x53EF;&#x4EE5;&#x660E;&#x767D;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x4E86;&#x3002;</t></p>
+<h4 id="1&#x3001;threallocal-&#x7684;-set-&#x65B9;&#x6CD5;">1&#x3001;ThrealLocal &#x7684; set() &#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+     * Sets the current thread&apos;s copy of this thread-local variable
+     * to the specified value.  Most subclasses will have no need to
+     * override this method, relying solely on the {<span class="hljs-doctag">@link</span> #initialValue}
+     * method to set the values of thread-locals.
+     *
+     * <span class="hljs-doctag">@param</span> value the value to be stored in the current thread&apos;s copy of
+     *        this thread-local.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(T value)</span> </span>{
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>)
+            map.set(<span class="hljs-keyword">this</span>, value);
+        <span class="hljs-keyword">else</span>
+            createMap(t, value);
+    }
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728; set() &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5148;&#x83B7;&#x53D6;&#x5230;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; getMap(Thread t) &#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A; ThreadLocalMap&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A; map &#x4E0D;&#x4E3A;&#x7A7A;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x5C06; ThrealLocal &#x548C; &#x6211;&#x4EEC;&#x60F3;&#x5B58;&#x653E;&#x7684; value &#x8BBE;&#x7F6E;&#x8FDB;&#x53BB;&#xFF0C;&#x4E0D;&#x7136;&#x7684;&#x8BDD;&#x5C31;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; ThrealLocalMap &#x7136;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+     * Get the map associated with a ThreadLocal. Overridden in
+     * InheritableThreadLocal.
+     *
+     * <span class="hljs-doctag">@param</span>  t the current thread
+     * <span class="hljs-doctag">@return</span> the map
+     */</span>
+    <span class="hljs-function">ThreadLocalMap <span class="hljs-title">getMap</span><span class="hljs-params">(Thread t)</span> </span>{
+        <span class="hljs-keyword">return</span> t.threadLocals;
+    }
+</code></pre>
+<p>ThreadLocalMap &#x5176;&#x5B9E;&#x662F; ThreadLocal &#x91CC;&#x9762;&#x7684;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x800C;&#x6BCF;&#x4E00;&#x4E2A; Thread &#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684; ThrealLocalMap&#xFF0C;&#x56E0;&#x6B64;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684; ThrealLocal &#x6570;&#x636E;&#x5C31;&#x53D8;&#x5F97;&#x5F02;&#x5E38;&#x7B80;&#x5355;&#x4E86;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Thread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+
+    <span class="hljs-comment">/* ThreadLocal values pertaining to this thread. This map is maintained
+     * by the ThreadLocal class. */</span>
+    ThreadLocal.ThreadLocalMap threadLocals = <span class="hljs-keyword">null</span>;
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;ThrealLocal &#x7684;&#x503C;&#x5230;&#x5E95;&#x662F;&#x5982;&#x4F55;&#x5728; threadLocals &#x4E2D;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#x7684;&#x3002;
+&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4E00;&#x4E0B;set&#x65B9;&#x6CD5;&#x4E2D;&#x7684;</p>
+<pre><code class="lang-java">map.set(<span class="hljs-keyword">this</span>, value);
+</code></pre>
+<p>&#x5BF9;&#x5E94;&#x6E90;&#x7801;&#x4E3A;:</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Set the value associated with key.
+ *
+ * <span class="hljs-doctag">@param</span> key the thread local object
+ * <span class="hljs-doctag">@param</span> value the value to be set
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(ThreadLocal&lt;?&gt; key, Object value)</span> </span>{
+
+    <span class="hljs-comment">// We don&apos;t use a fast path as with get() because it is at</span>
+    <span class="hljs-comment">// least as common to use set() to create new entries as</span>
+    <span class="hljs-comment">// it is to replace existing ones, in which case, a fast</span>
+    <span class="hljs-comment">// path would fail more often than not.</span>
+
+    Entry[] tab = table;
+    <span class="hljs-keyword">int</span> len = tab.length;
+    <span class="hljs-keyword">int</span> i = key.threadLocalHashCode &amp; (len-<span class="hljs-number">1</span>);
+
+    <span class="hljs-keyword">for</span> (Entry e = tab[i];
+         e != <span class="hljs-keyword">null</span>;
+         e = tab[i = nextIndex(i, len)]) {
+        ThreadLocal&lt;?&gt; k = e.get();
+
+        <span class="hljs-keyword">if</span> (k == key) {
+            e.value = value;
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (k == <span class="hljs-keyword">null</span>) {
+            replaceStaleEntry(key, value, i);
+            <span class="hljs-keyword">return</span>;
+        }
+    }
+
+    tab[i] = <span class="hljs-keyword">new</span> Entry(key, value);
+    <span class="hljs-keyword">int</span> sz = ++size;
+    <span class="hljs-keyword">if</span> (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)
+        rehash();
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;set&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x83B7;&#x53D6;Entry&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x5224;&#x65AD;&#x5F53;&#x524D;threadlocal&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B58;&#x50A8;&#x5728;table&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x82E5;&#x5B58;&#x5728;&#x5219;&#x66F4;&#x65B0;value&#xFF0C;&#x82E5;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x65B0;&#x589E;&#x4E00;&#x4E2A;Entry&#x5BF9;&#x8C61;&apos;&apos;&apos;new Entry(key, value);&apos;&apos;&apos;&#x5B58;&#x50A8;threadlocal&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x5165;&#x5230;table&#x6570;&#x7EC4;&#x4E2D;&#x3002;
+&#x5728; threadLocals &#x5185;&#x90E8;&#x6709;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;private Entry[] table&#xFF0C;ThrealLocal &#x7684;&#x503C;&#x5C31;&#x5B58;&#x5728;&#x8FD9;&#x4E2A; table &#x6570;&#x7EC4;&#x4E2D;&#x3002;</p>
+<pre><code class="lang-java">
+        <span class="hljs-comment">/**
+         * The entries in this hash map extend WeakReference, using
+         * its main ref field as the key (which is always a
+         * ThreadLocal object).  Note that null keys (i.e. entry.get()
+         * == null) mean that the key is no longer referenced, so the
+         * entry can be expunged from table.  Such entries are referred to
+         * as &quot;stale entries&quot; in the code that follows.
+         */</span>
+        <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entry</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WeakReference</span>&lt;<span class="hljs-title">ThreadLocal</span>&gt; </span>{
+            <span class="hljs-comment">/** The value associated with this ThreadLocal. */</span>
+            Object value;
+
+            Entry(ThreadLocal k, Object v) {
+                <span class="hljs-keyword">super</span>(k);
+                value = v;
+            }
+        }
+
+        <span class="hljs-comment">/**
+         * The table, resized as necessary.
+         * table.length MUST always be a power of two.
+         */</span>
+        <span class="hljs-keyword">private</span> Entry[] table;
+</code></pre>
+<h4 id="2&#x3001;threallocal-&#x7684;-get-&#x65B9;&#x6CD5;">2&#x3001;ThrealLocal &#x7684; get() &#x65B9;&#x6CD5;</h4>
+<p>&#x4E0A;&#x9762;&#x5206;&#x6790;&#x4E86; ThreadLocal &#x7684; set() &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x5206;&#x6790;&#x5B83;&#x7684; get() &#x65B9;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+     * Returns the value in the current thread&apos;s copy of this
+     * thread-local variable.  If the variable has no value for the
+     * current thread, it is first initialized to the value returned
+     * by an invocation of the {<span class="hljs-doctag">@link</span> #initialValue} method.
+     *
+     * <span class="hljs-doctag">@return</span> the current thread&apos;s value of this thread-local
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>) {
+            ThreadLocalMap.Entry e = map.getEntry(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>)
+                <span class="hljs-keyword">return</span> (T)e.value;
+        }
+        <span class="hljs-keyword">return</span> setInitialValue();
+    }
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;ThrealLocal &#x7684; get() &#x65B9;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#x4E5F;&#x6BD4;&#x8F83;&#x6E05;&#x6670;&#xFF0C;&#x5B83;&#x540C;&#x6837;&#x662F;&#x53D6;&#x51FA;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684; threadLocals &#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E3A; null&#xFF0C;&#x5C31;&#x8C03;&#x7528; setInitialValue() &#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+     * Variant of set() to establish initialValue. Used instead
+     * of set() in case user has overridden the set() method.
+     *
+     * <span class="hljs-doctag">@return</span> the initial value
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> T <span class="hljs-title">setInitialValue</span><span class="hljs-params">()</span> </span>{
+        T value = initialValue();
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>)
+            map.set(<span class="hljs-keyword">this</span>, value);
+        <span class="hljs-keyword">else</span>
+            createMap(t, value);
+        <span class="hljs-keyword">return</span> value;
+    }
+</code></pre>
+<p>&#x5728; setInitialValue() &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5C06; initialValue() &#x7684;&#x503C;&#x8D4B;&#x7ED9;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;initialValue() &#x7684;&#x503C;&#x4E3A; null&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java">   <span class="hljs-comment">/**
+     * Returns the current thread&apos;s &quot;initial value&quot; for this
+     * thread-local variable.  This method will be invoked the first
+     * time a thread accesses the variable with the {<span class="hljs-doctag">@link</span> #get}
+     * method, unless the thread previously invoked the {<span class="hljs-doctag">@link</span> #set}
+     * method, in which case the &lt;tt&gt;initialValue&lt;/tt&gt; method will not
+     * be invoked for the thread.  Normally, this method is invoked at
+     * most once per thread, but it may be invoked again in case of
+     * subsequent invocations of {<span class="hljs-doctag">@link</span> #remove} followed by {<span class="hljs-doctag">@link</span> #get}.
+     *
+     * &lt;p&gt;This implementation simply returns &lt;tt&gt;null&lt;/tt&gt;; if the
+     * programmer desires thread-local variables to have an initial
+     * value other than &lt;tt&gt;null&lt;/tt&gt;, &lt;tt&gt;ThreadLocal&lt;/tt&gt; must be
+     * subclassed, and this method overridden.  Typically, an
+     * anonymous inner class will be used.
+     *
+     * <span class="hljs-doctag">@return</span> the initial value for this thread-local
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> T <span class="hljs-title">initialValue</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+</code></pre>
+<p>&#x5982;&#x679C; threadLocals &#x5BF9;&#x8C61;&#x4E0D;&#x4E3A; null &#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x5C31;&#x53D6;&#x51FA;&#x5B83;&#x7684; table &#x6570;&#x7EC4;&#x5E76;&#x627E;&#x51FA; ThreadLocal &#x7684; reference &#x5BF9;&#x8C61;&#x5728; table &#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x4ECE; ThreadLocal &#x7684; set() &#x548C; get() &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4ED6;&#x4EEC;&#x6240;&#x64CD;&#x4F5C;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684; threalLocals &#x5BF9;&#x8C61;&#x7684; table &#x6570;&#x7EC4;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A; ThreadLocal &#x7684; set() &#x548C; get() &#x65B9;&#x6CD5;&#xFF0C;&#x4ED6;&#x4EEC;&#x5BF9; ThreadLocal &#x6240;&#x505A;&#x7684; <code>&#x8BFB; / &#x5199;</code> &#x64CD;&#x4F5C;&#x6743;&#x9650;&#x4EC5;&#x9650;&#x4E8E;&#x5404;&#x81EA;&#x7EBF;&#x7A0B;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x53EF;&#x4EE5;&#x5728;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x4E92;&#x4E0D;&#x5E72;&#x6270;&#x5730;&#x5B58;&#x50A8;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x3002;</p>
+<h4 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h4>
+<p>ThreadLocal &#x662F;&#x7EBF;&#x7A0B;&#x5185;&#x90E8;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7C7B;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x90FD;&#x4F1A;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A; <code>ThreadLocal.ThreadLocalMap threadLocals = null;</code>&#xFF0C;ThreadLocalMap &#x662F; ThreadLocal &#x7684;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x91CC;&#x9762;&#x4FDD;&#x5B58;&#x4E86;&#x4E00;&#x4E2A; <code>private Entry[] table</code> &#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x5C31;&#x662F;&#x7528;&#x6765;&#x4FDD;&#x5B58; ThreadLocal &#x4E2D;&#x7684;&#x503C;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5C31;&#x80FD;&#x8BA9;&#x6211;&#x4EEC;&#x5728;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x4E92;&#x4E0D;&#x5E72;&#x6270;&#x5730;&#x5B58;&#x50A8;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="android-activityqi-dong-mo-shi.html" class="navigation navigation-prev " aria-label="Previous page: Android Activity启动模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="jni_kaifazongjie.html" class="navigation navigation-next " aria-label="Next page: Android之JNI开发总结">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Android 之 ThreadLocal简析","level":"1.3.2","depth":2,"next":{"title":"Android之JNI开发总结","level":"1.3.3","depth":2,"path":"chapter1/jni_kaifazongjie.md","ref":"chapter1/jni_kaifazongjie.md","articles":[]},"previous":{"title":"Android Activity启动模式","level":"1.3.1","depth":2,"path":"chapter1/android-activityqi-dong-mo-shi.md","ref":"chapter1/android-activityqi-dong-mo-shi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/android__threadlocal.md","mtime":"2020-04-28T04:26:00.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T10:25:16.452Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

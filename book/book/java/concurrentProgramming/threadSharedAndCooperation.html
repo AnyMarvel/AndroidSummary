@@ -1,0 +1,713 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>线程共享和协作 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../manpin/">
+            
+                <a href="../../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../chapter1.html">
+            
+                <a href="../../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                <a href="../../chapter1/android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../chapter1/android__threadlocal.html">
+            
+                <a href="../../chapter1/android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../chapter1/jni_kaifazongjie.html">
+            
+                <a href="../../chapter1/jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../chapter1/dui_zhan_qubie.html">
+            
+                <a href="../../chapter1/dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../chapter1/java_equals_hashcode.html">
+            
+                <a href="../../chapter1/java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../chapter1/java_jichushu_yinyong_diff.html">
+            
+                <a href="../../chapter1/java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../chapter1/java_neibulei.html">
+            
+                <a href="../../chapter1/java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../chapter1/android_8.0_server.html">
+            
+                <a href="../../chapter1/android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../chapter1/rxjava_retrofit_android.html">
+            
+                <a href="../../chapter1/rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../AndroidMemory/handleMenmory.html">
+            
+                <a href="../../AndroidMemory/handleMenmory.html">
+            
+                    
+                    Android内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../AndroidMemory/officialOverview.html">
+            
+                <a href="../../AndroidMemory/officialOverview.html">
+            
+                    
+                    Android内存管理(官方概览)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../AndroidMemory/operating_system_basis.html">
+            
+                <a href="../../AndroidMemory/operating_system_basis.html">
+            
+                    
+                    Android内存管理(操作系统基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../AndroidMemory/memory_management.html">
+            
+                <a href="../../AndroidMemory/memory_management.html">
+            
+                    
+                    Android内存管理(内存管理基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../AndroidMemory/linux_memory_managenment.html">
+            
+                <a href="../../AndroidMemory/linux_memory_managenment.html">
+            
+                    
+                    Android内存管理(linux内存管理机制)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../androidan-quan.html">
+            
+                <a href="../../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java_base/java_stream_io.html">
+            
+                <a href="../java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                <a href="../deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                <a href="../deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.3" data-path="../deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                <a href="../deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    [注解深入浅出]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../annotation/descriptionAnnotation.html">
+            
+                <a href="../annotation/descriptionAnnotation.html">
+            
+                    
+                    注解是什么,如何理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../annotation/customAnnotation.html">
+            
+                <a href="../annotation/customAnnotation.html">
+            
+                    
+                    自定义注解与元注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../annotation/enviromentAnnotation.html">
+            
+                <a href="../annotation/enviromentAnnotation.html">
+            
+                    
+                    注解的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    [并发编程]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.4.1" data-path="threadSharedAndCooperation.html">
+            
+                <a href="threadSharedAndCooperation.html">
+            
+                    
+                    线程共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >线程共享和协作</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"线程共享和协作","level":"1.6.4.1","depth":3,"previous":{"title":"[并发编程]","level":"1.6.4","depth":2,"ref":"","articles":[{"title":"线程共享和协作","level":"1.6.4.1","depth":3,"path":"java/concurrentProgramming/threadSharedAndCooperation.md","ref":"java/concurrentProgramming/threadSharedAndCooperation.md","articles":[]}]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/concurrentProgramming/threadSharedAndCooperation.md","mtime":"2020-08-17T11:59:01.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T10:25:16.452Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
