@@ -32,6 +32,7 @@
     * [线程基础、线程之间的共享和协作](handleThreads/baseThreadsAndCooperation.md)
     * [synchronized local volatile Threadlocal如何实现线程共享]
       * [Synchronized实现原理](handleThreads/synchronizedSharedThreads.md)
+      * [CAS原理分析](handleThreads/casPrincipleAnalysis.md)
   * [深入理解Java泛型]
     * [泛型的作用与定义](java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.md)
     * [通配符与嵌套](java/deepIntoJavaGenerics/javaGenericWildcard.md)
