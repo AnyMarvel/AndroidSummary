@@ -14,6 +14,7 @@
    * [Java内部类详解](chapter1/java_neibulei.md)
    * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
    * [初探RxJava以及结合Retrofit的使用](chapter1/rxjava_retrofit_android.md)
+   * [深入理解--Android Loader](chapter1/Android_LoaderManager.md)
 * [Android内存管理](AndroidMemory/handleMenmory.md)
   * [Android内存管理(官方概览)](AndroidMemory/officialOverview.md)
   * [Android内存管理(操作系统基础)](AndroidMemory/operating_system_basis.md)
@@ -26,6 +27,9 @@
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
+   * [ Java keystore 和Java truststore 区别与联系](androidan-quan/Difference_JavaKeystoreAndTruststore.md)
+   * [公钥、私钥、数字签名(签名)、数字证书(证书) 的关系(图文)](androidan-quan/certificate_basics.md)
+   * [KeyStore 和 TrustStore区别与联系](androidan-quan/KeyStoreAndTrustStore.md)
 * [JAVA基础](java/README.md)
   * [Java 流(Stream)、文件(File)和IO](java/java_base/java_stream_io.md)
   * [线程共享和协作]

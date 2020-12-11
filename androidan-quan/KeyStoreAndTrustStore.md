@@ -48,6 +48,7 @@ BKS
 客户端通常会包含一些大的CA机构的证书，这样当遇到新的证书时，客户端就可以使用这些CA机构的证书来验证这些新来的证书是否是合法的。
 
 相关资料
+
 [java-keystore-truststore-difference](https://www.baeldung.com/java-keystore-truststore-difference)
 
 [KeyStores and TrustStores](https://docs.oracle.com/cd/E19509-01/820-3503/ggffo/index.html)
