@@ -1,0 +1,1264 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>深入理解--Android Loader · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../AndroidMemory/handleMenmory.html" />
+    
+    
+    <link rel="prev" href="rxjava_retrofit_android.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../manpin/">
+            
+                <a href="../manpin/">
+            
+                    
+                    漫品客户端技术总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                <a href="../manpin/xiaoshuo/xiaoshuoIntroduction.html">
+            
+                    
+                    小说模块介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../manpin/xiaoshuo/buguizebuju.html">
+            
+                <a href="../manpin/xiaoshuo/buguizebuju.html">
+            
+                    
+                    Android不规则布局的实现(万能公式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                <a href="../manpin/shipinzhuanmanhua/sodynamicload.html">
+            
+                    
+                    Android So动态加载原理分析与优雅实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Android总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    Android基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="android-activityqi-dong-mo-shi.html">
+            
+                <a href="android-activityqi-dong-mo-shi.html">
+            
+                    
+                    Android Activity启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="android__threadlocal.html">
+            
+                <a href="android__threadlocal.html">
+            
+                    
+                    Android 之 ThreadLocal简析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="jni_kaifazongjie.html">
+            
+                <a href="jni_kaifazongjie.html">
+            
+                    
+                    Android之JNI开发总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="dui_zhan_qubie.html">
+            
+                <a href="dui_zhan_qubie.html">
+            
+                    
+                    堆和栈的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="java_equals_hashcode.html">
+            
+                <a href="java_equals_hashcode.html">
+            
+                    
+                    java中==,equals,hashcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="java_jichushu_yinyong_diff.html">
+            
+                <a href="java_jichushu_yinyong_diff.html">
+            
+                    
+                    Java基础数据类型和引用类型的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="java_neibulei.html">
+            
+                <a href="java_neibulei.html">
+            
+                    
+                    Java内部类详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="android_8.0_server.html">
+            
+                <a href="android_8.0_server.html">
+            
+                    
+                    Android 8.0之后Service使用问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="rxjava_retrofit_android.html">
+            
+                <a href="rxjava_retrofit_android.html">
+            
+                    
+                    初探RxJava以及结合Retrofit的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.10" data-path="Android_LoaderManager.html">
+            
+                <a href="Android_LoaderManager.html">
+            
+                    
+                    深入理解--Android Loader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../AndroidMemory/handleMenmory.html">
+            
+                <a href="../AndroidMemory/handleMenmory.html">
+            
+                    
+                    Android内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../AndroidMemory/officialOverview.html">
+            
+                <a href="../AndroidMemory/officialOverview.html">
+            
+                    
+                    Android内存管理(官方概览)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../AndroidMemory/operating_system_basis.html">
+            
+                <a href="../AndroidMemory/operating_system_basis.html">
+            
+                    
+                    Android内存管理(操作系统基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../AndroidMemory/memory_management.html">
+            
+                <a href="../AndroidMemory/memory_management.html">
+            
+                    
+                    Android内存管理(内存管理基础)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../AndroidMemory/linux_memory_managenment.html">
+            
+                <a href="../AndroidMemory/linux_memory_managenment.html">
+            
+                    
+                    Android内存管理(linux内存管理机制)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../AndroidMemory/Android_memory_manag.html">
+            
+                <a href="../AndroidMemory/Android_memory_manag.html">
+            
+                    
+                    Android内存管理(Android的内存管理机制简析)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../AndroidMemory/Android_optimization_linux.html">
+            
+                <a href="../AndroidMemory/Android_optimization_linux.html">
+            
+                    
+                    Android内存管理(Android对Linux系统的内存管理机制进行的优化)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../AndroidMemory/memory_callback.html">
+            
+                <a href="../AndroidMemory/memory_callback.html">
+            
+                    
+                    Android内存管理(垃圾回收算法相关)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../AndroidMemory/jvm_dvm_art_diffrent.html">
+            
+                <a href="../AndroidMemory/jvm_dvm_art_diffrent.html">
+            
+                    
+                    Android内存管理(JVM 、DVM(dalvik) 、ART联系与区别)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../androidan-quan.html">
+            
+                <a href="../androidan-quan.html">
+            
+                    
+                    Android安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                <a href="../androidan-quan/androidqian-ming-gong-yu-fang.html">
+            
+                    
+                    Android签名攻与防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                <a href="../androidan-quan/android-anquan-wuyuanmatiaoshi.html">
+            
+                    
+                    Smalidea+IntelliJ IDEA/Android Studio无源码调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../androidan-quan/Difference_keystores.html">
+            
+                <a href="../androidan-quan/Difference_keystores.html">
+            
+                    
+                    keystore CSR CER PKCS7之间的区别与联系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../androidan-quan/certificate_basics.html">
+            
+                <a href="../androidan-quan/certificate_basics.html">
+            
+                    
+                    公钥、私钥、数字签名(签名)、数字证书(证书) 的关系(图文)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../androidan-quan/KeyStoreAndTrustStore.html">
+            
+                <a href="../androidan-quan/KeyStoreAndTrustStore.html">
+            
+                    
+                    KeyStore 和 TrustStore区别与联系
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    JAVA基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/java_base/java_stream_io.html">
+            
+                <a href="../java/java_base/java_stream_io.html">
+            
+                    
+                    Java 流(Stream)、文件(File)和IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    [线程共享和协作]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../handleThreads/baseThreadsAndCooperation.html">
+            
+                <a href="../handleThreads/baseThreadsAndCooperation.html">
+            
+                    
+                    线程基础、线程之间的共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" >
+            
+                <span>
+            
+                    
+                    [synchronized local volatile Threadlocal如何实现线程共享]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.2.1" data-path="../handleThreads/synchronizedSharedThreads.html">
+            
+                <a href="../handleThreads/synchronizedSharedThreads.html">
+            
+                    
+                    Synchronized实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2.2" data-path="../handleThreads/casPrincipleAnalysis.html">
+            
+                <a href="../handleThreads/casPrincipleAnalysis.html">
+            
+                    
+                    CAS原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2.3" data-path="../handleThreads/callableFutureFutureTask.html">
+            
+                <a href="../handleThreads/callableFutureFutureTask.html">
+            
+                    
+                    Java并发编程：Callable、Future和FutureTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    [深入理解Java泛型]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                <a href="../java/deepIntoJavaGenerics/roleAndSignificanceOfGenerics.html">
+            
+                    
+                    泛型的作用与定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                <a href="../java/deepIntoJavaGenerics/javaGenericWildcard.html">
+            
+                    
+                    通配符与嵌套
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                <a href="../java/deepIntoJavaGenerics/JavaGenericErasure.html">
+            
+                    
+                    Java泛型擦除及其相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    [注解深入浅出]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../java/annotation/descriptionAnnotation.html">
+            
+                <a href="../java/annotation/descriptionAnnotation.html">
+            
+                    
+                    注解是什么,如何理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../java/annotation/customAnnotation.html">
+            
+                <a href="../java/annotation/customAnnotation.html">
+            
+                    
+                    自定义注解与元注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.3" data-path="../java/annotation/enviromentAnnotation.html">
+            
+                <a href="../java/annotation/enviromentAnnotation.html">
+            
+                    
+                    注解的使用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" >
+            
+                <span>
+            
+                    
+                    [并发编程]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.5.1" data-path="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                <a href="../java/concurrentProgramming/threadSharedAndCooperation.html">
+            
+                    
+                    线程共享和协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >深入理解--Android Loader</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6DF1;&#x5165;&#x7406;&#x89E3;--android-loader">&#x6DF1;&#x5165;&#x7406;&#x89E3;--Android Loader</h1>
+<p>&#x5F00;&#x53D1; <a href="http://aimanpin.com/" target="_blank">&#x6F2B;&#x54C1;</a> &#x5BA2;&#x6237;&#x7AEF; &#x672C;&#x5730;&#x56FE;&#x4E66;&#x5BFC;&#x5165;&#x9875;&#x9762; &#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x5230;&#x624B;&#x673A;&#x76EE;&#x5F55;&#x4E2D;&#x6240;&#x6709;&#x7684;txt&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5C55;&#x793A;&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x7ED9;&#x7684;&#x7528;&#x6237;&#x8FDB;&#x884C;
+&#x5982;&#x679C;&#x4F7F;&#x7528;Java&#x8BFB;&#x53D6;&#x76EE;&#x5F55;,&#x76EE;&#x524D;&#x60F3;&#x5230;&#x7684;&#x662F;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x83B7;&#x53D6;&#xFF0C;&#x4F46;&#x83B7;&#x53D6;&#x8FC7;&#x7A0B;&#x5176;&#x5B9E;&#x662F;&#x6BD4;&#x8F83;&#x7F13;&#x6162;&#x7684;,&#x57FA;&#x4E8E;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x518D;&#x5411;&#x4E0B;&#x8FDB;&#x884C;&#x4F20;&#x9012;&#x3002;&#x5982;&#x679C;&#x624B;&#x673A;&#x6587;&#x4EF6;&#x8F83;&#x591A;&#xFF0C;&#x5185;&#x5BB9;&#x8F83;&#x591A;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x9009;&#x4E2D;&#xFF0C;
+&#x4E5F;&#x8BB8;&#x67E5;&#x627E;&#x65F6;&#x95F4;&#x4F1A;&#x975E;&#x5E38;&#x7684;&#x957F;&#x3002;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">searchBook</span><span class="hljs-params">(ObservableEmitter&lt;File&gt; e, File parentFile)</span> </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> != parentFile &amp;&amp; parentFile.listFiles() != <span class="hljs-keyword">null</span> &amp;&amp;parentFile.listFiles().length &gt; <span class="hljs-number">0</span>) {
+        File[] childFiles = parentFile.listFiles();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; childFiles.length; i++) {
+            <span class="hljs-keyword">if</span> (childFiles[i].isFile() &amp;&amp; childFiles[i].getName().substring(childFiles[i].getName().lastIndexOf(<span class="hljs-string">&quot;.&quot;</span>) + <span class="hljs-number">1</span>).equalsIgnoreCase(<span class="hljs-string">&quot;txt&quot;</span>) &amp;&amp; childFiles[i].length() &gt; <span class="hljs-number">100</span> * <span class="hljs-number">1024</span>) {   <span class="hljs-comment">//100kb</span>
+                e.onNext(childFiles[i]);
+                <span class="hljs-keyword">continue</span>;
+            }
+            <span class="hljs-keyword">if</span> (childFiles[i].isDirectory() &amp;&amp; childFiles[i].listFiles().length &gt; <span class="hljs-number">0</span>) {
+                searchBook(e, childFiles[i]);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="&#x4E00;-loader&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#x3002;">&#x4E00;. Loader&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#x3002;</h2>
+<p>Loader &#x987E;&#x540D;&#x601D;&#x4E49; &#x5C31;&#x662F; &#x52A0;&#x8F7D;&#x5668;&#x3002;</p>
+<p>&#x501F;&#x52A9; Loader API&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4ECE;&#x5185;&#x5BB9;&#x63D0;&#x4F9B;&#x7A0B;&#x5E8F;&#x6216;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x6E90;&#x4E2D;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728; FragmentActivity &#x6216; Fragment &#x4E2D;&#x663E;&#x793A;&#x3002;&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x7406;&#x89E3;&#x4E3A;&#x4F55;&#x9700;&#x8981; Loader API &#x6765;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x770B;&#x4F3C;&#x65E0;&#x5173;&#x7D27;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8BF7;&#x9996;&#x5148;&#x8003;&#x8651;&#x6CA1;&#x6709;&#x52A0;&#x8F7D;&#x5668;&#x65F6;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x5728; Activity &#x6216;&#x7247;&#x6BB5;&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x7531;&#x4E8E;&#x901A;&#x8FC7;&#x754C;&#x9762;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#x7684;&#x901F;&#x5EA6;&#x53EF;&#x80FD;&#x8F83;&#x6162;&#xFF0C;&#x54CD;&#x5E94;&#x80FD;&#x529B;&#x7684;&#x4E0D;&#x8DB3;&#x5C06;&#x5F71;&#x54CD;&#x60A8;&#x7684;&#x7528;&#x6237;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4ECE;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF08;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x662F;&#x4F7F;&#x7528; AsyncTask&#xFF09;&#xFF0C;&#x5219;&#x60A8;&#x9700;&#x8D1F;&#x8D23;&#x901A;&#x8FC7;&#x5404;&#x79CD; Activity&#x6216;&#x7247;&#x6BB5;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E8B;&#x4EF6;&#xFF08;&#x4F8B;&#x5982; onDestroy() &#x548C;&#x914D;&#x7F6E;&#x53D8;&#x66F4;&#xFF09;&#x6765;&#x7BA1;&#x7406;&#x7EBF;&#x7A0B;&#x548C;&#x754C;&#x9762;&#x7EBF;&#x7A0B;&#x3002;</li>
+</ul>
+<p>&#x52A0;&#x8F7D;&#x5668;&#x4E0D;&#x4EC5;&#x80FD;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x5177;&#x5907;&#x5176;&#x4ED6;&#x4F18;&#x52BF;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li>&#x52A0;&#x8F7D;&#x5668;&#x5728;&#x5355;&#x72EC;&#x7684;&#x7EBF;&#x7A0B;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4EE5;&#x514D;&#x754C;&#x9762;&#x51FA;&#x73B0;&#x5361;&#x987F;&#x6216;&#x65E0;&#x54CD;&#x5E94;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x52A0;&#x8F7D;&#x5668;&#x53EF;&#x5728;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x63D0;&#x4F9B;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x7B80;&#x5316;&#x7EBF;&#x7A0B;&#x7BA1;&#x7406;&#x3002;</li>
+<li>&#x52A0;&#x8F7D;&#x5668;&#x4F1A;&#x4FDD;&#x7559;&#x548C;&#x7F13;&#x5B58;&#x914D;&#x7F6E;&#x53D8;&#x66F4;&#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4EE5;&#x514D;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x67E5;&#x8BE2;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x52A0;&#x8F7D;&#x5668;&#x53EF;&#x5B9E;&#x73B0;&#x89C2;&#x5BDF;&#x5668;&#xFF0C;&#x4ECE;&#x800C;&#x76D1;&#x63A7;&#x57FA;&#x7840;&#x6570;&#x636E;&#x6E90;&#x7684;&#x53D8;&#x5316;&#x3002;&#x4F8B;&#x5982;&#xFF0C;CursorLoader &#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C; ContentObserver&#xFF0C;&#x4EE5;&#x5728;&#x6570;&#x636E;&#x53D8;&#x66F4;&#x65F6;&#x89E6;&#x53D1;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x3002;</li>
+</ul>
+<p>&#x4E0A;&#x9762;&#x662F;&#x5B98;&#x65B9;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x5B9E;&#x603B;&#x7ED3;&#x4E0B;&#x5C31;&#x662F;&#x4EE5;&#x4E0B;&#x4E24;&#x70B9;&#xFF1A;</p>
+<ul>
+<li><p>1&#xFF09;&#x5728;&#x5355;&#x72EC;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x4F1A;&#x963B;&#x585E;UI&#x7EBF;&#x7A0B;</p>
+</li>
+<li><p>2&#xFF09;&#x76D1;&#x89C6;&#x6570;&#x636E;&#x7684;&#x66F4;&#x65B0;</p>
+</li>
+</ul>
+<h2 id="&#x4E8C;-loader-api-&#x603B;&#x7ED3;">&#x4E8C;. Loader API &#x603B;&#x7ED3;</h2>
+<p>&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x4F7F;&#x7528;&#x52A0;&#x8F7D;&#x5668;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x591A;&#x4E2A;&#x7C7B;&#x548C;&#x63A5;&#x53E3;&#x3002;&#x4E0B;&#x8868;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4E86;&#x603B;&#x7ED3;&#xFF1A;</p>
+<hr>
+<ul>
+<li>LoaderManager</li>
+</ul>
+<p>&#x4E00;&#x79CD;&#x4E0E; FragmentActivity &#x6216; Fragment &#x76F8;&#x5173;&#x8054;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A; Loader &#x5B9E;&#x4F8B;&#x3002;&#x6BCF;&#x4E2A; Activity &#x6216;&#x7247;&#x6BB5;&#x53EA;&#x6709;&#x4E00;&#x4E2A; LoaderManager&#xFF0C;&#x4F46; LoaderManager &#x53EF;&#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x52A0;&#x8F7D;&#x5668;&#x3002;</p>
+<p>&#x5982;&#x8981;&#x83B7;&#x53D6; LoaderManager&#xFF0C;&#x8BF7;&#x4ECE; Activity &#x6216;&#x7247;&#x6BB5;&#x8C03;&#x7528; getSupportLoaderManager()&#x3002;</p>
+<p>&#x5982;&#x8981;&#x4ECE;&#x52A0;&#x8F7D;&#x5668;&#x5F00;&#x59CB;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x8BF7;&#x8C03;&#x7528; initLoader() &#x6216; restartLoader()&#x3002;&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5DF2;&#x5B58;&#x5728;&#x62E5;&#x6709;&#x76F8;&#x540C;&#x6574;&#x578B; ID &#x7684;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x5E76;&#x5C06;&#x521B;&#x5EFA;&#x65B0;&#x52A0;&#x8F7D;&#x5668;&#x6216;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x73B0;&#x6709;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#x3002;</p>
+<hr>
+<ul>
+<li>LoaderManager.LoaderCallbacks</li>
+</ul>
+<p>&#x6B64;&#x63A5;&#x53E3;&#x5305;&#x542B;&#x52A0;&#x8F7D;&#x5668;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x6240;&#x8C03;&#x7528;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x3002;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E09;&#x79CD;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li><p>onCreateLoader(int, Bundle) - &#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x65B0;&#x52A0;&#x8F7D;&#x5668;&#x65F6;&#x8C03;&#x7528;&#x3002;&#x60A8;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x521B;&#x5EFA; Loader &#x5BF9;&#x8C61;&#x5E76;&#x5C06;&#x5176;&#x8FD4;&#x56DE;&#x7CFB;&#x7EDF;&#x3002;</p>
+</li>
+<li><p>onLoadFinished(Loader<d>, D) - &#x52A0;&#x8F7D;&#x5668;&#x5728;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x65F6;&#x8C03;&#x7528;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x60A8;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x5411;&#x7528;&#x6237;&#x663E;&#x793A;&#x6570;&#x636E;&#x3002;</d></p>
+</li>
+<li><p>onLoaderReset(Loader<d>) - &#x91CD;&#x7F6E;&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#x65F6;&#x8C03;&#x7528;&#xFF08;&#x5F53;&#x60A8;&#x8C03;&#x7528; destroyLoader(int) &#x65F6;&#xFF09;&#xFF0C;&#x6216;&#x7531;&#x4E8E;&#x7CFB;&#x7EDF;&#x9500;&#x6BC1; Activity &#x6216;&#x7247;&#x6BB5;&#x800C;&#x4F7F;&#x5176;&#x6570;&#x636E;&#x4E0D;&#x53EF;&#x7528;&#x65F6;&#x8C03;&#x7528;&#x3002;&#x60A8;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x5220;&#x9664;&#x5176;&#x5BF9;&#x52A0;&#x8F7D;&#x5668;&#x6570;&#x636E;&#x7684;&#x4EFB;&#x4F55;&#x5F15;&#x7528;&#x3002;</d></p>
+</li>
+</ul>
+<p>&#x6B64;&#x63A5;&#x53E3;&#x4E00;&#x822C;&#x7531;&#x60A8;&#x7684; Activity &#x6216;&#x7247;&#x6BB5;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x5728;&#x60A8;&#x8C03;&#x7528; initLoader() &#x6216; restartLoader() &#x65F6;&#x8FDB;&#x884C;&#x6CE8;&#x518C;&#x3002;</p>
+<hr>
+<ul>
+<li>Loader</li>
+</ul>
+<p>Loader &#x7C7B;&#x6267;&#x884C;&#x6570;&#x636E;&#x7684;&#x52A0;&#x8F7D;&#x3002;&#x6B64;&#x7C7B;&#x5C5E;&#x4E8E;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x6240;&#x6709;&#x52A0;&#x8F7D;&#x5668;&#x7684;&#x57FA;&#x7C7B;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA; Loader &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x6216;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x67D0;&#x4E2A;&#x5185;&#x7F6E;&#x5B50;&#x7C7B;&#x6765;&#x7B80;&#x5316;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<ul>
+<li><p>AsyncTaskLoader - &#x62BD;&#x8C61;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x63D0;&#x4F9B; AsyncTask &#x5728;&#x5355;&#x72EC;&#x7684;&#x7EBF;&#x7A0B;&#x4E0A;&#x6267;&#x884C;&#x52A0;&#x8F7D;&#x64CD;&#x4F5C;&#x3002;</p>
+</li>
+<li><p>CursorLoader - AsyncTaskLoader &#x7684;&#x5177;&#x4F53;&#x5B50;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5F02;&#x6B65;&#x52A0;&#x8F7D; ContentProvider &#x7684;&#x6570;&#x636E;&#x3002;&#x8BE5;&#x7C7B;&#x4F1A;&#x67E5;&#x8BE2; ContentResolver &#x5E76;&#x8FD4;&#x56DE; Cursor&#x3002;</p>
+</li>
+</ul>
+<hr>
+<h2 id="&#x4E09;-&#x5982;&#x4F55;&#x4F7F;&#x7528;loader">&#x4E09;. &#x5982;&#x4F55;&#x4F7F;&#x7528;Loader</h2>
+<p>&#x4F7F;&#x7528;loader&#x7684;&#x51E0;&#x4E2A;&#x5FC5;&#x5907;&#x6761;&#x4EF6;&#x5982;&#x4E0B;:</p>
+<ol>
+<li><p>&#x4E00;&#x4E2A;Activity &#x6216;&#x8005; &#x4E00;&#x4E2A;Fragment&#x3002;LoaderManager&#x83B7;&#x53D6;&#x9700;&#x8981;&#x4F20;&#x9012;Owner&#xFF0C;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x662F;Activity &#x6216;&#x8005;fragment</p>
+</li>
+<li><p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;LoaderManager&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-Java">LoaderManager.getInstance(activity).initLoader(LoaderCreator.ALL_BOOK_FILE, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">new</span> MediaLoaderCallbacks(activity, resultCallback));
+</code></pre>
+</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Gets a LoaderManager associated with the given owner, such as a {<span class="hljs-doctag">@link</span> androidx.fragment.app.FragmentActivity} or
+ * {<span class="hljs-doctag">@link</span> androidx.fragment.app.Fragment}.
+ *
+ * <span class="hljs-doctag">@param</span> owner The owner that should be used to create the returned LoaderManager
+ * <span class="hljs-doctag">@param</span> &lt;T&gt; A class that maintains its own {<span class="hljs-doctag">@link</span> android.arch.lifecycle.Lifecycle} and
+ *           {<span class="hljs-doctag">@link</span> android.arch.lifecycle.ViewModelStore}. For instance,
+ *           {<span class="hljs-doctag">@link</span> androidx.fragment.app.FragmentActivity} or {<span class="hljs-doctag">@link</span> androidx.fragment.app.Fragment}.
+ * <span class="hljs-doctag">@return</span> A valid LoaderManager
+ */</span>
+<span class="hljs-meta">@NonNull</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T extends LifecycleOwner &amp; ViewModelStoreOwner&gt; <span class="hljs-function">LoaderManager <span class="hljs-title">getInstance</span><span class="hljs-params">(
+        @NonNull T owner)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LoaderManagerImpl(owner, owner.getViewModelStore());
+}
+</code></pre>
+<ol>
+<li><p>&#x4E00;&#x4E2A;CursorLoader&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;ContentProvider&#x91CC;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x3002;</p>
+</li>
+<li><p>&#x4E00;&#x4E2A;LoaderManager.LoaderCallbacks&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5728;&#x8FD9;&#x4F60;&#x521B;&#x5EFA;&#x65B0;&#x7684;loader&#xFF0C;&#x548C;&#x7BA1;&#x7406;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;loaders&#x3002;</p>
+</li>
+</ol>
+<p>LoaderManager.LoaderCallbacks<d>&#x63A5;&#x53E3;&#x662F;LoaderManager&#x7528;&#x6765;&#x5411;&#x5BA2;&#x6237;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#x3002;</d></p>
+<p>&#x6BCF;&#x4E2A;Loader&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;&#x4F9B;&#x4E0E;LoaderManager&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p>
+<p>&#x8BE5;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;&#x5728;&#x5B9E;&#x73B0;LoaderManager&#x4E2D;&#x5730;&#x4F4D;&#x5F88;&#x9AD8;&#xFF0C;&#x544A;&#x8BC9;LoaderManager&#x5982;&#x4F55;&#x5B9E;&#x4F8B;&#x5316;Loader(onCreateLoader)&#xFF0C;&#x4EE5;&#x53CA;&#x5F53;&#x8F7D;&#x5165;&#x884C;&#x4E3A;&#x7ED3;&#x675F;&#x6216;&#x8005;&#x91CD;&#x542F;&#xFF08;onLoadFinished&#x6216;&#x8005;onLoadReset&#xFF09;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x4EC0;&#x4E48;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x628A;&#x8BE5;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x4E3A;&#x7EC4;&#x4EF6;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x8BA9;&#x4F60;&#x7684;Activity&#x6216;&#x8005;Fragment&#x5B9E;&#x73B0;LoadManager.LoaderCallbacks<d>&#x63A5;&#x53E3;&#x3002;</d></p>
+<pre><code class="lang-Java">
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">LoaderCallbacks</span>&lt;<span class="hljs-title">D</span>&gt; </span>{
+    <span class="hljs-meta">@MainThread</span>
+    <span class="hljs-meta">@NonNull</span>
+    <span class="hljs-function">Loader&lt;D&gt; <span class="hljs-title">onCreateLoader</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, @Nullable Bundle args)</span></span>;
+
+
+    <span class="hljs-meta">@MainThread</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onLoadFinished</span><span class="hljs-params">(@NonNull Loader&lt;D&gt; loader, D data)</span></span>;
+
+    <span class="hljs-meta">@MainThread</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onLoaderReset</span><span class="hljs-params">(@NonNull Loader&lt;D&gt; loader)</span></span>;
+}
+</code></pre>
+<p>&#x4E00;&#x65E6;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C06;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;&#xFF08;&#x672C;&#x4F8B;&#x4E2D;&#x4E3A;&#x201C;this&#x201D;&#xFF09;&#x4F5C;&#x4E3A;LoaderManager&#x7684;initLoader&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x8F93;&#x3002;
+&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x5B9E;&#x73B0;&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x975E;&#x5E38;&#x76F4;&#x63A5;&#x660E;&#x4E86;&#x3002;&#x6BCF;&#x4E2A;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x90FD;&#x6709;&#x5404;&#x81EA;&#x660E;&#x786E;&#x7684;&#x4E0E;LoaderManager&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x7684;&#x76EE;&#x7684;&#xFF1A;</p>
+<ul>
+<li><ol>
+<li>onCreateLoader&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Loader&#x3002;LoaderManager&#x5C06;&#x4F1A;&#x5728;&#x5B83;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;Loader&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+</li>
+<li><ol>
+<li>onLoadFinished&#x65B9;&#x6CD5;&#x5C06;&#x5728;Loader&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x7684;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x3002;&#x5178;&#x578B;&#x7528;&#x6CD5;&#x662F;&#xFF0C;&#x5F53;&#x8F7D;&#x5165;&#x6570;&#x636E;&#x5B8C;&#x6BD5;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x8C03;&#x7528;&#x5B83;&#x7684;Activity&#x4E4B;&#x7C7B;&#x7684;&#xFF09;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x5E94;&#x7528;UI&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x5047;&#x8BBE;&#x6BCF;&#x6B21;&#x6709;&#x65B0;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x65B0;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x5230;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x3002;&#x8BB0;&#x4F4F;&#xFF0C;&#x68C0;&#x6D4B;&#x6570;&#x636E;&#x6E90;&#x662F;Loader&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;Loader&#x4E5F;&#x4F1A;&#x6267;&#x884C;&#x5B9E;&#x9645;&#x7684;&#x540C;&#x6B65;&#x8F7D;&#x5165;&#x64CD;&#x4F5C;&#x3002;&#x4E00;&#x65E6;Loader&#x8F7D;&#x5165;&#x6570;&#x636E;&#x5B8C;&#x6210;&#xFF0C;LoaderManager&#x5C06;&#x4F1A;&#x63A5;&#x53D7;&#x5230;&#x8FD9;&#x4E9B;&#x8F7D;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5C06;&#x7ED3;&#x679C;&#x4F20;&#x7ED9;&#x56DE;&#x8C03;&#x5BF9;&#x8C61;&#x7684;onLoadFinished&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;&#x6BD4;&#x5982;Activity&#x6216;&#x8005;Fragment&#xFF09;&#x5C31;&#x80FD;&#x4F7F;&#x7528;&#x8BE5;&#x6570;&#x636E;&#x4E86;&#x3002;</li>
+</ol>
+</li>
+<li><ol>
+<li>&#x6700;&#x540E;&#xFF0C;&#x5F53;Loader&#x4EEC;&#x7684;&#x6570;&#x636E;&#x88AB;&#x91CD;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x4F1A;&#x8C03;&#x7528;onLoadReset&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x8BA9;&#x4F60;&#x53EF;&#x4EE5;&#x4ECE;&#x5C31;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x79FB;&#x9664;&#x4E0D;&#x518D;&#x6709;&#x7528;&#x7684;&#x6570;&#x636E;&#x3002;</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;Conterprovider&#xFF08;&#x5F53;&#x4F7F;&#x7528;CursorLoader&#xFF09;&#x3002;</p>
+</li>
+<li><p>&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x4E00;&#x79CD;&#x663E;&#x793A;loader&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;SimpleCursorAdapter&#x3002;</p>
+</li>
+</ol>
+<h2 id="&#x56DB;-&#x83B7;&#x53D6;&#x5A92;&#x4F53;&#x5E93;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x4E66;&#x7C4D;&#x6587;&#x4EF6;&#xFF08;&#x624B;&#x673A;&#x4E2D;&#x6240;&#x6709;&#x7684;txt&#x6587;&#x4EF6;&#xFF09;">&#x56DB;. &#x83B7;&#x53D6;&#x5A92;&#x4F53;&#x5E93;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x4E66;&#x7C4D;&#x6587;&#x4EF6;&#xFF08;&#x624B;&#x673A;&#x4E2D;&#x6240;&#x6709;&#x7684;.txt&#x6587;&#x4EF6;&#xFF09;</h2>
+<p>&#x6E90;&#x7801;&#x5730;&#x5740;: <a href="https://github.com/AnyMarvel/ManPinAPP" target="_blank">https://github.com/AnyMarvel/ManPinAPP</a></p>
+<p>&#x8DEF;&#x5F84; app/src/main/java/com/mp/android/apps/monke/monkeybook/utils/media</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.mp.android.apps.monke.monkeybook.utils.media;
+
+<span class="hljs-keyword">import</span> android.content.Context;
+<span class="hljs-keyword">import</span> android.database.Cursor;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+
+<span class="hljs-keyword">import</span> androidx.fragment.app.FragmentActivity;
+<span class="hljs-keyword">import</span> androidx.loader.app.LoaderManager;
+<span class="hljs-keyword">import</span> androidx.loader.content.Loader;
+
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.lang.ref.WeakReference;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**
+ * &#x83B7;&#x53D6;&#x5A92;&#x4F53;&#x5E93;&#x7684;&#x6570;&#x636E;&#x3002;
+ */</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MediaStoreHelper</span> </span>{
+
+    <span class="hljs-comment">/**
+     * &#x83B7;&#x53D6;&#x5A92;&#x4F53;&#x5E93;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x4E66;&#x7C4D;&#x6587;&#x4EF6;
+     * &lt;p&gt;
+     * &#x6682;&#x65F6;&#x53EA;&#x652F;&#x6301; TXT
+     *
+     * <span class="hljs-doctag">@param</span> activity
+     * <span class="hljs-doctag">@param</span> resultCallback
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getAllBookFile</span><span class="hljs-params">(FragmentActivity activity, MediaResultCallback resultCallback)</span> </span>{
+        <span class="hljs-comment">// &#x5C06;&#x6587;&#x4EF6;&#x7684;&#x83B7;&#x53D6;&#x5904;&#x7406;&#x4EA4;&#x7ED9; LoaderManager&#x3002;</span>
+        LoaderManager.getInstance(activity)
+                .initLoader(LoaderCreator.ALL_BOOK_FILE, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">new</span> MediaLoaderCallbacks(activity, resultCallback));
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MediaResultCallback</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onResultCallback</span><span class="hljs-params">(List&lt;File&gt; files)</span></span>;
+    }
+
+    <span class="hljs-comment">/**
+     * Loader &#x56DE;&#x8C03;&#x5904;&#x7406;
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MediaLoaderCallbacks</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">LoaderManager</span>.<span class="hljs-title">LoaderCallbacks</span>&lt;<span class="hljs-title">Cursor</span>&gt; </span>{
+        <span class="hljs-keyword">protected</span> WeakReference&lt;Context&gt; mContext;
+        <span class="hljs-keyword">protected</span> MediaResultCallback mResultCallback;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MediaLoaderCallbacks</span><span class="hljs-params">(Context context, MediaResultCallback resultCallback)</span> </span>{
+            mContext = <span class="hljs-keyword">new</span> WeakReference&lt;&gt;(context);
+            mResultCallback = resultCallback;
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Loader&lt;Cursor&gt; <span class="hljs-title">onCreateLoader</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, Bundle args)</span> </span>{
+            <span class="hljs-keyword">return</span> LoaderCreator.create(mContext.get(), id, args);
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLoadFinished</span><span class="hljs-params">(Loader&lt;Cursor&gt; loader, Cursor data)</span> </span>{
+            LocalFileLoader localFileLoader = (LocalFileLoader) loader;
+            localFileLoader.parseData(data, mResultCallback);
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLoaderReset</span><span class="hljs-params">(Loader&lt;Cursor&gt; loader)</span> </span>{
+        }
+    }
+}
+</code></pre>
+<p>LoaderCreator.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.mp.android.apps.monke.monkeybook.utils.media;
+
+<span class="hljs-keyword">import</span> android.content.Context;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+
+<span class="hljs-keyword">import</span> androidx.loader.content.CursorLoader;
+
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoaderCreator</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ALL_BOOK_FILE = <span class="hljs-number">1</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CursorLoader <span class="hljs-title">create</span><span class="hljs-params">(Context context, <span class="hljs-keyword">int</span> id, Bundle bundle)</span> </span>{
+        LocalFileLoader loader = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">switch</span> (id){
+            <span class="hljs-keyword">case</span> ALL_BOOK_FILE:
+                loader = <span class="hljs-keyword">new</span> LocalFileLoader(context);
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">default</span>:
+                loader = <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">if</span> (loader != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> loader;
+        }
+
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;The id of Loader is invalid!&quot;</span>);
+    }
+}
+</code></pre>
+<p>LocalFileLoader.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.mp.android.apps.monke.monkeybook.utils.media;
+
+<span class="hljs-keyword">import</span> android.content.Context;
+<span class="hljs-keyword">import</span> android.database.Cursor;
+<span class="hljs-keyword">import</span> android.net.Uri;
+<span class="hljs-keyword">import</span> android.provider.MediaStore;
+<span class="hljs-keyword">import</span> android.text.TextUtils;
+
+<span class="hljs-keyword">import</span> androidx.annotation.NonNull;
+<span class="hljs-keyword">import</span> androidx.loader.content.CursorLoader;
+
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.sql.Blob;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LocalFileLoader</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CursorLoader</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String TAG = <span class="hljs-string">&quot;LocalFileLoader&quot;</span>;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Uri FILE_URI = Uri.parse(<span class="hljs-string">&quot;content://media/external/file&quot;</span>);
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String SELECTION = MediaStore.Files.FileColumns.DATA + <span class="hljs-string">&quot; like ?&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String SEARCH_TYPE = <span class="hljs-string">&quot;%.txt&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String SORT_ORDER = MediaStore.Files.FileColumns.DISPLAY_NAME + <span class="hljs-string">&quot; DESC&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String[] FILE_PROJECTION = {
+            MediaStore.Files.FileColumns.DATA,
+            MediaStore.Files.FileColumns.DISPLAY_NAME
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LocalFileLoader</span><span class="hljs-params">(Context context)</span> </span>{
+        <span class="hljs-keyword">super</span>(context);
+        initLoader();
+    }
+
+    <span class="hljs-comment">/**
+     * &#x4E3A; Cursor &#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initLoader</span><span class="hljs-params">()</span> </span>{
+        setUri(FILE_URI);
+        setProjection(FILE_PROJECTION);
+        setSelection(SELECTION);
+        setSelectionArgs(<span class="hljs-keyword">new</span> String[]{SEARCH_TYPE});
+        setSortOrder(SORT_ORDER);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">parseData</span><span class="hljs-params">(Cursor cursor, <span class="hljs-keyword">final</span> MediaStoreHelper.MediaResultCallback resultCallback)</span> </span>{
+        List&lt;File&gt; files = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6570;&#x636E;</span>
+        <span class="hljs-keyword">if</span> (cursor == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span>&#x5F53;&#x5A92;&#x4F53;&#x5E93;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;</span>
+            <span class="hljs-comment">// &#x6682;&#x65F6;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x636E;</span>
+            resultCallback.onResultCallback(files);
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-comment">// &#x91CD;&#x590D;&#x4F7F;&#x7528;Loader&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x7F6E;cursor&#x7684;position&#xFF1B;</span>
+        cursor.moveToPosition(-<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">while</span> (cursor.moveToNext()) {
+            String path;
+
+            path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATA));
+            <span class="hljs-comment">// &#x8DEF;&#x5F84;&#x65E0;&#x6548;</span>
+            <span class="hljs-keyword">if</span> (TextUtils.isEmpty(path)) {
+                <span class="hljs-keyword">continue</span>;
+            } <span class="hljs-keyword">else</span> {
+                File file = <span class="hljs-keyword">new</span> File(path);
+                <span class="hljs-keyword">if</span> (file.isDirectory() || !file.exists()){
+                    <span class="hljs-keyword">continue</span>;
+                }
+                <span class="hljs-keyword">else</span> {
+                    files.add(file);
+                }
+            }
+        }
+        <span class="hljs-keyword">if</span> (resultCallback != <span class="hljs-keyword">null</span>) {
+            resultCallback.onResultCallback(files);
+        }
+    }
+
+}
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x662F;&#x6F2B;&#x54C1; &#x5BA2;&#x6237;&#x7AEF;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6B22;&#x8FCE;&#x6709;&#x66F4;&#x597D;&#x65B9;&#x5F0F;&#x7684;&#x7AE5;&#x978B;&#x7559;&#x8A00;&#x3002;</p>
+<p><a href="https://github.com/AnyMarvel/ManPinAPP" target="_blank">https://github.com/AnyMarvel/ManPinAPP</a></p>
+<p>&#x6B22;&#x8FCE;&#x5404;&#x4F4D;&#x5927;&#x5927; start</p>
+<p>&#x6F2B;&#x54C1; &#x5BA2;&#x6237;&#x7AEF;&#x5C0F;&#x8BF4;&#x6A21;&#x5757;&#xFF1A;</p>
+<ul>
+<li>&#x57FA;&#x4E8E;mvp&#x67B6;&#x6784;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x5E03;&#x5C40;,&#x964D;&#x4F4E;&#x4EE3;&#x7801;&#x8026;&#x5408;&#x5EA6;&#x3002;</li>
+<li>&#x91C7;&#x7528; sql &#x6570;&#x636E;&#x5E93;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#x3002;</li>
+<li>&#x652F;&#x6301;&#x5C0F;&#x8BF4;&#x66F4;&#x65B0;&#x63D0;&#x793A;&#x3002;</li>
+</ul>
+<p>&#x9605;&#x8BFB;&#x9875;&#x652F;&#x6301;&#xFF1A;</p>
+<ul>
+<li>&#x652F;&#x6301;&#x7FFB;&#x9875;&#x52A8;&#x753B;:&#x4EFF;&#x771F;&#x7FFB;&#x9875;&#x3001;&#x8986;&#x76D6;&#x7FFB;&#x9875;&#x3001;&#x4E0A;&#x4E0B;&#x6EDA;&#x52A8;&#x7FFB;&#x9875;&#x7B49;&#x7FFB;&#x9875;&#x6548;&#x679C;&#x3002;</li>
+<li>&#x652F;&#x6301;&#x9875;&#x9762;&#x5B9A;&#x5236;:&#x4EAE;&#x5EA6;&#x8C03;&#x8282;&#x3001;&#x80CC;&#x666F;&#x8C03;&#x8282;&#x3001;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x8C03;&#x8282;</li>
+<li>&#x652F;&#x6301;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;(&#x542B;&#x6709;&#x865A;&#x62DF;&#x6309;&#x952E;&#x7684;&#x624B;&#x673A;)&#x3001;&#x97F3;&#x91CF;&#x952E;&#x7FFB;&#x9875;</li>
+<li>&#x652F;&#x6301;&#x9875;&#x9762;&#x8FDB;&#x5EA6;&#x663E;&#x793A;&#x3001;&#x9875;&#x9762;&#x5207;&#x6362;&#x3001;&#x4E0A;&#x4E0B;&#x7AE0;&#x5207;&#x6362;&#x3002;</li>
+<li>&#x652F;&#x6301;&#x5728;&#x7EBF;&#x7AE0;&#x8282;&#x9605;&#x8BFB;&#x3001;&#x672C;&#x5730;&#x4E66;&#x7C4D;&#x67E5;&#x627E;&#x3002;</li>
+<li>&#x652F;&#x6301;&#x672C;&#x5730;&#x4E66;&#x7C4D;&#x52A0;&#x8F7D;&#x5230;&#x9875;&#x9762;(&#x652F;&#x6301;&#x672C;&#x5730;&#x4E66;&#x7C4D;&#x5206;&#x7AE0;&#x3001;&#x52A0;&#x8F7D;&#x901F;&#x5EA6;&#x5FEB;&#x3001;&#x8017;&#x8D39;&#x5185;&#x5B58;&#x5C11;)</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="rxjava_retrofit_android.html" class="navigation navigation-prev " aria-label="Previous page: 初探RxJava以及结合Retrofit的使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../AndroidMemory/handleMenmory.html" class="navigation navigation-next " aria-label="Next page: Android内存管理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"深入理解--Android Loader","level":"1.3.10","depth":2,"next":{"title":"Android内存管理","level":"1.4","depth":1,"path":"AndroidMemory/handleMenmory.md","ref":"AndroidMemory/handleMenmory.md","articles":[{"title":"Android内存管理(官方概览)","level":"1.4.1","depth":2,"path":"AndroidMemory/officialOverview.md","ref":"AndroidMemory/officialOverview.md","articles":[]},{"title":"Android内存管理(操作系统基础)","level":"1.4.2","depth":2,"path":"AndroidMemory/operating_system_basis.md","ref":"AndroidMemory/operating_system_basis.md","articles":[]},{"title":"Android内存管理(内存管理基础)","level":"1.4.3","depth":2,"path":"AndroidMemory/memory_management.md","ref":"AndroidMemory/memory_management.md","articles":[]},{"title":"Android内存管理(linux内存管理机制)","level":"1.4.4","depth":2,"path":"AndroidMemory/linux_memory_managenment.md","ref":"AndroidMemory/linux_memory_managenment.md","articles":[]},{"title":"Android内存管理(Android的内存管理机制简析)","level":"1.4.5","depth":2,"path":"AndroidMemory/Android_memory_manag.md","ref":"AndroidMemory/Android_memory_manag.md","articles":[]},{"title":"Android内存管理(Android对Linux系统的内存管理机制进行的优化)","level":"1.4.6","depth":2,"path":"AndroidMemory/Android_optimization_linux.md","ref":"AndroidMemory/Android_optimization_linux.md","articles":[]},{"title":"Android内存管理(垃圾回收算法相关)","level":"1.4.7","depth":2,"path":"AndroidMemory/memory_callback.md","ref":"AndroidMemory/memory_callback.md","articles":[]},{"title":"Android内存管理(JVM 、DVM(dalvik) 、ART联系与区别)","level":"1.4.8","depth":2,"path":"AndroidMemory/jvm_dvm_art_diffrent.md","ref":"AndroidMemory/jvm_dvm_art_diffrent.md","articles":[]}]},"previous":{"title":"初探RxJava以及结合Retrofit的使用","level":"1.3.9","depth":2,"path":"chapter1/rxjava_retrofit_android.md","ref":"chapter1/rxjava_retrofit_android.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/Android_LoaderManager.md","mtime":"2020-12-09T07:39:57.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-11T07:39:45.697Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

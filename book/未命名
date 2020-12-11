@@ -1,0 +1,10 @@
+https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#AlgorithmParameterGenerator
+https://www.baeldung.com/java-keystore-truststore-difference
+
+对称加密：指的就是加、解密使用的同是一串密钥，所以被称做对称加密。 对称加密只有一个密钥作为私钥。 常见的对称加密算法：DES，AES等。
+非对称加密：指的是加、解密使用不同的密钥，一把作为公开的公钥，另一把作为私钥。
+
+
+
+jks : 只能存储非对称密钥对（私钥 + x509公钥证书）
+pkcs12 ： 通用格式（rsa公司标准）。微软和java 都支持。
