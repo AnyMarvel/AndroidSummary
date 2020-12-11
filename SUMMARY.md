@@ -27,7 +27,7 @@
 * [Android安全](androidan-quan.md)
    * [Android签名攻与防](androidan-quan/androidqian-ming-gong-yu-fang.md)
    * [Smalidea+IntelliJ IDEA/Android Studio无源码调试](androidan-quan/android-anquan-wuyuanmatiaoshi.md)
-   * [ Java keystore 和Java truststore 区别与联系](androidan-quan/Difference_JavaKeystoreAndTruststore.md)
+   * [keystore CSR CER PKCS7之间的区别与联系](androidan-quan/Difference_keystores.md)
    * [公钥、私钥、数字签名(签名)、数字证书(证书) 的关系(图文)](androidan-quan/certificate_basics.md)
    * [KeyStore 和 TrustStore区别与联系](androidan-quan/KeyStoreAndTrustStore.md)
 * [JAVA基础](java/README.md)
