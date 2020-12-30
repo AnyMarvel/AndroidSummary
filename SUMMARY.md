@@ -15,8 +15,16 @@
    * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
    * [初探RxJava以及结合Retrofit的使用](chapter1/rxjava_retrofit_android.md)
    * [深入理解--Android Loader](chapter1/Android_LoaderManager.md)
+---
+
+* [Android AIDL跨进程通信]
+  * [service的隐式启动和显示启动](androidAIDL/start_service_methord.md)
+  * [如何绕过 Android 8.0 startService 限制](androidAIDL/strip_startForegroundService_on_8.0.md)
+
+---
 * [Android内存管理](AndroidMemory/handleMenmory.md)
-  * [Android内存管理(官方概览)](AndroidMemory/officialOverview.md)
+
+  * [Android内存管理(官方概览)](AndroidMemory/officialOverviewM.md)
   * [Android内存管理(操作系统基础)](AndroidMemory/operating_system_basis.md)
   * [Android内存管理(内存管理基础)](AndroidMemory/memory_management.md)
   * [Android内存管理(linux内存管理机制)](AndroidMemory/linux_memory_managenment.md)
