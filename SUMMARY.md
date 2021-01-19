@@ -15,6 +15,7 @@
    * [Android 8.0之后Service使用问题](chapter1/android_8.0_server.md)
    * [初探RxJava以及结合Retrofit的使用](chapter1/rxjava_retrofit_android.md)
    * [深入理解--Android Loader](chapter1/Android_LoaderManager.md)
+   * [异步线程大师Handler(源码+图+demo+常见问题)](chapter1/android_hanlder_summary.md)
 ---
 
 * [Android AIDL跨进程通信]
