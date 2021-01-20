@@ -533,7 +533,6 @@ WorkDemo Activity工作内容如下:
 
 当然，handler能做的远远不仅如此，由于它能post Runnable对象，它还能与Looper配合实现经典的Pipeline Thread(流水线线程)模式。Handler作为Android异步任务大师,还有一些比较经典的用法,这里不再一一赘述,有遇到handler坑的欢迎留言
 
-![](http://upload-images.jianshu.io/upload_images/2333435-413b555fb4e2c444?imageMogr2/auto-orient/strip)
 
 03三 .Message
 
@@ -679,7 +678,7 @@ message的用法比较简单，这里不做总结了,但需要注意以下几点
 
 *   5.使用sendMessage()将消息对象加入到消息队列后，当Looper轮询到该消息时，就会调用Handler的handleMessage()来对其进行处理。再以更新UI为例，使用这种方法的话，就先将主线程的Looper绑定在Handler对象上，重载handleMessage()来处理UI更新，然后向其发送消息就可以了。
 
-![](http://upload-images.jianshu.io/upload_images/2333435-74ffbc4a9f447d1b?imageMogr2/auto-orient/strip)
+
 
 (完)以上是对Android Handler机制的总结,(Handler使用过程中容易造成内容溢出的问题这里没有做说明,demo中有解决方法,详情见demo,持续更新handler触发问题)
 
