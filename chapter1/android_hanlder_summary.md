@@ -1,8 +1,3 @@
-![](http://upload-images.jianshu.io/upload_images/2333435-3781c45561e2467a?imageMogr2/auto-orient/strip)
-
-![](http://upload-images.jianshu.io/upload_images/2333435-ea5020ab4c5ca491?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
 Handler 机制 源码+图+常见问题+Demo 详细记录(本文内容略长,但内容较为详细,推荐Android开发者可深入观看.如有问题,欢迎指正)
 
 android的消息处理有三个核心类：Looper,Handler和Message。还有一个MessageQueue（消息队列,以下简称MQ），但是MQ被封装到Looper里面。
@@ -59,7 +54,6 @@ public static void prepareMainLooper() {
 
 如上代码内容调用了prepare(false);方法.这里我们分析下handler机制中Looper的作用。
 
-![](http://upload-images.jianshu.io/upload_images/2333435-88aa9edb201296ce?imageMogr2/auto-orient/strip)
 
 01一.  Looper
 
@@ -86,7 +80,7 @@ public class LooperThread extends Thread {
 
 通过下图可以看到，现在你的线程中有一个Looper对象，它的内部维护了一个消息队列MQ。注意，**一个Thread只能有一个Looper对象**
 
-![](http://upload-images.jianshu.io/upload_images/2333435-832324ce88cfc258.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/1.png)
 
 ```java
 public class Looper {
@@ -136,7 +130,7 @@ public class Looper {
 
 ActivityThread中也调用了Looper.loop() 1)中我们初始化先成为Looper线程.使用looper.loop()后looper线程就真的开始工作了。它不断从自己的MQ中取出队头的消息(也叫任务)执行
 
-![](http://upload-images.jianshu.io/upload_images/2333435-9dfb8563defe546a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/2.png)
 
 ```java
  public static final void loop() {
@@ -221,7 +215,6 @@ Looper总结:
 
 大家可能注意到Looper.loop()方法中第22行msg.target.dispatchMessage(msg);上文中的注释提到是用于消息分发,处理Message。如何向往MQ上添加消息和处理消息是Handler的职责。下面介绍异步大师handler
 
-![](http://upload-images.jianshu.io/upload_images/2333435-b47f531462dab096?imageMogr2/auto-orient/strip)
 
 02二. Handler
 
@@ -370,7 +363,7 @@ public class LooperThread extends Thread {
 
 加入handler后的效果如下图：
 
-![](http://upload-images.jianshu.io/upload_images/2333435-c8f4ad34c53aa38a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/3.png)
 
 可以看到，**一个线程可以有多个Handler，但是只能有一个Looper(ThreadLocal对象)！**
 
@@ -460,15 +453,15 @@ Android异步任务处理大师Handler拥有下面两个重要的特点:
 
 1\. handler可以在任意线程发送消息，这些消息会被添加到关联的MQ上。
 
-![](http://upload-images.jianshu.io/upload_images/2333435-8565739b33c8c8da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/4.png)
 
 2\. handler是在它**关联的looper线程中处理消息**的。
 
-![](http://upload-images.jianshu.io/upload_images/2333435-fc07e8258d330bbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/5.png)
 
 这就解决了android最经典的不能在其他非主线程中更新UI的问题。**android的主线程也是一个looper线程**(looper在android中运用很广)，我们在其中创建的handler默认将关联主线程MQ。因此，利用handler的一个solution就是在activity中创建handler并将其引用传递给worker thread，worker thread执行完任务后使用handler发送消息通知activity更新UI。(过程如图)
 
-![](http://upload-images.jianshu.io/upload_images/2333435-5977788d166ae775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](../assets/handler/6.png)
 
 具体Demo及Handler使用方法请移步:github(同性交友社区):
 
@@ -693,19 +686,3 @@ message的用法比较简单，这里不做总结了,但需要注意以下几点
 具体Demo及Handler使用方法请移步:github(同性交友社区):
 
 [https://github.com/AnyMarvel/HandlerDemo](https://github.com/AnyMarvel/HandlerDemo)
-
-![](http://upload-images.jianshu.io/upload_images/2333435-ee9170ba3a32a6f1?imageMogr2/auto-orient/strip)
-
-听说转发文章
-
-会给你带来好运
-
-PS:搞了好久又把Handler机制给过了一遍，觉的还不错的朋友给个赞呗
-
-图片来自网络
-
-公众号 求关注
-
-转载请注明出处:https://www.jianshu.com/p/cdfb75eb6f64
-谢谢
-![](https://upload-images.jianshu.io/upload_images/2333435-11195db3d5590ecf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
